@@ -63,6 +63,14 @@
       <h2>Exceptions / Errors</h2>
 
       <dl>
+        <dt id="DuplicateClassSelectionException">
+  <span class="name "><a href="../model_exceptions/DuplicateClassSelectionException-class.html">DuplicateClassSelectionException</a></span> 
+
+</dt>
+<dd>
+  Exception for choosing a class more than once 
+</dd>
+
         <dt id="DuplicateCourseCodeException">
   <span class="name "><a href="../model_exceptions/DuplicateCourseCodeException-class.html">DuplicateCourseCodeException</a></span> 
 
@@ -71,12 +79,36 @@
   Exception for duplicate course codes in course input file 
 </dd>
 
+        <dt id="InvalidNumClassWantedException">
+  <span class="name "><a href="../model_exceptions/InvalidNumClassWantedException-class.html">InvalidNumClassWantedException</a></span> 
+
+</dt>
+<dd>
+  Exception for unrecognized availability value 
+</dd>
+
         <dt id="MalformedCourseFileException">
   <span class="name "><a href="../model_exceptions/MalformedCourseFileException-class.html">MalformedCourseFileException</a></span> 
 
 </dt>
 <dd>
   Exception for incorrectly formatted course input file 
+</dd>
+
+        <dt id="MalformedPeopleFileException">
+  <span class="name "><a href="../model_exceptions/MalformedPeopleFileException-class.html">MalformedPeopleFileException</a></span> 
+
+</dt>
+<dd>
+  Exception for incorrectly formatted people input file 
+</dd>
+
+        <dt id="UnrecognizedAvailabilityException">
+  <span class="name "><a href="../model_exceptions/UnrecognizedAvailabilityException-class.html">UnrecognizedAvailabilityException</a></span> 
+
+</dt>
+<dd>
+  Exception for unrecognized availability value 
 </dd>
 
       </dl>
@@ -100,10 +132,13 @@
     <h5><span class="package-name">omnilore_scheduler</span> <span class="package-kind">package</span></h5>
     <ol>
       <li class="section-title">Libraries</li>
+      <li><a href="../model_availability/model_availability-library.html">availability</a></li>
       <li><a href="../model_course/model_course-library.html">course</a></li>
       <li><a href="../store_courses/store_courses-library.html">courses</a></li>
       <li><a href="../model_exceptions/model_exceptions-library.html">exceptions</a></li>
       <li><a href="../main/main-library.html">main</a></li>
+      <li><a href="../store_people/store_people-library.html">people</a></li>
+      <li><a href="../model_person/model_person-library.html">person</a></li>
       <li><a href="../scheduling/scheduling-library.html">scheduling</a></li>
 </ol>
 
@@ -121,8 +156,12 @@
 
 
   <li class="section-title"><a href="../model_exceptions/model_exceptions-library.html#exceptions">Exceptions</a></li>
+  <li><a href="../model_exceptions/DuplicateClassSelectionException-class.html">DuplicateClassSelectionException</a></li>
   <li><a href="../model_exceptions/DuplicateCourseCodeException-class.html">DuplicateCourseCodeException</a></li>
+  <li><a href="../model_exceptions/InvalidNumClassWantedException-class.html">InvalidNumClassWantedException</a></li>
   <li><a href="../model_exceptions/MalformedCourseFileException-class.html">MalformedCourseFileException</a></li>
+  <li><a href="../model_exceptions/MalformedPeopleFileException-class.html">MalformedPeopleFileException</a></li>
+  <li><a href="../model_exceptions/UnrecognizedAvailabilityException-class.html">UnrecognizedAvailabilityException</a></li>
 </ol>
 
   </div><!--/sidebar-offcanvas-right-->

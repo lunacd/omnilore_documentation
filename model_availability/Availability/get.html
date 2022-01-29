@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the get method from the Availability class, for the Dart programming language.">
+  <title>get method - Availability class - availability library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">omnilore_scheduler</a></li>
+    <li><a href="../../model_availability/model_availability-library.html">availability</a></li>
+    <li><a href="../../model_availability/Availability-class.html">Availability</a></li>
+    <li class="self-crumb">get method</li>
+  </ol>
+  <div class="self-name">get</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">get</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+
+<span class="returntype"><a href="https://api.dart.dev/stable/2.15.1/dart-core/bool-class.html">bool</a></span>
+<span class="name ">get</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="get-param-week"><span class="type-annotation"><a href="../../model_availability/WeekOfMonth.html">WeekOfMonth</a></span> <span class="parameter-name">week</span>, </span></li>
+<li><span class="parameter" id="get-param-day"><span class="type-annotation"><a href="../../model_availability/DayOfWeek.html">DayOfWeek</a></span> <span class="parameter-name">day</span>, </span></li>
+<li><span class="parameter" id="get-param-time"><span class="type-annotation"><a href="../../model_availability/TimeOfDay.html">TimeOfDay</a></span> <span class="parameter-name">time</span></span></li>
+</ol>)
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Get an availability for week of month, day of week, and time of day</p>
+<p>To iterate through all availability slots:</p>
+<pre class="language-dart"><code class="language-dart">for (var week in WeekOfMonth.values) {
+  for (var day in DayOfWeek.values) {
+    for (var time in TimeOfDay.values) {
+      bool available = availability.get(week, day, time);
+    }
+  }
+}
+</code></pre>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">bool get(WeekOfMonth week, DayOfWeek day, TimeOfDay time) {
+  return _availability[week.index][day.index][time.index];
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">omnilore_scheduler</a></li>
+  <li><a href="../../model_availability/model_availability-library.html">availability</a></li>
+  <li><a href="../../model_availability/Availability-class.html">Availability</a></li>
+  <li class="self-crumb">get method</li>
+</ol>
+
+
+    <h5>Availability class</h5>
+    <ol>
+
+    <li class="section-title"><a href="../../model_availability/Availability-class.html#constructors">Constructors</a></li>
+    <li><a href="../../model_availability/Availability/Availability.html">Availability</a></li>
+
+
+    <li class="section-title inherited">
+      <a href="../../model_availability/Availability-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../../model_availability/Availability-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../model_availability/Availability/get.html">get</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../../model_availability/Availability/set.html">set</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../../model_availability/Availability-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    omnilore_scheduler
+      1.0.0+1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

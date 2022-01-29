@@ -66,8 +66,8 @@
 Throws a <a href="../../model_exceptions/MalformedCourseFileException-class.html">MalformedCourseFileException</a> when the input file is incorrectly
 formatted.
 Throws a <a href="../../model_exceptions/DuplicateCourseCodeException-class.html">DuplicateCourseCodeException</a> when the input file specifies a
-course code more than once.
-Asynchronously returns the number of courses successfully read.</p>
+course code more than once.</p>
+<p>Asynchronously returns the number of courses successfully read.</p>
 <pre class="language-dart"><code class="language-dart">int numCourses = await courses.loadCourses('/path/to/file');
 </code></pre>
 </section>
@@ -86,7 +86,7 @@ Asynchronously returns the number of courses successfully read.</p>
     var tokens = line.split(&#39;\t&#39;);
     if (tokens.length != 3) {
       _courses.clear();
-      throw MalformedCourseFileException(malformedLine: line);
+      throw MalformedCourseFileException(malformedLine: numLines + 1);
     }
     var code = tokens[0];
     var name = tokens[1];

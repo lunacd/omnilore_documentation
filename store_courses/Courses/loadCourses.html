@@ -83,7 +83,8 @@ course code more than once.</p>
       file.openRead().transform(utf8.decoder).transform(const LineSplitter());
   var numLines = 0;
   await for (var line in lines) {
-    var tokens = line.split(&#39;\t&#39;);
+    if (line.isEmpty) continue;
+    var tokens = line.split(&#39;\t&#39;).map((e) =&gt; e.trim()).toList();
     if (tokens.length != 3) {
       _courses.clear();
       throw MalformedCourseFileException(malformedLine: numLines + 1);

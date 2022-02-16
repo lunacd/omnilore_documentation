@@ -82,11 +82,11 @@ schedule are inconsistent.</p>
   int numCourses;
   numCourses = await _courses.loadCourses(inputFile);
   if (numCourses != 0) {
-    compute.resetState(_courses);
+    resetState();
   }
   if (numCourses != 0 &amp;&amp; _people.people.isNotEmpty) {
     var result =
-        validate.validatePeopleAgainstCourses(_people.people, _courses);
+        _validate.validatePeopleAgainstCourses(_people.people, _courses);
     if (result != null) {
       throw InconsistentCourseAndPeopleException(message: result);
     }
@@ -123,10 +123,9 @@ schedule are inconsistent.</p>
     <li class="section-title">
       <a href="../../scheduling/Scheduling-class.html#instance-properties">Properties</a>
     </li>
-    <li><a href="../../scheduling/Scheduling/compute.html">compute</a></li>
+    <li><a href="../../scheduling/Scheduling/auxiliaryData.html">auxiliaryData</a></li>
     <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/hashCode.html">hashCode</a></li>
     <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/runtimeType.html">runtimeType</a></li>
-    <li><a href="../../scheduling/Scheduling/validate.html">validate</a></li>
 
     <li class="section-title"><a href="../../scheduling/Scheduling-class.html#instance-methods">Methods</a></li>
     <li><a href="../../scheduling/Scheduling/drop.html">drop</a></li>
@@ -134,18 +133,15 @@ schedule are inconsistent.</p>
     <li><a href="../../scheduling/Scheduling/getCourseCodes.html">getCourseCodes</a></li>
     <li><a href="../../scheduling/Scheduling/getNumAddFromBackup.html">getNumAddFromBackup</a></li>
     <li><a href="../../scheduling/Scheduling/getNumChoicesForClassRank.html">getNumChoicesForClassRank</a></li>
-    <li><a href="../../scheduling/Scheduling/getNumClassesGiven.html">getNumClassesGiven</a></li>
-    <li><a href="../../scheduling/Scheduling/getNumClassesWanted.html">getNumClassesWanted</a></li>
-    <li><a href="../../scheduling/Scheduling/getNumCourses.html">getNumCourses</a></li>
     <li><a href="../../scheduling/Scheduling/getNumPeople.html">getNumPeople</a></li>
     <li><a href="../../scheduling/Scheduling/getPeople.html">getPeople</a></li>
     <li><a href="../../scheduling/Scheduling/getPeopleAddFromBackup.html">getPeopleAddFromBackup</a></li>
     <li><a href="../../scheduling/Scheduling/getPeopleForClassRank.html">getPeopleForClassRank</a></li>
     <li><a href="../../scheduling/Scheduling/getStatusOfProcessing.html">getStatusOfProcessing</a></li>
-    <li><a href="../../scheduling/Scheduling/getUnmetWants.html">getUnmetWants</a></li>
     <li><a href="../../scheduling/Scheduling/loadCourses.html">loadCourses</a></li>
     <li><a href="../../scheduling/Scheduling/loadPeople.html">loadPeople</a></li>
     <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../../scheduling/Scheduling/resetState.html">resetState</a></li>
     <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../../scheduling/Scheduling-class.html#operators">Operators</a></li>

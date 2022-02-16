@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the getNumClassesGiven method from the Compute class, for the Dart programming language.">
-  <title>getNumClassesGiven method - Compute class - compute library - Dart API</title>
+  <meta name="description" content="API docs for the getNbrGoCourses method from the AuxiliaryData class, for the Dart programming language.">
+  <title>getNbrGoCourses method - AuxiliaryData class - auxiliary_data library - Dart API</title>
 
 
   
@@ -30,11 +30,11 @@
   <button id="sidenav-left-toggle" type="button">&nbsp;</button>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">omnilore_scheduler</a></li>
-    <li><a href="../../analysis_compute/analysis_compute-library.html">compute</a></li>
-    <li><a href="../../analysis_compute/Compute-class.html">Compute</a></li>
-    <li class="self-crumb">getNumClassesGiven method</li>
+    <li><a href="../../analysis_auxiliary_data/analysis_auxiliary_data-library.html">auxiliary_data</a></li>
+    <li><a href="../../analysis_auxiliary_data/AuxiliaryData-class.html">AuxiliaryData</a></li>
+    <li class="self-crumb">getNbrGoCourses method</li>
   </ol>
-  <div class="self-name">getNumClassesGiven</div>
+  <div class="self-name">getNbrGoCourses</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,7 +45,7 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">getNumClassesGiven</span> method 
+<h1><span class="kind-method">getNbrGoCourses</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
@@ -53,33 +53,22 @@
       
 
 <span class="returntype"><a href="https://api.dart.dev/stable/2.15.1/dart-core/int-class.html">int</a></span>
-<span class="name ">getNumClassesGiven</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getNumClassesGiven-param-people"><span class="type-annotation"><a href="../../store_people/People-class.html">People</a></span> <span class="parameter-name">people</span></span></li>
-</ol>)
+<span class="name ">getNbrGoCourses</span>(<wbr>)
 
       
 
     </section>
     
 <section class="desc markdown">
-  <p>Get the total number of classes given</p>
-<p>Before scheduling classes, this is always equal to the number of classes
-wanted.</p>
+  <p>Get the total number of courses</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">int getNumClassesGiven(People people) {
-  if (_numRequested != null) {
-    return _numRequested!;
-  } else {
-    _numRequested = 0;
-    for (var person in people.people.values) {
-      _numRequested = _numRequested! + person.numClassWanted;
-    }
-    return _numRequested!;
-  }
+  <pre class="language-dart"><code class="language-dart">int getNbrGoCourses() {
+  return _courses.getNumCourses();
 }</code></pre>
 </section>
 
@@ -95,40 +84,35 @@ wanted.</p>
 
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
   <li><a href="../../index.html">omnilore_scheduler</a></li>
-  <li><a href="../../analysis_compute/analysis_compute-library.html">compute</a></li>
-  <li><a href="../../analysis_compute/Compute-class.html">Compute</a></li>
-  <li class="self-crumb">getNumClassesGiven method</li>
+  <li><a href="../../analysis_auxiliary_data/analysis_auxiliary_data-library.html">auxiliary_data</a></li>
+  <li><a href="../../analysis_auxiliary_data/AuxiliaryData-class.html">AuxiliaryData</a></li>
+  <li class="self-crumb">getNbrGoCourses method</li>
 </ol>
 
 
-    <h5>Compute class</h5>
+    <h5>AuxiliaryData class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../analysis_compute/Compute-class.html#constructors">Constructors</a></li>
-    <li><a href="../../analysis_compute/Compute/Compute.html">Compute</a></li>
+    <li class="section-title"><a href="../../analysis_auxiliary_data/AuxiliaryData-class.html#constructors">Constructors</a></li>
+    <li><a href="../../analysis_auxiliary_data/AuxiliaryData/AuxiliaryData.html">AuxiliaryData</a></li>
 
 
     <li class="section-title inherited">
-      <a href="../../analysis_compute/Compute-class.html#instance-properties">Properties</a>
+      <a href="../../analysis_auxiliary_data/AuxiliaryData-class.html#instance-properties">Properties</a>
     </li>
     <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/hashCode.html">hashCode</a></li>
     <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
-    <li class="section-title"><a href="../../analysis_compute/Compute-class.html#instance-methods">Methods</a></li>
-    <li><a href="../../analysis_compute/Compute/drop.html">drop</a></li>
-    <li><a href="../../analysis_compute/Compute/getNumAddFromBackup.html">getNumAddFromBackup</a></li>
-    <li><a href="../../analysis_compute/Compute/getNumChoices.html">getNumChoices</a></li>
-    <li><a href="../../analysis_compute/Compute/getNumClassesGiven.html">getNumClassesGiven</a></li>
-    <li><a href="../../analysis_compute/Compute/getNumClassesWanted.html">getNumClassesWanted</a></li>
-    <li><a href="../../analysis_compute/Compute/getPeopleAddFromBackup.html">getPeopleAddFromBackup</a></li>
-    <li><a href="../../analysis_compute/Compute/getPeopleForClassRank.html">getPeopleForClassRank</a></li>
-    <li><a href="../../analysis_compute/Compute/hasOversizeClasses.html">hasOversizeClasses</a></li>
-    <li><a href="../../analysis_compute/Compute/hasUndersizeClassed.html">hasUndersizeClassed</a></li>
+    <li class="section-title"><a href="../../analysis_auxiliary_data/AuxiliaryData-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../analysis_auxiliary_data/AuxiliaryData/getNbrGoCourses.html">getNbrGoCourses</a></li>
+    <li><a href="../../analysis_auxiliary_data/AuxiliaryData/getNbrPlacesAsked.html">getNbrPlacesAsked</a></li>
+    <li><a href="../../analysis_auxiliary_data/AuxiliaryData/getNbrPlacesGiven.html">getNbrPlacesGiven</a></li>
+    <li><a href="../../analysis_auxiliary_data/AuxiliaryData/getNbrUnmetWants.html">getNbrUnmetWants</a></li>
     <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li><a href="../../analysis_compute/Compute/resetState.html">resetState</a></li>
+    <li><a href="../../analysis_auxiliary_data/AuxiliaryData/resetState.html">resetState</a></li>
     <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/toString.html">toString</a></li>
 
-    <li class="section-title inherited"><a href="../../analysis_compute/Compute-class.html#operators">Operators</a></li>
+    <li class="section-title inherited"><a href="../../analysis_auxiliary_data/AuxiliaryData-class.html#operators">Operators</a></li>
     <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/operator_equals.html">operator ==</a></li>
 
 

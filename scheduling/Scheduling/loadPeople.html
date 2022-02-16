@@ -70,7 +70,9 @@ number of classes wanted less than 0 or more than 6.
 Throws a <a href="../../model_exceptions/UnrecognizedAvailabilityException-class.html">UnrecognizedAvailabilityException</a> when the input file specifies an
 availability value other than empty, 1, 2, or 3.
 Throws a <a href="../../model_exceptions/DuplicateClassSelectionException-class.html">DuplicateClassSelectionException</a> when a person selects a class
-more than once.</p>
+more than once.
+Throws a <a href="../../model_exceptions/InconsistentCourseAndPeopleException-class.html">InconsistentCourseAndPeopleException</a> when people and the course
+schedule are inconsistent.</p>
 <p>Asynchronously returns the number of people successfully read.</p>
 <pre class="language-dart"><code class="language-dart">int numPeople = await people.loadPeople('/path/to/file');
 </code></pre>
@@ -81,7 +83,18 @@ more than once.</p>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;int&gt; loadPeople(String inputFile) async {
-  return await _people.loadPeople(inputFile);
+  var numPeople = await _people.loadPeople(inputFile);
+  if (numPeople != 0) {
+    compute.resetState(_courses);
+  }
+  if (numPeople != 0 &amp;&amp; _courses.getNumCourses() != 0) {
+    var result =
+        validate.validatePeopleAgainstCourses(_people.people, _courses);
+    if (result != null) {
+      throw InconsistentCourseAndPeopleException(message: result);
+    }
+  }
+  return numPeople;
 }</code></pre>
 </section>
 
@@ -110,18 +123,29 @@ more than once.</p>
     <li><a href="../../scheduling/Scheduling/Scheduling.html">Scheduling</a></li>
 
 
-    <li class="section-title inherited">
+    <li class="section-title">
       <a href="../../scheduling/Scheduling-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../../scheduling/Scheduling/compute.html">compute</a></li>
     <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/hashCode.html">hashCode</a></li>
     <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../../scheduling/Scheduling/validate.html">validate</a></li>
 
     <li class="section-title"><a href="../../scheduling/Scheduling-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../scheduling/Scheduling/drop.html">drop</a></li>
     <li><a href="../../scheduling/Scheduling/getCourse.html">getCourse</a></li>
     <li><a href="../../scheduling/Scheduling/getCourseCodes.html">getCourseCodes</a></li>
+    <li><a href="../../scheduling/Scheduling/getNumAddFromBackup.html">getNumAddFromBackup</a></li>
+    <li><a href="../../scheduling/Scheduling/getNumChoicesForClassRank.html">getNumChoicesForClassRank</a></li>
+    <li><a href="../../scheduling/Scheduling/getNumClassesGiven.html">getNumClassesGiven</a></li>
+    <li><a href="../../scheduling/Scheduling/getNumClassesWanted.html">getNumClassesWanted</a></li>
     <li><a href="../../scheduling/Scheduling/getNumCourses.html">getNumCourses</a></li>
+    <li><a href="../../scheduling/Scheduling/getNumPeople.html">getNumPeople</a></li>
     <li><a href="../../scheduling/Scheduling/getPeople.html">getPeople</a></li>
+    <li><a href="../../scheduling/Scheduling/getPeopleAddFromBackup.html">getPeopleAddFromBackup</a></li>
+    <li><a href="../../scheduling/Scheduling/getPeopleForClassRank.html">getPeopleForClassRank</a></li>
     <li><a href="../../scheduling/Scheduling/getStatusOfProcessing.html">getStatusOfProcessing</a></li>
+    <li><a href="../../scheduling/Scheduling/getUnmetWants.html">getUnmetWants</a></li>
     <li><a href="../../scheduling/Scheduling/loadCourses.html">loadCourses</a></li>
     <li><a href="../../scheduling/Scheduling/loadPeople.html">loadPeople</a></li>
     <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>

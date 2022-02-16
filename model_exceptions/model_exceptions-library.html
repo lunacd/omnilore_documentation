@@ -79,12 +79,44 @@
   Exception for duplicate course codes in course input file 
 </dd>
 
+        <dt id="DuplicateRecordsException">
+  <span class="name "><a href="../model_exceptions/DuplicateRecordsException-class.html">DuplicateRecordsException</a></span> 
+
+</dt>
+<dd>
+  Exception for a person to have duplicate records in the people file 
+</dd>
+
+        <dt id="InconsistentCourseAndPeopleException">
+  <span class="name "><a href="../model_exceptions/InconsistentCourseAndPeopleException-class.html">InconsistentCourseAndPeopleException</a></span> 
+
+</dt>
+<dd>
+  Exception for having inconsistencies between courses and people 
+</dd>
+
+        <dt id="InvalidClassRankException">
+  <span class="name "><a href="../model_exceptions/InvalidClassRankException-class.html">InvalidClassRankException</a></span> 
+
+</dt>
+<dd>
+  Exception for asking for an invalid class rank 
+</dd>
+
         <dt id="InvalidNumClassWantedException">
   <span class="name "><a href="../model_exceptions/InvalidNumClassWantedException-class.html">InvalidNumClassWantedException</a></span> 
 
 </dt>
 <dd>
   Exception for unrecognized availability value 
+</dd>
+
+        <dt id="ListingWhenWantingZeroException">
+  <span class="name "><a href="../model_exceptions/ListingWhenWantingZeroException-class.html">ListingWhenWantingZeroException</a></span> 
+
+</dt>
+<dd>
+  Exception for members still listing classes when they want 0 
 </dd>
 
         <dt id="MalformedCourseFileException">
@@ -103,12 +135,28 @@
   Exception for incorrectly formatted people input file 
 </dd>
 
+        <dt id="UnexpectedFatalException">
+  <span class="name "><a href="../model_exceptions/UnexpectedFatalException-class.html">UnexpectedFatalException</a></span> 
+
+</dt>
+<dd>
+  Fatal errors that should not have happened 
+</dd>
+
         <dt id="UnrecognizedAvailabilityException">
   <span class="name "><a href="../model_exceptions/UnrecognizedAvailabilityException-class.html">UnrecognizedAvailabilityException</a></span> 
 
 </dt>
 <dd>
   Exception for unrecognized availability value 
+</dd>
+
+        <dt id="WantingMoreThanListedException">
+  <span class="name "><a href="../model_exceptions/WantingMoreThanListedException-class.html">WantingMoreThanListedException</a></span> 
+
+</dt>
+<dd>
+  Exception for members wanting more class than they listed 
 </dd>
 
       </dl>
@@ -133,6 +181,7 @@
     <ol>
       <li class="section-title">Libraries</li>
       <li><a href="../model_availability/model_availability-library.html">availability</a></li>
+      <li><a href="../analysis_compute/analysis_compute-library.html">compute</a></li>
       <li><a href="../model_course/model_course-library.html">course</a></li>
       <li><a href="../store_courses/store_courses-library.html">courses</a></li>
       <li><a href="../model_exceptions/model_exceptions-library.html">exceptions</a></li>
@@ -140,6 +189,7 @@
       <li><a href="../store_people/store_people-library.html">people</a></li>
       <li><a href="../model_person/model_person-library.html">person</a></li>
       <li><a href="../scheduling/scheduling-library.html">scheduling</a></li>
+      <li><a href="../analysis_validate/analysis_validate-library.html">validate</a></li>
 </ol>
 
   </div>
@@ -158,10 +208,16 @@
   <li class="section-title"><a href="../model_exceptions/model_exceptions-library.html#exceptions">Exceptions</a></li>
   <li><a href="../model_exceptions/DuplicateClassSelectionException-class.html">DuplicateClassSelectionException</a></li>
   <li><a href="../model_exceptions/DuplicateCourseCodeException-class.html">DuplicateCourseCodeException</a></li>
+  <li><a href="../model_exceptions/DuplicateRecordsException-class.html">DuplicateRecordsException</a></li>
+  <li><a href="../model_exceptions/InconsistentCourseAndPeopleException-class.html">InconsistentCourseAndPeopleException</a></li>
+  <li><a href="../model_exceptions/InvalidClassRankException-class.html">InvalidClassRankException</a></li>
   <li><a href="../model_exceptions/InvalidNumClassWantedException-class.html">InvalidNumClassWantedException</a></li>
+  <li><a href="../model_exceptions/ListingWhenWantingZeroException-class.html">ListingWhenWantingZeroException</a></li>
   <li><a href="../model_exceptions/MalformedCourseFileException-class.html">MalformedCourseFileException</a></li>
   <li><a href="../model_exceptions/MalformedPeopleFileException-class.html">MalformedPeopleFileException</a></li>
+  <li><a href="../model_exceptions/UnexpectedFatalException-class.html">UnexpectedFatalException</a></li>
   <li><a href="../model_exceptions/UnrecognizedAvailabilityException-class.html">UnrecognizedAvailabilityException</a></li>
+  <li><a href="../model_exceptions/WantingMoreThanListedException-class.html">WantingMoreThanListedException</a></li>
 </ol>
 
   </div><!--/sidebar-offcanvas-right-->

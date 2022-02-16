@@ -93,8 +93,9 @@ like <a href="https://api.dart.dev/stable/2.15.1/dart-collection/HashSet-class.h
 
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">@override
-int get hashCode =&gt; code.hashCode ^ name.hashCode ^ reading.hashCode;</code></pre>
+  <pre class="language-dart"><code class="language-dart">@override &#47;&#47; coverage:ignore-line
+int get hashCode =&gt;
+    code.hashCode ^ name.hashCode ^ reading.hashCode;</code></pre>
 </section>
 
 </section>

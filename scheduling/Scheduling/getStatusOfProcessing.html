@@ -52,7 +52,7 @@
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.dart.dev/stable/2.15.1/dart-core/String-class.html">String</a></span>
+<span class="returntype"><a href="../../scheduling/StatusOfProcessing.html">StatusOfProcessing</a></span>
 <span class="name ">getStatusOfProcessing</span>(<wbr>)
 
       
@@ -60,20 +60,30 @@
     </section>
     
 <section class="desc markdown">
-  <p>Get a description of the current status of processing</p>
+  <p>Get the current status of processing</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">String getStatusOfProcessing() {
-  if (_courses.getNumCourses() == 0) {
-    return &#39;Need to import courses&#39;;
-  } else if (_people.people.isEmpty) {
-    return &#39;Need to import member data&#39;;
+  <pre class="language-dart"><code class="language-dart">StatusOfProcessing getStatusOfProcessing() {
+  if (!validate.isValid()) {
+    return StatusOfProcessing.inconsistent;
   }
-  return &#39;Not yet implemented&#39;;
+  if (_courses.getNumCourses() == 0) {
+    return StatusOfProcessing.needCourses;
+  }
+  if (_people.people.isEmpty) {
+    return StatusOfProcessing.needPeople;
+  }
+  if (compute.hasUndersizeClassed(_courses, _people)) {
+    return StatusOfProcessing.drop;
+  }
+  if (compute.hasOversizeClasses(_courses, _people)) {
+    return StatusOfProcessing.split;
+  }
+  return StatusOfProcessing.schedule;
 }</code></pre>
 </section>
 
@@ -102,18 +112,29 @@
     <li><a href="../../scheduling/Scheduling/Scheduling.html">Scheduling</a></li>
 
 
-    <li class="section-title inherited">
+    <li class="section-title">
       <a href="../../scheduling/Scheduling-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../../scheduling/Scheduling/compute.html">compute</a></li>
     <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/hashCode.html">hashCode</a></li>
     <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../../scheduling/Scheduling/validate.html">validate</a></li>
 
     <li class="section-title"><a href="../../scheduling/Scheduling-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../scheduling/Scheduling/drop.html">drop</a></li>
     <li><a href="../../scheduling/Scheduling/getCourse.html">getCourse</a></li>
     <li><a href="../../scheduling/Scheduling/getCourseCodes.html">getCourseCodes</a></li>
+    <li><a href="../../scheduling/Scheduling/getNumAddFromBackup.html">getNumAddFromBackup</a></li>
+    <li><a href="../../scheduling/Scheduling/getNumChoicesForClassRank.html">getNumChoicesForClassRank</a></li>
+    <li><a href="../../scheduling/Scheduling/getNumClassesGiven.html">getNumClassesGiven</a></li>
+    <li><a href="../../scheduling/Scheduling/getNumClassesWanted.html">getNumClassesWanted</a></li>
     <li><a href="../../scheduling/Scheduling/getNumCourses.html">getNumCourses</a></li>
+    <li><a href="../../scheduling/Scheduling/getNumPeople.html">getNumPeople</a></li>
     <li><a href="../../scheduling/Scheduling/getPeople.html">getPeople</a></li>
+    <li><a href="../../scheduling/Scheduling/getPeopleAddFromBackup.html">getPeopleAddFromBackup</a></li>
+    <li><a href="../../scheduling/Scheduling/getPeopleForClassRank.html">getPeopleForClassRank</a></li>
     <li><a href="../../scheduling/Scheduling/getStatusOfProcessing.html">getStatusOfProcessing</a></li>
+    <li><a href="../../scheduling/Scheduling/getUnmetWants.html">getUnmetWants</a></li>
     <li><a href="../../scheduling/Scheduling/loadCourses.html">loadCourses</a></li>
     <li><a href="../../scheduling/Scheduling/loadPeople.html">loadPeople</a></li>
     <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>

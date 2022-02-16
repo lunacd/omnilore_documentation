@@ -70,7 +70,11 @@ number of classes wanted less than 0 or more than 6.
 Throws a <a href="../../model_exceptions/UnrecognizedAvailabilityException-class.html">UnrecognizedAvailabilityException</a> when the input file specifies an
 availability value other than empty, 1, 2, or 3.
 Throws a <a href="../../model_exceptions/DuplicateClassSelectionException-class.html">DuplicateClassSelectionException</a> when a person selects a class
-more than once.</p>
+more than once.
+Throws a <a href="../../model_exceptions/WantingMoreThanListedException-class.html">WantingMoreThanListedException</a> when a member wants more classes
+than they listed.
+Throws a <a href="../../model_exceptions/ListingWhenWantingZeroException-class.html">ListingWhenWantingZeroException</a> when a member still listed
+classes when they want 0.</p>
 <p>Asynchronously returns the number of people successfully read.</p>
 <pre class="language-dart"><code class="language-dart">int numPeople = await people.loadPeople('/path/to/file');
 </code></pre>
@@ -109,19 +113,19 @@ more than once.</p>
     &#47;&#47; Parse availability
     for (int i = 0; i &lt; 10; i++) {
       var avail = tokens[i + 4];
-      if (avail == &quot;1&quot;) {
+      if (avail == &#39;1&#39;) {
         availability.set(
             WeekOfMonth.firstThird,
             DayOfWeek.values[(i &#47; 2).floor()],
             TimeOfDay.values[i % 2],
             false);
-      } else if (avail == &quot;2&quot;) {
+      } else if (avail == &#39;2&#39;) {
         availability.set(
             WeekOfMonth.secondFourth,
             DayOfWeek.values[(i &#47; 2).floor()],
             TimeOfDay.values[i % 2],
             false);
-      } else if (avail == &quot;3&quot;) {
+      } else if (avail == &#39;3&#39;) {
         availability.set(
             WeekOfMonth.firstThird,
             DayOfWeek.values[(i &#47; 2).floor()],
@@ -132,7 +136,7 @@ more than once.</p>
             DayOfWeek.values[(i &#47; 2).floor()],
             TimeOfDay.values[i % 2],
             false);
-      } else if (avail != &quot;&quot;) {
+      } else if (avail != &#39;&#39;) {
         people.clear();
         throw UnrecognizedAvailabilityException(
             availability: avail, malformedLine: numLines + 1);
@@ -153,8 +157,17 @@ more than once.</p>
         }
       }
     }
+    if (classes.length &lt; numClassWanted) {
+      throw WantingMoreThanListedException(fName: fName, lName: lName);
+    }
+    if (numClassWanted == 0 &amp;&amp; classes.isNotEmpty) {
+      throw ListingWhenWantingZeroException(fName: fName, lName: lName);
+    }
 
-    people.add(Person(
+    if (people.containsKey(&#39;$fName $lName&#39;)) {
+      throw DuplicateRecordsException(fName: fName, lName: lName);
+    }
+    people[&#39;$fName $lName&#39;] = (Person(
         fName: fName,
         lName: lName,
         phone: phone,

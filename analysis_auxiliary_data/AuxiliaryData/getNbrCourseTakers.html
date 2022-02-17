@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the getNbrPlacesAsked method from the AuxiliaryData class, for the Dart programming language.">
-  <title>getNbrPlacesAsked method - AuxiliaryData class - auxiliary_data library - Dart API</title>
+  <meta name="description" content="API docs for the getNbrCourseTakers method from the AuxiliaryData class, for the Dart programming language.">
+  <title>getNbrCourseTakers method - AuxiliaryData class - auxiliary_data library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">omnilore_scheduler</a></li>
     <li><a href="../../analysis_auxiliary_data/analysis_auxiliary_data-library.html">auxiliary_data</a></li>
     <li><a href="../../analysis_auxiliary_data/AuxiliaryData-class.html">AuxiliaryData</a></li>
-    <li class="self-crumb">getNbrPlacesAsked method</li>
+    <li class="self-crumb">getNbrCourseTakers method</li>
   </ol>
-  <div class="self-name">getNbrPlacesAsked</div>
+  <div class="self-name">getNbrCourseTakers</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,7 +45,7 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">getNbrPlacesAsked</span> method 
+<h1><span class="kind-method">getNbrCourseTakers</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
@@ -53,29 +53,32 @@
       
 
 <span class="returntype"><a href="https://api.dart.dev/stable/2.15.1/dart-core/int-class.html">int</a></span>
-<span class="name ">getNbrPlacesAsked</span>(<wbr>)
+<span class="name ">getNbrCourseTakers</span>(<wbr>)
 
       
 
     </section>
     
 <section class="desc markdown">
-  <p>Get the total number of classes asked</p>
+  <p>Get the total number of course takers</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">int getNbrPlacesAsked() {
-  if (_nbrRequested != null) {
-    return _nbrRequested!;
+  <pre class="language-dart"><code class="language-dart">int getNbrCourseTakers() {
+  if (_nbrCourseTakers != null) {
+    return _nbrCourseTakers!;
   } else {
-    _nbrRequested = 0;
-    for (var person in _people.people.values) {
-      _nbrRequested = _nbrRequested! + person.numClassWanted;
-    }
-    return _nbrRequested!;
+    _nbrCourseTakers =
+        _people.people.values.fold&lt;int&gt;(0, (int previousValue, element) {
+      if (element.numClassWanted &gt; 0) {
+        return previousValue + 1;
+      }
+      return previousValue;
+    });
+    return _nbrCourseTakers!;
   }
 }</code></pre>
 </section>
@@ -94,7 +97,7 @@
   <li><a href="../../index.html">omnilore_scheduler</a></li>
   <li><a href="../../analysis_auxiliary_data/analysis_auxiliary_data-library.html">auxiliary_data</a></li>
   <li><a href="../../analysis_auxiliary_data/AuxiliaryData-class.html">AuxiliaryData</a></li>
-  <li class="self-crumb">getNbrPlacesAsked method</li>
+  <li class="self-crumb">getNbrCourseTakers method</li>
 </ol>
 
 

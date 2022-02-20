@@ -53,7 +53,8 @@
         
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
-<span class="name ">auxData</span>(<wbr>)
+<span class="name ">auxData</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="auxData-param-scheduling"><span class="type-annotation"><a href="../scheduling/Scheduling-class.html">Scheduling</a></span> <span class="parameter-name">scheduling</span></span></li>
+</ol>)
 
     </section>
     
@@ -62,7 +63,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Widget auxData() {
+  <pre class="language-dart"><code class="language-dart">Widget auxData(Scheduling scheduling) {
   return DataTable(
     columns: const &lt;DataColumn&gt;[
       DataColumn(
@@ -80,47 +81,47 @@
         ),
       ),
     ],
-    rows: const &lt;DataRow&gt;[
+    rows: &lt;DataRow&gt;[
       DataRow(
         cells: &lt;DataCell&gt;[
-          DataCell(Text(&#39;Course Takers&#39;)),
-          DataCell(Text(&#39;19&#39;)),
+          const DataCell(Text(&#39;Course Takers&#39;)),
+          DataCell(Text(&#39;${scheduling.auxiliaryData.getNbrCourseTakers()}&#39;)),
         ],
       ),
       DataRow(
         cells: &lt;DataCell&gt;[
-          DataCell(Text(&#39;Go Courses&#39;)),
-          DataCell(Text(&#39;19&#39;)),
+          const DataCell(Text(&#39;Go Courses&#39;)),
+          DataCell(Text(&#39;${scheduling.auxiliaryData.getNbrGoCourses()}&#39;)),
         ],
       ),
       DataRow(
         cells: &lt;DataCell&gt;[
-          DataCell(Text(&#39;places asked&#39;)),
-          DataCell(Text(&#39;19&#39;)),
+          const DataCell(Text(&#39;places asked&#39;)),
+          DataCell(Text(&#39;${scheduling.auxiliaryData.getNbrPlacesAsked()}&#39;)),
         ],
       ),
       DataRow(
         cells: &lt;DataCell&gt;[
-          DataCell(Text(&#39;places given&#39;)),
-          DataCell(Text(&#39;19&#39;)),
+          const DataCell(Text(&#39;places given&#39;)),
+          DataCell(Text(&#39;${scheduling.auxiliaryData.getNbrPlacesGiven()}&#39;)),
         ],
       ),
       DataRow(
         cells: &lt;DataCell&gt;[
-          DataCell(Text(&#39;un-met wants&#39;)),
-          DataCell(Text(&#39;19&#39;)),
+          const DataCell(Text(&#39;un-met wants&#39;)),
+          DataCell(Text(&#39;${scheduling.auxiliaryData.getNbrUnmetWants()}&#39;)),
         ],
       ),
       DataRow(
         cells: &lt;DataCell&gt;[
-          DataCell(Text(&#39;on leave&#39;)),
-          DataCell(Text(&#39;19&#39;)),
+          const DataCell(Text(&#39;on leave&#39;)),
+          DataCell(Text(&#39;${scheduling.auxiliaryData.getNbrOnLeave()}&#39;)),
         ],
       ),
-      DataRow(
+      const DataRow(
         cells: &lt;DataCell&gt;[
           DataCell(Text(&#39;Missing&#39;)),
-          DataCell(Text(&#39;19&#39;)),
+          DataCell(Text(&#39;0&#39;)),
         ],
       ),
     ],
@@ -159,7 +160,6 @@
 
   <li class="section-title"><a href="../main/main-library.html#functions">Functions</a></li>
   <li><a href="../main/auxData.html">auxData</a></li>
-  <li><a href="../main/data.html">data</a></li>
   <li><a href="../main/main.html">main</a></li>
 
 

@@ -90,12 +90,12 @@ user want to see this info. This function is slower than
   if (!_choices.containsKey(course)) {
     return null;
   } else {
-    var choices = _choices[course];
+    var choices = _choices[course]![rank];
     if (choices == null) {
       _computeChoices(rank, _people);
-      return _choices[course]![rank].toList(growable: false);
+      return _choices[course]![rank]!.toList(growable: false);
     } else {
-      return choices[rank].toList(growable: false);
+      return choices.toList(growable: false);
     }
   }
 }</code></pre>

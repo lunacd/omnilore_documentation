@@ -87,12 +87,12 @@ instantaneously.</p>
   if (!_choices.containsKey(course)) {
     return null;
   } else {
-    var choices = _choices[course];
+    var choices = _choices[course]![rank];
     if (choices == null) {
       _computeChoices(rank, _people);
-      return _choices[course]![rank].length;
+      return _choices[course]![rank]!.length;
     } else {
-      return choices[rank].length;
+      return choices.length;
     }
   }
 }</code></pre>

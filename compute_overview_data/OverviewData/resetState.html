@@ -70,7 +70,7 @@
   <pre class="language-dart"><code class="language-dart">void resetState() {
   _choices.clear();
   for (var code in _courses.getCodes()) {
-    _choices[code] = null;
+    _choices[code] = List&lt;HashSet&lt;String&gt;?&gt;.filled(6, null, growable: false);
   }
   _undersize = null;
   _oversize = null;

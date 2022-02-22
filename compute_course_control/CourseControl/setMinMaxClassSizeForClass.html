@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the setMinClassSizeForClass method from the CourseControl class, for the Dart programming language.">
-  <title>setMinClassSizeForClass method - CourseControl class - course_control library - Dart API</title>
+  <meta name="description" content="API docs for the setMinMaxClassSizeForClass method from the CourseControl class, for the Dart programming language.">
+  <title>setMinMaxClassSizeForClass method - CourseControl class - course_control library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">omnilore_scheduler</a></li>
     <li><a href="../../compute_course_control/compute_course_control-library.html">course_control</a></li>
     <li><a href="../../compute_course_control/CourseControl-class.html">CourseControl</a></li>
-    <li class="self-crumb">setMinClassSizeForClass method</li>
+    <li class="self-crumb">setMinMaxClassSizeForClass method</li>
   </ol>
-  <div class="self-name">setMinClassSizeForClass</div>
+  <div class="self-name">setMinMaxClassSizeForClass</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,7 +45,7 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">setMinClassSizeForClass</span> method 
+<h1><span class="kind-method">setMinMaxClassSizeForClass</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
@@ -53,8 +53,9 @@
       
 
 <span class="returntype">void</span>
-<span class="name ">setMinClassSizeForClass</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="setMinClassSizeForClass-param-course"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">course</span>, </span></li>
-<li><span class="parameter" id="setMinClassSizeForClass-param-minSize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">minSize</span></span></li>
+<span class="name ">setMinMaxClassSizeForClass</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="setMinMaxClassSizeForClass-param-course"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">course</span>, </span></li>
+<li><span class="parameter" id="setMinMaxClassSizeForClass-param-minSize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">minSize</span>, </span></li>
+<li><span class="parameter" id="setMinMaxClassSizeForClass-param-maxSize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxSize</span></span></li>
 </ol>)
 
       
@@ -62,22 +63,35 @@
     </section>
     
 <section class="desc markdown">
-  <p>Set minimum class size for a specific class</p>
-<p>This will overwrite the global maximum configuration. To cancel the
-specific class size configuration for a class, pass null as maxSize to
-this function.</p>
+  <p>Set maximum class size for a specific class</p>
+<p>This will overwrite the global configuration. To cancel the specific
+class size configuration for a class, pass null for both minSize and
+maxSize to this function (I don't think this will be needed).</p>
+<p>Throws <a href="../../model_exceptions/MinLargerThanMaxException-class.html">MinLargerThanMaxException</a> if minSize is larger than maxSize</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void setMinClassSizeForClass(String course, int? minSize) {
+  <pre class="language-dart"><code class="language-dart">void setMinMaxClassSizeForClass(String course, int? minSize, int? maxSize) {
+  if (maxSize != null &amp;&amp; minSize != null) {
+    if (minSize &gt; maxSize) {
+      throw MinLargerThanMaxException(min: minSize, max: maxSize);
+    }
+  }
+  if (maxSize == null) {
+    _classMaxSizeMap.remove(course);
+  } else {
+    _classMaxSizeMap[course] = maxSize;
+  }
   if (minSize == null) {
     _classMinSizeMap.remove(course);
   } else {
     _classMinSizeMap[course] = minSize;
   }
+  _undersize = null;
+  _oversize = null;
 }</code></pre>
 </section>
 
@@ -95,7 +109,7 @@ this function.</p>
   <li><a href="../../index.html">omnilore_scheduler</a></li>
   <li><a href="../../compute_course_control/compute_course_control-library.html">course_control</a></li>
   <li><a href="../../compute_course_control/CourseControl-class.html">CourseControl</a></li>
-  <li class="self-crumb">setMinClassSizeForClass method</li>
+  <li class="self-crumb">setMinMaxClassSizeForClass method</li>
 </ol>
 
 
@@ -123,10 +137,8 @@ this function.</p>
     <li><a href="../../compute_course_control/CourseControl/initialize.html">initialize</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../../compute_course_control/CourseControl/resetState.html">resetState</a></li>
-    <li><a href="../../compute_course_control/CourseControl/setMaxClassSize.html">setMaxClassSize</a></li>
-    <li><a href="../../compute_course_control/CourseControl/setMaxClassSizeForClass.html">setMaxClassSizeForClass</a></li>
-    <li><a href="../../compute_course_control/CourseControl/setMinClassSize.html">setMinClassSize</a></li>
-    <li><a href="../../compute_course_control/CourseControl/setMinClassSizeForClass.html">setMinClassSizeForClass</a></li>
+    <li><a href="../../compute_course_control/CourseControl/setMinMaxClassSize.html">setMinMaxClassSize</a></li>
+    <li><a href="../../compute_course_control/CourseControl/setMinMaxClassSizeForClass.html">setMinMaxClassSizeForClass</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
     <li><a href="../../compute_course_control/CourseControl/undrop.html">undrop</a></li>
 

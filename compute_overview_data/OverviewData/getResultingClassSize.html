@@ -52,7 +52,7 @@
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span>
+<span class="returntype"><a href="../../model_class_size/ClassSize-class.html">ClassSize</a>?</span>
 <span class="name ">getResultingClassSize</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getResultingClassSize-param-course"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">course</span></span></li>
 </ol>)
 
@@ -72,11 +72,11 @@ dropped class.</p>
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">int? getResultingClassSize(String course) {
-  int? firstChoice = getNbrForClassRank(course, 0);
+  <pre class="language-dart"><code class="language-dart">ClassSize? getResultingClassSize(String course) {
+  int? firstChoice = getNbrForClassRank(course, 0)?.size;
   if (firstChoice == null) return null;
   int addFromBackup = getNbrAddFromBackup(course)!;
-  return firstChoice + addFromBackup;
+  return _getClassSizeFromRaw(course, firstChoice + addFromBackup);
 }</code></pre>
 </section>
 

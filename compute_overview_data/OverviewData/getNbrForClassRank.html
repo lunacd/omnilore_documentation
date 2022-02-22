@@ -52,7 +52,7 @@
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span>
+<span class="returntype"><a href="../../model_class_size/ClassSize-class.html">ClassSize</a>?</span>
 <span class="name ">getNbrForClassRank</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getNbrForClassRank-param-course"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">course</span>, </span></li>
 <li><span class="parameter" id="getNbrForClassRank-param-rank"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">rank</span></span></li>
 </ol>)
@@ -80,7 +80,7 @@ instantaneously.</p>
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">int? getNbrForClassRank(String course, int rank) {
+  <pre class="language-dart"><code class="language-dart">ClassSize? getNbrForClassRank(String course, int rank) {
   if (rank &lt; 0 || rank &gt; 5) {
     throw InvalidClassRankException(rank: rank);
   }
@@ -90,9 +90,9 @@ instantaneously.</p>
     var choices = _choices[course]![rank];
     if (choices == null) {
       _computeChoices(rank, _people);
-      return _choices[course]![rank]!.length;
+      return _getClassSizeFromRaw(course, _choices[course]![rank]!.length);
     } else {
-      return choices.length;
+      return _getClassSizeFromRaw(course, choices.length);
     }
   }
 }</code></pre>

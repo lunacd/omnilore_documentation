@@ -74,7 +74,7 @@
     return _undersize!;
   } else {
     for (var course in courses.getCodes()) {
-      if (_overviewData.getNbrForClassRank(course, 0)! &lt; _classMinSize) {
+      if (_overviewData.getNbrForClassRank(course, 0)!.size &lt; _classMinSize) {
         _undersize = true;
         return true;
       }
@@ -127,10 +127,8 @@
     <li><a href="../../compute_course_control/CourseControl/initialize.html">initialize</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../../compute_course_control/CourseControl/resetState.html">resetState</a></li>
-    <li><a href="../../compute_course_control/CourseControl/setMaxClassSize.html">setMaxClassSize</a></li>
-    <li><a href="../../compute_course_control/CourseControl/setMaxClassSizeForClass.html">setMaxClassSizeForClass</a></li>
-    <li><a href="../../compute_course_control/CourseControl/setMinClassSize.html">setMinClassSize</a></li>
-    <li><a href="../../compute_course_control/CourseControl/setMinClassSizeForClass.html">setMinClassSizeForClass</a></li>
+    <li><a href="../../compute_course_control/CourseControl/setMinMaxClassSize.html">setMinMaxClassSize</a></li>
+    <li><a href="../../compute_course_control/CourseControl/setMinMaxClassSizeForClass.html">setMinMaxClassSizeForClass</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
     <li><a href="../../compute_course_control/CourseControl/undrop.html">undrop</a></li>
 

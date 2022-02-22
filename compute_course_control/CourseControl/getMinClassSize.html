@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the getNbrAddFromBackup method from the CourseControl class, for the Dart programming language.">
-  <title>getNbrAddFromBackup method - CourseControl class - course_control library - Dart API</title>
+  <meta name="description" content="API docs for the getMinClassSize method from the CourseControl class, for the Dart programming language.">
+  <title>getMinClassSize method - CourseControl class - course_control library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">omnilore_scheduler</a></li>
     <li><a href="../../compute_course_control/compute_course_control-library.html">course_control</a></li>
     <li><a href="../../compute_course_control/CourseControl-class.html">CourseControl</a></li>
-    <li class="self-crumb">getNbrAddFromBackup method</li>
+    <li class="self-crumb">getMinClassSize method</li>
   </ol>
-  <div class="self-name">getNbrAddFromBackup</div>
+  <div class="self-name">getMinClassSize</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,15 +45,15 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">getNbrAddFromBackup</span> method 
+<h1><span class="kind-method">getMinClassSize</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span>
-<span class="name ">getNbrAddFromBackup</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getNbrAddFromBackup-param-course"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">course</span></span></li>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
+<span class="name ">getMinClassSize</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getMinClassSize-param-course"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">course</span></span></li>
 </ol>)
 
       
@@ -61,16 +61,17 @@
     </section>
     
 <section class="desc markdown">
-  <p>Get the number of people added from backup for a course</p>
-<p>Returns null if course code does not exist.</p>
+  <p>Get the minimum class size for a class</p>
+<p>Returns the global minimum class size if no specific class size is set for
+the class.</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">int? getNbrAddFromBackup(String course) {
-  return _backupAdd[course]?.length;
+  <pre class="language-dart"><code class="language-dart">int getMinClassSize(String course) {
+  return _classMinSizeMap[course] ?? _classMinSize;
 }</code></pre>
 </section>
 
@@ -88,7 +89,7 @@
   <li><a href="../../index.html">omnilore_scheduler</a></li>
   <li><a href="../../compute_course_control/compute_course_control-library.html">course_control</a></li>
   <li><a href="../../compute_course_control/CourseControl-class.html">CourseControl</a></li>
-  <li class="self-crumb">getNbrAddFromBackup method</li>
+  <li class="self-crumb">getMinClassSize method</li>
 </ol>
 
 

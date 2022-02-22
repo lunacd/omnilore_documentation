@@ -77,10 +77,10 @@
   if (_people.people.isEmpty) {
     return StateOfProcessing.needPeople;
   }
-  if (_hasUndersizeClassed(_courses, _people)) {
+  if (_courseControl.hasUndersizeClasses(_courses, _people)) {
     return StateOfProcessing.drop;
   }
-  if (_hasOversizeClasses(_courses, _people)) {
+  if (_courseControl.hasOversizeClasses(_courses, _people)) {
     return StateOfProcessing.split;
   }
   return StateOfProcessing.schedule;

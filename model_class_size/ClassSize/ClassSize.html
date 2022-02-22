@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the resetState method from the OverviewData class, for the Dart programming language.">
-  <title>resetState method - OverviewData class - overview_data library - Dart API</title>
+  <meta name="description" content="API docs for the ClassSize constructor from the Class ClassSize class from the class_size library, for the Dart programming language.">
+  <title>ClassSize constructor - ClassSize class - class_size library - Dart API</title>
 
 
   
@@ -30,11 +30,11 @@
   <button id="sidenav-left-toggle" type="button">&nbsp;</button>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">omnilore_scheduler</a></li>
-    <li><a href="../../compute_overview_data/compute_overview_data-library.html">overview_data</a></li>
-    <li><a href="../../compute_overview_data/OverviewData-class.html">OverviewData</a></li>
-    <li class="self-crumb">resetState method</li>
+    <li><a href="../../model_class_size/model_class_size-library.html">class_size</a></li>
+    <li><a href="../../model_class_size/ClassSize-class.html">ClassSize</a></li>
+    <li class="self-crumb">ClassSize constructor</li>
   </ol>
-  <div class="self-name">resetState</div>
+  <div class="self-name">ClassSize</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,34 +45,23 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">resetState</span> method 
+<h1><span class="kind-constructor">ClassSize</span> constructor 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
-      
-
-<span class="returntype">void</span>
-<span class="name ">resetState</span>(<wbr>)
-
-      
-
+      <span class="name ">ClassSize</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-size">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">size</span>, </span></li>
+<li><span class="parameter" id="-param-state"><span>required</span> <span class="type-annotation"><a href="../../model_class_size/ClassState.html">ClassState</a></span> <span class="parameter-name">state</span>}</span></li>
+</ol>)
     </section>
+
     
-<section class="desc markdown">
-  <p>Reset computing state</p>
-</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void resetState() {
-  _choices.clear();
-  for (var code in _courses.getCodes()) {
-    _choices[code] = List&lt;HashSet&lt;String&gt;?&gt;.filled(6, null, growable: false);
-  }
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">ClassSize({required this.size, required this.state});</code></pre>
 </section>
 
 
@@ -87,38 +76,32 @@
 
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
   <li><a href="../../index.html">omnilore_scheduler</a></li>
-  <li><a href="../../compute_overview_data/compute_overview_data-library.html">overview_data</a></li>
-  <li><a href="../../compute_overview_data/OverviewData-class.html">OverviewData</a></li>
-  <li class="self-crumb">resetState method</li>
+  <li><a href="../../model_class_size/model_class_size-library.html">class_size</a></li>
+  <li><a href="../../model_class_size/ClassSize-class.html">ClassSize</a></li>
+  <li class="self-crumb">ClassSize constructor</li>
 </ol>
 
 
-    <h5>OverviewData class</h5>
+    <h5>ClassSize class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../compute_overview_data/OverviewData-class.html#constructors">Constructors</a></li>
-    <li><a href="../../compute_overview_data/OverviewData/OverviewData.html">OverviewData</a></li>
+    <li class="section-title"><a href="../../model_class_size/ClassSize-class.html#constructors">Constructors</a></li>
+    <li><a href="../../model_class_size/ClassSize/ClassSize.html">ClassSize</a></li>
 
 
-    <li class="section-title inherited">
-      <a href="../../compute_overview_data/OverviewData-class.html#instance-properties">Properties</a>
+    <li class="section-title">
+      <a href="../../model_class_size/ClassSize-class.html#instance-properties">Properties</a>
     </li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../../model_class_size/ClassSize/size.html">size</a></li>
+    <li><a href="../../model_class_size/ClassSize/state.html">state</a></li>
 
-    <li class="section-title"><a href="../../compute_overview_data/OverviewData-class.html#instance-methods">Methods</a></li>
-    <li><a href="../../compute_overview_data/OverviewData/getNbrAddFromBackup.html">getNbrAddFromBackup</a></li>
-    <li><a href="../../compute_overview_data/OverviewData/getNbrForClassRank.html">getNbrForClassRank</a></li>
-    <li><a href="../../compute_overview_data/OverviewData/getPeopleAddFromBackup.html">getPeopleAddFromBackup</a></li>
-    <li><a href="../../compute_overview_data/OverviewData/getPeopleForClassRank.html">getPeopleForClassRank</a></li>
-    <li><a href="../../compute_overview_data/OverviewData/getResultingClassSize.html">getResultingClassSize</a></li>
-    <li><a href="../../compute_overview_data/OverviewData/getStateOfProcessing.html">getStateOfProcessing</a></li>
-    <li><a href="../../compute_overview_data/OverviewData/initialize.html">initialize</a></li>
+    <li class="section-title inherited"><a href="../../model_class_size/ClassSize-class.html#instance-methods">Methods</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li><a href="../../compute_overview_data/OverviewData/resetState.html">resetState</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
-    <li class="section-title inherited"><a href="../../compute_overview_data/OverviewData-class.html#operators">Operators</a></li>
+    <li class="section-title inherited"><a href="../../model_class_size/ClassSize-class.html#operators">Operators</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
 
 
@@ -126,7 +109,7 @@
 
 </ol>
 
-  </div><!--/.sidebar-offcanvas-->
+  </div><!--/.sidebar-offcanvas-left-->
 
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
   </div><!--/.sidebar-offcanvas-->

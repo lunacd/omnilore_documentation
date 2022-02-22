@@ -111,6 +111,32 @@
 
 </dd>
 
+        <dt id="getMaxClassSize" class="callable">
+  <span class="name"><a href="../compute_course_control/CourseControl/getMaxClassSize.html">getMaxClassSize</a></span><span class="signature">(<wbr><span class="parameter" id="getMaxClassSize-param-course"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">course</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Get the maximum class size for a class <a href="../compute_course_control/CourseControl/getMaxClassSize.html">[...]</a>
+  
+
+</dd>
+
+        <dt id="getMinClassSize" class="callable">
+  <span class="name"><a href="../compute_course_control/CourseControl/getMinClassSize.html">getMinClassSize</a></span><span class="signature">(<wbr><span class="parameter" id="getMinClassSize-param-course"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">course</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Get the minimum class size for a class <a href="../compute_course_control/CourseControl/getMinClassSize.html">[...]</a>
+  
+
+</dd>
+
         <dt id="getNbrAddFromBackup" class="callable">
   <span class="name"><a href="../compute_course_control/CourseControl/getNbrAddFromBackup.html">getNbrAddFromBackup</a></span><span class="signature">(<wbr><span class="parameter" id="getNbrAddFromBackup-param-course"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">course</span></span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span>
@@ -133,6 +159,32 @@
 </dt>
 <dd>
   Get a list of people added from backup for a course <a href="../compute_course_control/CourseControl/getPeopleAddFromBackup.html">[...]</a>
+  
+
+</dd>
+
+        <dt id="hasOversizeClasses" class="callable">
+  <span class="name"><a href="../compute_course_control/CourseControl/hasOversizeClasses.html">hasOversizeClasses</a></span><span class="signature">(<wbr><span class="parameter" id="hasOversizeClasses-param-courses"><span class="type-annotation"><a href="../store_courses/Courses-class.html">Courses</a></span> <span class="parameter-name">courses</span>, </span><span class="parameter" id="hasOversizeClasses-param-people"><span class="type-annotation"><a href="../store_people/People-class.html">People</a></span> <span class="parameter-name">people</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Get whether there is class to split 
+  
+
+</dd>
+
+        <dt id="hasUndersizeClasses" class="callable">
+  <span class="name"><a href="../compute_course_control/CourseControl/hasUndersizeClasses.html">hasUndersizeClasses</a></span><span class="signature">(<wbr><span class="parameter" id="hasUndersizeClasses-param-courses"><span class="type-annotation"><a href="../store_courses/Courses-class.html">Courses</a></span> <span class="parameter-name">courses</span>, </span><span class="parameter" id="hasUndersizeClasses-param-people"><span class="type-annotation"><a href="../store_people/People-class.html">People</a></span> <span class="parameter-name">people</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Get whether there is class to drop 
   
 
 </dd>
@@ -172,6 +224,58 @@
 </dt>
 <dd>
   Reset computing state 
+  
+
+</dd>
+
+        <dt id="setMaxClassSize" class="callable">
+  <span class="name"><a href="../compute_course_control/CourseControl/setMaxClassSize.html">setMaxClassSize</a></span><span class="signature">(<wbr><span class="parameter" id="setMaxClassSize-param-maxSize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">maxSize</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Set global maximum class size 
+  
+
+</dd>
+
+        <dt id="setMaxClassSizeForClass" class="callable">
+  <span class="name"><a href="../compute_course_control/CourseControl/setMaxClassSizeForClass.html">setMaxClassSizeForClass</a></span><span class="signature">(<wbr><span class="parameter" id="setMaxClassSizeForClass-param-course"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">course</span>, </span><span class="parameter" id="setMaxClassSizeForClass-param-maxSize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxSize</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Set maximum class size for a specific class <a href="../compute_course_control/CourseControl/setMaxClassSizeForClass.html">[...]</a>
+  
+
+</dd>
+
+        <dt id="setMinClassSize" class="callable">
+  <span class="name"><a href="../compute_course_control/CourseControl/setMinClassSize.html">setMinClassSize</a></span><span class="signature">(<wbr><span class="parameter" id="setMinClassSize-param-minSize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">minSize</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Set global minimum class size 
+  
+
+</dd>
+
+        <dt id="setMinClassSizeForClass" class="callable">
+  <span class="name"><a href="../compute_course_control/CourseControl/setMinClassSizeForClass.html">setMinClassSizeForClass</a></span><span class="signature">(<wbr><span class="parameter" id="setMinClassSizeForClass-param-course"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">course</span>, </span><span class="parameter" id="setMinClassSizeForClass-param-minSize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">minSize</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Set minimum class size for a specific class <a href="../compute_course_control/CourseControl/setMinClassSizeForClass.html">[...]</a>
   
 
 </dd>
@@ -274,11 +378,19 @@
 
     <li class="section-title"><a href="../compute_course_control/CourseControl-class.html#instance-methods">Methods</a></li>
     <li><a href="../compute_course_control/CourseControl/drop.html">drop</a></li>
+    <li><a href="../compute_course_control/CourseControl/getMaxClassSize.html">getMaxClassSize</a></li>
+    <li><a href="../compute_course_control/CourseControl/getMinClassSize.html">getMinClassSize</a></li>
     <li><a href="../compute_course_control/CourseControl/getNbrAddFromBackup.html">getNbrAddFromBackup</a></li>
     <li><a href="../compute_course_control/CourseControl/getPeopleAddFromBackup.html">getPeopleAddFromBackup</a></li>
+    <li><a href="../compute_course_control/CourseControl/hasOversizeClasses.html">hasOversizeClasses</a></li>
+    <li><a href="../compute_course_control/CourseControl/hasUndersizeClasses.html">hasUndersizeClasses</a></li>
     <li><a href="../compute_course_control/CourseControl/initialize.html">initialize</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../compute_course_control/CourseControl/resetState.html">resetState</a></li>
+    <li><a href="../compute_course_control/CourseControl/setMaxClassSize.html">setMaxClassSize</a></li>
+    <li><a href="../compute_course_control/CourseControl/setMaxClassSizeForClass.html">setMaxClassSizeForClass</a></li>
+    <li><a href="../compute_course_control/CourseControl/setMinClassSize.html">setMinClassSize</a></li>
+    <li><a href="../compute_course_control/CourseControl/setMinClassSizeForClass.html">setMinClassSizeForClass</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
     <li><a href="../compute_course_control/CourseControl/undrop.html">undrop</a></li>
 

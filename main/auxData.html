@@ -64,67 +64,70 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Widget auxData(Scheduling scheduling) {
-  return DataTable(
-    columns: const &lt;DataColumn&gt;[
-      DataColumn(
-        label: Text(
-          &#39;Auxiliary Data&#39;,
-          softWrap: true,
-          style: TextStyle(fontStyle: FontStyle.italic),
+  return Container(
+    height: 200,
+    child: DataTable(
+      columns: const &lt;DataColumn&gt;[
+        DataColumn(
+          label: Text(
+            &#39;Auxiliary Data&#39;,
+            softWrap: true,
+            style: TextStyle(fontStyle: FontStyle.italic),
+          ),
         ),
-      ),
-      DataColumn(
-        label: Text(
-          &#39;&#39;,
-          softWrap: true,
-          style: TextStyle(fontStyle: FontStyle.italic),
+        DataColumn(
+          label: Text(
+            &#39;&#39;,
+            softWrap: true,
+            style: TextStyle(fontStyle: FontStyle.italic),
+          ),
         ),
-      ),
-    ],
-    rows: &lt;DataRow&gt;[
-      DataRow(
-        cells: &lt;DataCell&gt;[
-          const DataCell(Text(&#39;Course Takers&#39;)),
-          DataCell(Text(&#39;${scheduling.auxiliaryData.getNbrCourseTakers()}&#39;)),
-        ],
-      ),
-      DataRow(
-        cells: &lt;DataCell&gt;[
-          const DataCell(Text(&#39;Go Courses&#39;)),
-          DataCell(Text(&#39;${scheduling.auxiliaryData.getNbrGoCourses()}&#39;)),
-        ],
-      ),
-      DataRow(
-        cells: &lt;DataCell&gt;[
-          const DataCell(Text(&#39;places asked&#39;)),
-          DataCell(Text(&#39;${scheduling.auxiliaryData.getNbrPlacesAsked()}&#39;)),
-        ],
-      ),
-      DataRow(
-        cells: &lt;DataCell&gt;[
-          const DataCell(Text(&#39;places given&#39;)),
-          DataCell(Text(&#39;${scheduling.auxiliaryData.getNbrPlacesGiven()}&#39;)),
-        ],
-      ),
-      DataRow(
-        cells: &lt;DataCell&gt;[
-          const DataCell(Text(&#39;un-met wants&#39;)),
-          DataCell(Text(&#39;${scheduling.auxiliaryData.getNbrUnmetWants()}&#39;)),
-        ],
-      ),
-      DataRow(
-        cells: &lt;DataCell&gt;[
-          const DataCell(Text(&#39;on leave&#39;)),
-          DataCell(Text(&#39;${scheduling.auxiliaryData.getNbrOnLeave()}&#39;)),
-        ],
-      ),
-      const DataRow(
-        cells: &lt;DataCell&gt;[
-          DataCell(Text(&#39;Missing&#39;)),
-          DataCell(Text(&#39;0&#39;)),
-        ],
-      ),
-    ],
+      ],
+      rows: &lt;DataRow&gt;[
+        DataRow(
+          cells: &lt;DataCell&gt;[
+            const DataCell(Text(&#39;Course Takers&#39;)),
+            DataCell(Text(&#39;${scheduling.auxiliaryData.getNbrCourseTakers()}&#39;)),
+          ],
+        ),
+        DataRow(
+          cells: &lt;DataCell&gt;[
+            const DataCell(Text(&#39;Go Courses&#39;)),
+            DataCell(Text(&#39;${scheduling.auxiliaryData.getNbrGoCourses()}&#39;)),
+          ],
+        ),
+        DataRow(
+          cells: &lt;DataCell&gt;[
+            const DataCell(Text(&#39;places asked&#39;)),
+            DataCell(Text(&#39;${scheduling.auxiliaryData.getNbrPlacesAsked()}&#39;)),
+          ],
+        ),
+        DataRow(
+          cells: &lt;DataCell&gt;[
+            const DataCell(Text(&#39;places given&#39;)),
+            DataCell(Text(&#39;${scheduling.auxiliaryData.getNbrPlacesGiven()}&#39;)),
+          ],
+        ),
+        DataRow(
+          cells: &lt;DataCell&gt;[
+            const DataCell(Text(&#39;un-met wants&#39;)),
+            DataCell(Text(&#39;${scheduling.auxiliaryData.getNbrUnmetWants()}&#39;)),
+          ],
+        ),
+        DataRow(
+          cells: &lt;DataCell&gt;[
+            const DataCell(Text(&#39;on leave&#39;)),
+            DataCell(Text(&#39;${scheduling.auxiliaryData.getNbrOnLeave()}&#39;)),
+          ],
+        ),
+        const DataRow(
+          cells: &lt;DataCell&gt;[
+            DataCell(Text(&#39;Missing&#39;)),
+            DataCell(Text(&#39;0&#39;)),
+          ],
+        ),
+      ],
+    ),
   );
 }</code></pre>
 </section>

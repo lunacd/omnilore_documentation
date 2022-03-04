@@ -62,7 +62,11 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void main() {
+  <pre class="language-dart"><code class="language-dart">void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  if (!kIsWeb &amp;&amp; (Platform.isMacOS || Platform.isLinux || Platform.isWindows)) {
+    await DesktopWindow.setMinWindowSize(const Size(1000, 1100));
+  }
   runApp(const MyApp());
 }</code></pre>
 </section>

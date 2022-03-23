@@ -98,6 +98,7 @@ MUST call <a href="../../compute_split_control/SplitControl/resetState.html">res
   _moveBases();
   _formGroups();
   _assignRemnants();
+
   var result = List&lt;Set&lt;String&gt;&gt;.filled(_numSplits, {});
   for (var personIndex = 0; personIndex &lt; _people.length; personIndex++) {
     if (_splitMatrix[personIndex][numPeople] != 0) {

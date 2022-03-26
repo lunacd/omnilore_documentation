@@ -52,7 +52,7 @@
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span>?</span>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/Set-class.html">Set</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span>
 <span class="name ">getPeopleForClassRank</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getPeopleForClassRank-param-course"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">course</span>, </span></li>
 <li><span class="parameter" id="getPeopleForClassRank-param-rank"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">rank</span></span></li>
 </ol>)
@@ -64,12 +64,8 @@
 <section class="desc markdown">
   <p>Get a list of people who selected a given class as their nth choice (rank)</p>
 <p>Throws <a href="../../model_exceptions/InvalidClassRankException-class.html">InvalidClassRankException</a> if the given rank is not in 0 to 5,
-inclusive.
-Throws <a href="../../model_exceptions/UnexpectedFatalException-class.html">UnexpectedFatalException</a> if the people and course files are not
-consistent. This might happen if trying to query choices despite a
-<a href="../../model_exceptions/InconsistentCourseAndPeopleException-class.html">InconsistentCourseAndPeopleException</a> thrown in <code>loadPeople</code> or
-<code>loadCourses</code>. Frontend should prevent this.</p>
-<p>Returns null if course code does not exist.</p>
+inclusive.</p>
+<p>Will crash if course code does not exist.</p>
 <p>The first call to this function after a course/people load might take
 longer. All subsequent calls use cached results and will return
 instantaneously.</p>
@@ -83,20 +79,14 @@ user want to see this info. This function is slower than
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Iterable&lt;String&gt;? getPeopleForClassRank(String course, int rank) {
+  <pre class="language-dart"><code class="language-dart">Set&lt;String&gt; getPeopleForClassRank(String course, int rank) {
   if (rank &lt; 0 || rank &gt; 5) {
     throw InvalidClassRankException(rank: rank);
   }
-  if (!_choices.containsKey(course)) {
-    return null;
+  if (rank == 0) {
+    return _data[course]!.peopleFirstChoice;
   } else {
-    var choices = _choices[course]![rank];
-    if (choices == null) {
-      _computeChoices(rank, _people);
-      return _choices[course]![rank]!.toList(growable: false);
-    } else {
-      return choices.toList(growable: false);
-    }
+    return _data[course]!.peopleBackUp;
   }
 }</code></pre>
 </section>
@@ -133,6 +123,7 @@ user want to see this info. This function is slower than
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../../compute_overview_data/OverviewData-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/compute.html">compute</a></li>
     <li><a href="../../compute_overview_data/OverviewData/getNbrAddFromBackup.html">getNbrAddFromBackup</a></li>
     <li><a href="../../compute_overview_data/OverviewData/getNbrForClassRank.html">getNbrForClassRank</a></li>
     <li><a href="../../compute_overview_data/OverviewData/getPeopleAddFromBackup.html">getPeopleAddFromBackup</a></li>
@@ -140,9 +131,10 @@ user want to see this info. This function is slower than
     <li><a href="../../compute_overview_data/OverviewData/getPeopleForResultingClass.html">getPeopleForResultingClass</a></li>
     <li><a href="../../compute_overview_data/OverviewData/getResultingClassSize.html">getResultingClassSize</a></li>
     <li><a href="../../compute_overview_data/OverviewData/getStateOfProcessing.html">getStateOfProcessing</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/getUnmetWants.html">getUnmetWants</a></li>
     <li><a href="../../compute_overview_data/OverviewData/initialize.html">initialize</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li><a href="../../compute_overview_data/OverviewData/resetState.html">resetState</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/reloadCourses.html">reloadCourses</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../../compute_overview_data/OverviewData-class.html#operators">Operators</a></li>

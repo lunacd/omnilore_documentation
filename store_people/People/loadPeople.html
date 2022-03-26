@@ -107,7 +107,8 @@ classes when they want 0.</p>
           malformedLine: numLines + 1, numClassWanted: numClassWanted);
     }
     var availability = Availability();
-    List&lt;String&gt; classes = [];
+    List&lt;String&gt; firstChoices = [];
+    List&lt;String&gt; backups = [];
     var submissionOrder = int.parse(tokens[20]);
 
     &#47;&#47; Parse availability
@@ -152,15 +153,19 @@ classes when they want 0.</p>
           throw DuplicateClassSelectionException(
               malformedLine: numLines + 1, classCode: chosenClass);
         } else {
-          classes.add(chosenClass);
+          if (firstChoices.length &lt; numClassWanted) {
+            firstChoices.add(chosenClass);
+          } else {
+            backups.add(chosenClass);
+          }
           chosenClassesSet.add(chosenClass);
         }
       }
     }
-    if (classes.length &lt; numClassWanted) {
+    if (firstChoices.length &lt; numClassWanted) {
       throw WantingMoreThanListedException(fName: fName, lName: lName);
     }
-    if (numClassWanted == 0 &amp;&amp; classes.isNotEmpty) {
+    if (numClassWanted == 0 &amp;&amp; backups.isNotEmpty) {
       throw ListingWhenWantingZeroException(fName: fName, lName: lName);
     }
 
@@ -171,9 +176,10 @@ classes when they want 0.</p>
         fName: fName,
         lName: lName,
         phone: phone,
-        numClassWanted: numClassWanted,
+        nbrClassWanted: numClassWanted,
         availability: availability,
-        classes: classes,
+        firstChoices: firstChoices,
+        backups: backups,
         submissionOrder: submissionOrder));
 
     numLines++;

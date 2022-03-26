@@ -77,10 +77,10 @@
   if (_people.people.isEmpty) {
     return StateOfProcessing.needPeople;
   }
-  if (_courseControl.hasUndersizeClasses(_courses, _people)) {
+  if (_hasUndersizeClasses(_courses)) {
     return StateOfProcessing.drop;
   }
-  if (_courseControl.hasOversizeClasses(_courses, _people)) {
+  if (_hasOversizeClasses(_courses)) {
     return StateOfProcessing.split;
   }
   return StateOfProcessing.schedule;
@@ -119,6 +119,7 @@
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../../compute_overview_data/OverviewData-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/compute.html">compute</a></li>
     <li><a href="../../compute_overview_data/OverviewData/getNbrAddFromBackup.html">getNbrAddFromBackup</a></li>
     <li><a href="../../compute_overview_data/OverviewData/getNbrForClassRank.html">getNbrForClassRank</a></li>
     <li><a href="../../compute_overview_data/OverviewData/getPeopleAddFromBackup.html">getPeopleAddFromBackup</a></li>
@@ -126,9 +127,10 @@
     <li><a href="../../compute_overview_data/OverviewData/getPeopleForResultingClass.html">getPeopleForResultingClass</a></li>
     <li><a href="../../compute_overview_data/OverviewData/getResultingClassSize.html">getResultingClassSize</a></li>
     <li><a href="../../compute_overview_data/OverviewData/getStateOfProcessing.html">getStateOfProcessing</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/getUnmetWants.html">getUnmetWants</a></li>
     <li><a href="../../compute_overview_data/OverviewData/initialize.html">initialize</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li><a href="../../compute_overview_data/OverviewData/resetState.html">resetState</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/reloadCourses.html">reloadCourses</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../../compute_overview_data/OverviewData-class.html#operators">Operators</a></li>

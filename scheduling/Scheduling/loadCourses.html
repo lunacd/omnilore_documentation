@@ -79,17 +79,14 @@ schedule are inconsistent.</p>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;int&gt; loadCourses(String inputFile) async {
+  if (_courses.getNumCourses() != 0) {
+    throw UnexpectedFatalException();
+  }
   int numCourses;
   numCourses = await _courses.loadCourses(inputFile);
   if (numCourses != 0) {
     resetState();
-  }
-  if (numCourses != 0 &amp;&amp; _people.people.isNotEmpty) {
-    var result =
-        _validate.validatePeopleAgainstCourses(_people.people, _courses);
-    if (result != null) {
-      throw InconsistentCourseAndPeopleException(message: result);
-    }
+    overviewData.reloadCourses();
   }
   return numCourses;
 }</code></pre>

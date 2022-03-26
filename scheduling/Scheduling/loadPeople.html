@@ -73,6 +73,8 @@ Throws a <a href="../../model_exceptions/DuplicateClassSelectionException-class.
 more than once.
 Throws a <a href="../../model_exceptions/InconsistentCourseAndPeopleException-class.html">InconsistentCourseAndPeopleException</a> when people and the course
 schedule are inconsistent.</p>
+<p>Throws a <a href="../../model_exceptions/UnexpectedFatalException-class.html">UnexpectedFatalException</a> if loaded people before course or if
+has loaded people already.</p>
 <p>Asynchronously returns the number of people successfully read.</p>
 <pre class="language-dart"><code class="language-dart">int numPeople = await people.loadPeople('/path/to/file');
 </code></pre>
@@ -83,16 +85,18 @@ schedule are inconsistent.</p>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;int&gt; loadPeople(String inputFile) async {
+  if (_courses.getNumCourses() == 0 || _people.people.isNotEmpty) {
+    throw UnexpectedFatalException();
+  }
   var numPeople = await _people.loadPeople(inputFile);
   if (numPeople != 0) {
-    resetState();
-  }
-  if (numPeople != 0 &amp;&amp; _courses.getNumCourses() != 0) {
     var result =
-        _validate.validatePeopleAgainstCourses(_people.people, _courses);
+    _validate.validatePeopleAgainstCourses(_people.people, _courses);
     if (result != null) {
       throw InconsistentCourseAndPeopleException(message: result);
     }
+    overviewData.compute();
+    resetState();
   }
   return numPeople;
 }</code></pre>

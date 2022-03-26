@@ -62,11 +62,6 @@
     
 <section class="desc markdown">
   <p>Drop class</p>
-<p>Will do nothing if:</p>
-<ol>
-<li>the course is already dropped</li>
-<li>the given course does not exist</li>
-</ol>
 </section>
 
 
@@ -74,42 +69,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void drop(String course) {
-  if (_dropped.contains(course)) return;
   _dropped.add(course);
-  var affectedFirstChoice = _overviewData.getPeopleForClassRank(course, 0);
-  if (affectedFirstChoice == null) {
-    return;
-  }
-  var affectedBackup = List&lt;MapEntry&lt;String, int&gt;&gt;.from(
-      _getPeopleAndDataAddFromBackup(course)!);
-
-  for (var name in affectedFirstChoice) {
-    var person = _people.people[name]!;
-    var index = 1;
-    while (index &lt; person.classes.length &amp;&amp;
-        _dropped.contains(person.classes[index])) {
-      _affectedMembers[person.classes[index]]!.add(name);
-      index++;
-    }
-    if (index &lt; person.classes.length) {
-      _backupAdd[person.classes[index]]![name] = index;
-    }
-    _affectedMembers[course]!.add(name);
-  }
-  for (var entry in affectedBackup) {
-    var person = _people.people[entry.key]!;
-    var index = entry.value + 1;
-    while (index &lt; person.classes.length &amp;&amp;
-        _dropped.contains(person.classes[index])) {
-      _affectedMembers[person.classes[index]]!.add(entry.key);
-      index++;
-    }
-    if (index &lt; person.classes.length) {
-      _backupAdd[person.classes[index]]![entry.key] = index;
-    }
-    _backupAdd[course]!.remove(entry.key);
-    _affectedMembers[course]!.add(entry.key);
-  }
+  _overviewData.compute();
 }</code></pre>
 </section>
 
@@ -146,13 +107,12 @@
 
     <li class="section-title"><a href="../../compute_course_control/CourseControl-class.html#instance-methods">Methods</a></li>
     <li><a href="../../compute_course_control/CourseControl/drop.html">drop</a></li>
+    <li><a href="../../compute_course_control/CourseControl/getDropped.html">getDropped</a></li>
     <li><a href="../../compute_course_control/CourseControl/getMaxClassSize.html">getMaxClassSize</a></li>
     <li><a href="../../compute_course_control/CourseControl/getMinClassSize.html">getMinClassSize</a></li>
     <li><a href="../../compute_course_control/CourseControl/getNbrAddFromBackup.html">getNbrAddFromBackup</a></li>
     <li><a href="../../compute_course_control/CourseControl/getNbrDropped.html">getNbrDropped</a></li>
     <li><a href="../../compute_course_control/CourseControl/getPeopleAddFromBackup.html">getPeopleAddFromBackup</a></li>
-    <li><a href="../../compute_course_control/CourseControl/hasOversizeClasses.html">hasOversizeClasses</a></li>
-    <li><a href="../../compute_course_control/CourseControl/hasUndersizeClasses.html">hasUndersizeClasses</a></li>
     <li><a href="../../compute_course_control/CourseControl/initialize.html">initialize</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../../compute_course_control/CourseControl/resetState.html">resetState</a></li>

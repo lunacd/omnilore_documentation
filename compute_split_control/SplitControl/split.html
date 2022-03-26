@@ -78,7 +78,7 @@ MUST call <a href="../../compute_split_control/SplitControl/resetState.html">res
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">List&lt;Set&lt;String&gt;&gt; split(String course) {
   if (course.length != 3) throw UnexpectedFatalException();
-  _people = List.from(_overviewData.getPeopleForResultingClass(course)!);
+  _people = List.from(_overviewData.getPeopleForResultingClass(course));
   _max = _courseControl.getMaxClassSize(course);
   _numSplits = (_people.length &#47; _max).ceil();
   _maxSplitSize = (_people.length &#47; _numSplits).ceil();

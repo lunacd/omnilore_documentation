@@ -62,11 +62,6 @@
     
 <section class="desc markdown">
   <p>Undrop class</p>
-<p>Will do nothing if:</p>
-<ol>
-<li>the course is already dropped</li>
-<li>the given course does not exist</li>
-</ol>
 </section>
 
 
@@ -74,24 +69,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void undrop(String course) {
-  if (!_dropped.contains(course)) return;
   _dropped.remove(course);
-  for (var name in _affectedMembers[course]!) {
-    var person = _people.people[name]!;
-    for (var index = 0; index &lt; person.classes.length; index++) {
-      if (!_dropped.contains(person.classes[index])) {
-        if (person.classes[index] == course) {
-          if (index &gt; 0) {
-            _backupAdd[person.classes[index]]![name] = index;
-          }
-        } else {
-          _backupAdd[person.classes[index]]!.remove(name);
-          break;
-        }
-      }
-    }
-  }
-  _affectedMembers[course]!.clear();
+  _overviewData.compute();
 }</code></pre>
 </section>
 
@@ -128,13 +107,12 @@
 
     <li class="section-title"><a href="../../compute_course_control/CourseControl-class.html#instance-methods">Methods</a></li>
     <li><a href="../../compute_course_control/CourseControl/drop.html">drop</a></li>
+    <li><a href="../../compute_course_control/CourseControl/getDropped.html">getDropped</a></li>
     <li><a href="../../compute_course_control/CourseControl/getMaxClassSize.html">getMaxClassSize</a></li>
     <li><a href="../../compute_course_control/CourseControl/getMinClassSize.html">getMinClassSize</a></li>
     <li><a href="../../compute_course_control/CourseControl/getNbrAddFromBackup.html">getNbrAddFromBackup</a></li>
     <li><a href="../../compute_course_control/CourseControl/getNbrDropped.html">getNbrDropped</a></li>
     <li><a href="../../compute_course_control/CourseControl/getPeopleAddFromBackup.html">getPeopleAddFromBackup</a></li>
-    <li><a href="../../compute_course_control/CourseControl/hasOversizeClasses.html">hasOversizeClasses</a></li>
-    <li><a href="../../compute_course_control/CourseControl/hasUndersizeClasses.html">hasUndersizeClasses</a></li>
     <li><a href="../../compute_course_control/CourseControl/initialize.html">initialize</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../../compute_course_control/CourseControl/resetState.html">resetState</a></li>

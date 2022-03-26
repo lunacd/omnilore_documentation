@@ -73,7 +73,7 @@
   } else {
     _nbrCourseTakers =
         _people.people.values.fold&lt;int&gt;(0, (int previousValue, element) {
-      if (element.numClassWanted &gt; 0) {
+      if (element.nbrClassWanted &gt; 0) {
         return previousValue + 1;
       }
       return previousValue;

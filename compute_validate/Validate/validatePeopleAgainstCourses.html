@@ -74,7 +74,13 @@ If they are not, an error message is returned</p>
   <pre class="language-dart"><code class="language-dart">String? validatePeopleAgainstCourses(
     HashMap&lt;String, Person&gt; people, Courses courses) {
   for (var person in people.values) {
-    for (var classCode in person.classes) {
+    for (var classCode in person.firstChoices) {
+      if (!courses.hasCourse(classCode)) {
+        _isValid = false;
+        return &#39;Invalid class choice: $classCode by ${person.fName} ${person.lName}&#39;;
+      }
+    }
+    for (var classCode in person.backups) {
       if (!courses.hasCourse(classCode)) {
         _isValid = false;
         return &#39;Invalid class choice: $classCode by ${person.fName} ${person.lName}&#39;;

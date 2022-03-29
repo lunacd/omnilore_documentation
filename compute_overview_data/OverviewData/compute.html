@@ -53,7 +53,8 @@
       
 
 <span class="returntype">void</span>
-<span class="name ">compute</span>(<wbr>)
+<span class="name ">compute</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="compute-param-change"><span class="type-annotation"><a href="../../model_change/Change-class.html">Change</a></span> <span class="parameter-name">change</span></span></li>
+</ol>)
 
       
 
@@ -61,38 +62,72 @@
     
 <section class="desc markdown">
   <p>Compute overview data</p>
+<p>Depends on course, people, drop</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void compute() {
-  &#47;&#47; Clear data
-  for (var courseData in _data.values) {
-    courseData.reset();
+  <pre class="language-dart"><code class="language-dart">void compute(Change change) {
+  &#47;&#47; Update course data
+  if (change.course) {
+    _data.clear();
+    for (var course in _courses.getCodes()) {
+      _data[course] = CourseData();
+    }
   }
 
-  &#47;&#47; Compute
   var dropped = _courseControl.getDropped();
-  for (var person in _people.people.values) {
-    var wanted = person.nbrClassWanted;
-    for (var course in person.firstChoices) {
-      _data[course]!.firstChoices += 1;
+
+  &#47;&#47; Compute go courses
+  if (change.course || change.drop) {
+    _nbrGoCourse = 0;
+    for (var course in _courses.getCodes()) {
       if (!dropped.contains(course)) {
-        wanted -= 1;
-        _data[course]!.peopleFirstChoice.add(person.getName());
+        _nbrGoCourse += 1;
       }
     }
-    for (var i = 0; i &lt; person.backups.length; i++) {
-      _data[person.backups[i]]!.backups[i] += 1;
-      if (wanted &gt; 0 &amp;&amp; !dropped.contains(person.backups[i])) {
-        wanted -= 1;
-        _data[person.backups[i]]!.peopleBackUp.add(person.getName());
-      }
+  }
+
+  &#47;&#47; Compute all statistics
+  if (change.course || change.people || change.drop) {
+    &#47;&#47; Clear data
+    for (var courseData in _data.values) {
+      courseData.reset();
     }
-    if (wanted &gt; 0) {
-      _unmetWants += wanted;
+    _nbrUnmetWants = 0;
+    _nbrOnLeave = 0;
+    _nbrCourseTakers = 0;
+    _nbrRequested = 0;
+
+    &#47;&#47; Compute people stats
+    for (var person in _people.people.values) {
+      var wanted = person.nbrClassWanted;
+      _nbrRequested += wanted;
+      if (wanted == 0) {
+        _nbrOnLeave += 1;
+      } else {
+        _nbrCourseTakers += 1;
+      }
+      for (var i = 0; i &lt; person.backups.length; i++) {
+        _data[person.backups[i]]!.backups[i].add(person.getName());
+      }
+      for (var course in person.firstChoices) {
+        if (!dropped.contains(course)) {
+          wanted -= 1;
+          _data[course]!.firstChoices.add(person.getName());
+        }
+      }
+      for (var i = 0; i &lt; person.backups.length; i++) {
+        if (wanted &gt; 0 &amp;&amp; !dropped.contains(person.backups[i])) {
+          wanted -= 1;
+          _data[person.backups[i]]!.addFromBackup.add(person.getName());
+        }
+      }
+      if (wanted &gt; 0) {
+        _nbrUnmetWants += wanted;
+      }
     }
   }
 }</code></pre>
@@ -132,16 +167,20 @@
     <li class="section-title"><a href="../../compute_overview_data/OverviewData-class.html#instance-methods">Methods</a></li>
     <li><a href="../../compute_overview_data/OverviewData/compute.html">compute</a></li>
     <li><a href="../../compute_overview_data/OverviewData/getNbrAddFromBackup.html">getNbrAddFromBackup</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/getNbrCourseTakers.html">getNbrCourseTakers</a></li>
     <li><a href="../../compute_overview_data/OverviewData/getNbrForClassRank.html">getNbrForClassRank</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/getNbrGoCourses.html">getNbrGoCourses</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/getNbrOnLeave.html">getNbrOnLeave</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/getNbrPlacesAsked.html">getNbrPlacesAsked</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/getNbrPlacesGiven.html">getNbrPlacesGiven</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/getNbrUnmetWants.html">getNbrUnmetWants</a></li>
     <li><a href="../../compute_overview_data/OverviewData/getPeopleAddFromBackup.html">getPeopleAddFromBackup</a></li>
     <li><a href="../../compute_overview_data/OverviewData/getPeopleForClassRank.html">getPeopleForClassRank</a></li>
     <li><a href="../../compute_overview_data/OverviewData/getPeopleForResultingClass.html">getPeopleForResultingClass</a></li>
     <li><a href="../../compute_overview_data/OverviewData/getResultingClassSize.html">getResultingClassSize</a></li>
     <li><a href="../../compute_overview_data/OverviewData/getStateOfProcessing.html">getStateOfProcessing</a></li>
-    <li><a href="../../compute_overview_data/OverviewData/getUnmetWants.html">getUnmetWants</a></li>
     <li><a href="../../compute_overview_data/OverviewData/initialize.html">initialize</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li><a href="../../compute_overview_data/OverviewData/reloadCourses.html">reloadCourses</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../../compute_overview_data/OverviewData-class.html#operators">Operators</a></li>

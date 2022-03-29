@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the getNbrCourseTakers method from the AuxiliaryData class, for the Dart programming language.">
-  <title>getNbrCourseTakers method - AuxiliaryData class - auxiliary_data library - Dart API</title>
+  <meta name="description" content="API docs for the getNbrGoCourses method from the OverviewData class, for the Dart programming language.">
+  <title>getNbrGoCourses method - OverviewData class - overview_data library - Dart API</title>
 
 
   
@@ -30,11 +30,11 @@
   <button id="sidenav-left-toggle" type="button">&nbsp;</button>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">omnilore_scheduler</a></li>
-    <li><a href="../../compute_auxiliary_data/compute_auxiliary_data-library.html">auxiliary_data</a></li>
-    <li><a href="../../compute_auxiliary_data/AuxiliaryData-class.html">AuxiliaryData</a></li>
-    <li class="self-crumb">getNbrCourseTakers method</li>
+    <li><a href="../../compute_overview_data/compute_overview_data-library.html">overview_data</a></li>
+    <li><a href="../../compute_overview_data/OverviewData-class.html">OverviewData</a></li>
+    <li class="self-crumb">getNbrGoCourses method</li>
   </ol>
-  <div class="self-name">getNbrCourseTakers</div>
+  <div class="self-name">getNbrGoCourses</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,7 +45,7 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">getNbrCourseTakers</span> method 
+<h1><span class="kind-method">getNbrGoCourses</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
@@ -53,33 +53,22 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
-<span class="name ">getNbrCourseTakers</span>(<wbr>)
+<span class="name ">getNbrGoCourses</span>(<wbr>)
 
       
 
     </section>
     
 <section class="desc markdown">
-  <p>Get the total number of course takers</p>
+  <p>Get the total number of courses</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">int getNbrCourseTakers() {
-  if (_nbrCourseTakers != null) {
-    return _nbrCourseTakers!;
-  } else {
-    _nbrCourseTakers =
-        _people.people.values.fold&lt;int&gt;(0, (int previousValue, element) {
-      if (element.nbrClassWanted &gt; 0) {
-        return previousValue + 1;
-      }
-      return previousValue;
-    });
-    return _nbrCourseTakers!;
-  }
+  <pre class="language-dart"><code class="language-dart">int getNbrGoCourses() {
+  return _nbrGoCourse;
 }</code></pre>
 </section>
 
@@ -95,38 +84,45 @@
 
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
   <li><a href="../../index.html">omnilore_scheduler</a></li>
-  <li><a href="../../compute_auxiliary_data/compute_auxiliary_data-library.html">auxiliary_data</a></li>
-  <li><a href="../../compute_auxiliary_data/AuxiliaryData-class.html">AuxiliaryData</a></li>
-  <li class="self-crumb">getNbrCourseTakers method</li>
+  <li><a href="../../compute_overview_data/compute_overview_data-library.html">overview_data</a></li>
+  <li><a href="../../compute_overview_data/OverviewData-class.html">OverviewData</a></li>
+  <li class="self-crumb">getNbrGoCourses method</li>
 </ol>
 
 
-    <h5>AuxiliaryData class</h5>
+    <h5>OverviewData class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../compute_auxiliary_data/AuxiliaryData-class.html#constructors">Constructors</a></li>
-    <li><a href="../../compute_auxiliary_data/AuxiliaryData/AuxiliaryData.html">AuxiliaryData</a></li>
+    <li class="section-title"><a href="../../compute_overview_data/OverviewData-class.html#constructors">Constructors</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/OverviewData.html">OverviewData</a></li>
 
 
     <li class="section-title inherited">
-      <a href="../../compute_auxiliary_data/AuxiliaryData-class.html#instance-properties">Properties</a>
+      <a href="../../compute_overview_data/OverviewData-class.html#instance-properties">Properties</a>
     </li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
-    <li class="section-title"><a href="../../compute_auxiliary_data/AuxiliaryData-class.html#instance-methods">Methods</a></li>
-    <li><a href="../../compute_auxiliary_data/AuxiliaryData/getNbrCourseTakers.html">getNbrCourseTakers</a></li>
-    <li><a href="../../compute_auxiliary_data/AuxiliaryData/getNbrGoCourses.html">getNbrGoCourses</a></li>
-    <li><a href="../../compute_auxiliary_data/AuxiliaryData/getNbrOnLeave.html">getNbrOnLeave</a></li>
-    <li><a href="../../compute_auxiliary_data/AuxiliaryData/getNbrPlacesAsked.html">getNbrPlacesAsked</a></li>
-    <li><a href="../../compute_auxiliary_data/AuxiliaryData/getNbrPlacesGiven.html">getNbrPlacesGiven</a></li>
-    <li><a href="../../compute_auxiliary_data/AuxiliaryData/getNbrUnmetWants.html">getNbrUnmetWants</a></li>
-    <li><a href="../../compute_auxiliary_data/AuxiliaryData/initialize.html">initialize</a></li>
+    <li class="section-title"><a href="../../compute_overview_data/OverviewData-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/compute.html">compute</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/getNbrAddFromBackup.html">getNbrAddFromBackup</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/getNbrCourseTakers.html">getNbrCourseTakers</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/getNbrForClassRank.html">getNbrForClassRank</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/getNbrGoCourses.html">getNbrGoCourses</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/getNbrOnLeave.html">getNbrOnLeave</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/getNbrPlacesAsked.html">getNbrPlacesAsked</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/getNbrPlacesGiven.html">getNbrPlacesGiven</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/getNbrUnmetWants.html">getNbrUnmetWants</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/getPeopleAddFromBackup.html">getPeopleAddFromBackup</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/getPeopleForClassRank.html">getPeopleForClassRank</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/getPeopleForResultingClass.html">getPeopleForResultingClass</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/getResultingClassSize.html">getResultingClassSize</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/getStateOfProcessing.html">getStateOfProcessing</a></li>
+    <li><a href="../../compute_overview_data/OverviewData/initialize.html">initialize</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li><a href="../../compute_auxiliary_data/AuxiliaryData/resetState.html">resetState</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
-    <li class="section-title inherited"><a href="../../compute_auxiliary_data/AuxiliaryData-class.html#operators">Operators</a></li>
+    <li class="section-title inherited"><a href="../../compute_overview_data/OverviewData-class.html#operators">Operators</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
 
 

@@ -70,7 +70,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Iterable&lt;String&gt; getCodes() {
-  return _courses.keys;
+  var result = _courses.keys.toList(growable: false);
+  result.sort((String a, String b) =&gt; a.compareTo(b));
+  return result;
 }</code></pre>
 </section>
 
@@ -112,6 +114,7 @@
     <li><a href="../../store_courses/Courses/hasCourse.html">hasCourse</a></li>
     <li><a href="../../store_courses/Courses/loadCourses.html">loadCourses</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../../store_courses/Courses/splitCourse.html">splitCourse</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../../store_courses/Courses-class.html#operators">Operators</a></li>

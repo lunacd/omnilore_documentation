@@ -70,7 +70,7 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void undrop(String course) {
   _dropped.remove(course);
-  _overviewData.compute();
+  _scheduling.compute(Change(drop: true));
 }</code></pre>
 </section>
 
@@ -110,12 +110,8 @@
     <li><a href="../../compute_course_control/CourseControl/getDropped.html">getDropped</a></li>
     <li><a href="../../compute_course_control/CourseControl/getMaxClassSize.html">getMaxClassSize</a></li>
     <li><a href="../../compute_course_control/CourseControl/getMinClassSize.html">getMinClassSize</a></li>
-    <li><a href="../../compute_course_control/CourseControl/getNbrAddFromBackup.html">getNbrAddFromBackup</a></li>
-    <li><a href="../../compute_course_control/CourseControl/getNbrDropped.html">getNbrDropped</a></li>
-    <li><a href="../../compute_course_control/CourseControl/getPeopleAddFromBackup.html">getPeopleAddFromBackup</a></li>
     <li><a href="../../compute_course_control/CourseControl/initialize.html">initialize</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li><a href="../../compute_course_control/CourseControl/resetState.html">resetState</a></li>
     <li><a href="../../compute_course_control/CourseControl/setMinMaxClassSize.html">setMinMaxClassSize</a></li>
     <li><a href="../../compute_course_control/CourseControl/setMinMaxClassSizeForClass.html">setMinMaxClassSizeForClass</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>

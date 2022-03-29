@@ -60,14 +60,12 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Scheduling() {
-  auxiliaryData = AuxiliaryData(_courses, _people);
   overviewData = OverviewData(_courses, _people, _validate);
-  courseControl = CourseControl(_courses);
-  splitControl = SplitControl(_people);
+  courseControl = CourseControl();
+  splitControl = SplitControl(_people, _courses);
 
-  courseControl.initialize(overviewData);
+  courseControl.initialize(this);
   overviewData.initialize(courseControl);
-  auxiliaryData.initialize(courseControl);
   splitControl.initialize(overviewData, courseControl);
 }</code></pre>
 </section>
@@ -100,7 +98,6 @@
     <li class="section-title">
       <a href="../../scheduling/Scheduling-class.html#instance-properties">Properties</a>
     </li>
-    <li><a href="../../scheduling/Scheduling/auxiliaryData.html">auxiliaryData</a></li>
     <li><a href="../../scheduling/Scheduling/courseControl.html">courseControl</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../scheduling/Scheduling/overviewData.html">overviewData</a></li>
@@ -108,15 +105,14 @@
     <li><a href="../../scheduling/Scheduling/splitControl.html">splitControl</a></li>
 
     <li class="section-title"><a href="../../scheduling/Scheduling-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../scheduling/Scheduling/compute.html">compute</a></li>
     <li><a href="../../scheduling/Scheduling/getCourse.html">getCourse</a></li>
     <li><a href="../../scheduling/Scheduling/getCourseCodes.html">getCourseCodes</a></li>
     <li><a href="../../scheduling/Scheduling/getNumPeople.html">getNumPeople</a></li>
     <li><a href="../../scheduling/Scheduling/getPeople.html">getPeople</a></li>
-    <li><a href="../../scheduling/Scheduling/getPeopleStruct.html">getPeopleStruct</a></li>
     <li><a href="../../scheduling/Scheduling/loadCourses.html">loadCourses</a></li>
     <li><a href="../../scheduling/Scheduling/loadPeople.html">loadPeople</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li><a href="../../scheduling/Scheduling/resetState.html">resetState</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../../scheduling/Scheduling-class.html#operators">Operators</a></li>

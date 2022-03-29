@@ -52,7 +52,7 @@
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Set-class.html">Set</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span>&gt;</span></span>
+<span class="returntype">void</span>
 <span class="name ">split</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="split-param-course"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">course</span></span></li>
 </ol>)
 
@@ -76,19 +76,20 @@ MUST call <a href="../../compute_split_control/SplitControl/resetState.html">res
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">List&lt;Set&lt;String&gt;&gt; split(String course) {
+  <pre class="language-dart"><code class="language-dart">void split(String course) {
   if (course.length != 3) throw UnexpectedFatalException();
-  _people = List.from(_overviewData.getPeopleForResultingClass(course));
+  _peopleToSplit =
+      List.from(_overviewData.getPeopleForResultingClass(course));
   _max = _courseControl.getMaxClassSize(course);
-  _numSplits = (_people.length &#47; _max).ceil();
-  _maxSplitSize = (_people.length &#47; _numSplits).ceil();
+  _numSplits = (_peopleToSplit.length &#47; _max).ceil();
+  _maxSplitSize = (_peopleToSplit.length &#47; _numSplits).ceil();
   _splitMatrix = List&lt;List&lt;int&gt;&gt;.filled(
-      _people.length + _numSplits, List&lt;int&gt;.filled(22, 0));
+      _peopleToSplit.length + _numSplits, List&lt;int&gt;.filled(22, 0));
   _clusterArray = List&lt;int&gt;.filled(_clusters.length, -1);
   _correlateMatrix = List&lt;List&lt;int&gt;&gt;.filled(
-      _people.length, List&lt;int&gt;.filled(_people.length, 0));
+      _peopleToSplit.length, List&lt;int&gt;.filled(_peopleToSplit.length, 0));
   _testArray = List&lt;int&gt;.filled(_numSplits, 0);
-  _baseOffset = _people.length;
+  _baseOffset = _peopleToSplit.length;
 
   _loadSplitMatrix();
   _loadClusterArray();
@@ -100,13 +101,39 @@ MUST call <a href="../../compute_split_control/SplitControl/resetState.html">res
   _assignRemnants();
 
   var result = List&lt;Set&lt;String&gt;&gt;.filled(_numSplits, {});
-  for (var personIndex = 0; personIndex &lt; _people.length; personIndex++) {
+  for (var personIndex = 0;
+      personIndex &lt; _peopleToSplit.length;
+      personIndex++) {
     if (_splitMatrix[personIndex][numPeople] != 0) {
       throw UnexpectedFatalException();
     }
-    result[_splitMatrix[personIndex][numUnavail]].add(_people[personIndex]);
+    result[_splitMatrix[personIndex][numUnavail]]
+        .add(_peopleToSplit[personIndex]);
   }
-  return result;
+
+  &#47;&#47; Update people&#39;s choices
+  for (var splitIndex = 0; splitIndex &lt; result.length; splitIndex++) {
+    for (var person in result[splitIndex]) {
+      var classIndex = _people.people[person]!.firstChoices
+          .indexWhere((element) =&gt; element == course);
+      _people.people[person]!.firstChoices
+          .replaceRange(classIndex, classIndex + 1, [&#39;$course$splitIndex&#39;]);
+    }
+  }
+
+  &#47;&#47; Update backups
+  &#47;&#47; TODO: use correlation
+  for (var person in _people.people.values) {
+    var classIndex = _people.people[person]!.firstChoices
+        .indexWhere((element) =&gt; element == course);
+    if (classIndex != -1) {
+      _people.people[person]!.firstChoices
+          .replaceRange(classIndex, classIndex + 1, [&#39;${course}1&#39;]);
+    }
+  }
+
+  &#47;&#47; Update course data
+  _courses.splitCourse(course, result.length);
 }</code></pre>
 </section>
 
@@ -143,12 +170,15 @@ MUST call <a href="../../compute_split_control/SplitControl/resetState.html">res
 
     <li class="section-title"><a href="../../compute_split_control/SplitControl-class.html#instance-methods">Methods</a></li>
     <li><a href="../../compute_split_control/SplitControl/addCluster.html">addCluster</a></li>
+    <li><a href="../../compute_split_control/SplitControl/getClustByPerson.html">getClustByPerson</a></li>
     <li><a href="../../compute_split_control/SplitControl/initialize.html">initialize</a></li>
+    <li><a href="../../compute_split_control/SplitControl/isClustured.html">isClustured</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../../compute_split_control/SplitControl/removeCluster.html">removeCluster</a></li>
     <li><a href="../../compute_split_control/SplitControl/resetState.html">resetState</a></li>
     <li><a href="../../compute_split_control/SplitControl/split.html">split</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+    <li><a href="../../compute_split_control/SplitControl/validCluster.html">validCluster</a></li>
 
     <li class="section-title inherited"><a href="../../compute_split_control/SplitControl-class.html#operators">Operators</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>

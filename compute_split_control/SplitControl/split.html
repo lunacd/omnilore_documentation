@@ -78,12 +78,20 @@ MUST call <a href="../../compute_split_control/SplitControl/resetState.html">res
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void split(String course) {
   if (course.length != 3) throw UnexpectedFatalException();
-  _peopleToSplit =
-      List.from(_overviewData.getPeopleForResultingClass(course));
+  _peopleToSplit = List.from(_overviewData.getPeopleForResultingClass(course),
+      growable: false);
+  _peopleInBackup = _people.people.values
+      .where((person) =&gt;
+          person.firstChoices.contains(course) ||
+          person.backups.contains(course))
+      .map((person) =&gt; person.getName())
+      .where((name) =&gt; !_peopleToSplit.contains(name))
+      .toList(growable: false);
   _max = _courseControl.getMaxClassSize(course);
   _numSplits = (_peopleToSplit.length &#47; _max).ceil();
   _maxSplitSize = (_peopleToSplit.length &#47; _numSplits).ceil();
-  _splitMatrix = List&lt;List&lt;int&gt;&gt;.generate(_peopleToSplit.length + _numSplits,
+  _splitMatrix = List&lt;List&lt;int&gt;&gt;.generate(
+      _peopleToSplit.length + _peopleInBackup.length + _numSplits,
       (_) =&gt; List&lt;int&gt;.filled(22, 0, growable: false),
       growable: false);
   _clusterArray = List&lt;int&gt;.filled(_clusters.length, -1, growable: false);
@@ -91,7 +99,8 @@ MUST call <a href="../../compute_split_control/SplitControl/resetState.html">res
       (_) =&gt; List&lt;int&gt;.filled(_peopleToSplit.length, 0, growable: false),
       growable: false);
   _testArray = List&lt;int&gt;.filled(_numSplits, 0, growable: false);
-  _baseOffset = _peopleToSplit.length;
+  _baseOffset = _peopleToSplit.length + _peopleInBackup.length;
+  _backupOffset = _peopleToSplit.length;
 
   _loadSplitMatrix();
   _loadClusterArray();
@@ -119,26 +128,24 @@ MUST call <a href="../../compute_split_control/SplitControl/resetState.html">res
       var classIndex = _people.people[person]!.firstChoices
           .indexWhere((element) =&gt; element == course);
       if (classIndex != -1) {
-        _people.people[person]!.firstChoices
-            .replaceRange(classIndex, classIndex + 1, [&#39;$course$splitIndex&#39;]);
+        _people.people[person]!.firstChoices.replaceRange(
+            classIndex, classIndex + 1, [&#39;$course${splitIndex + 1}&#39;]);
       } else {
         classIndex = _people.people[person]!.backups
             .indexWhere((element) =&gt; element == course);
-        _people.people[person]!.backups
-            .replaceRange(classIndex, classIndex + 1, [&#39;$course$splitIndex&#39;]);
+        _people.people[person]!.backups.replaceRange(
+            classIndex, classIndex + 1, [&#39;$course${splitIndex + 1}&#39;]);
       }
     }
   }
 
-  &#47;&#47; Update backups
-  &#47;&#47; TODO: use correlation
-  for (var person in _people.people.keys) {
-    var classIndex = _people.people[person]!.firstChoices
+  &#47;&#47; Update backups with correlation
+  for (var i = 0; i &lt; _peopleInBackup.length; i++) {
+    var cluster = _findBestCluster(i + _backupOffset, false);
+    var classIndex = _people.people[_peopleInBackup[i]]!.backups
         .indexWhere((element) =&gt; element == course);
-    if (classIndex != -1) {
-      _people.people[person]!.firstChoices
-          .replaceRange(classIndex, classIndex + 1, [&#39;${course}1&#39;]);
-    }
+    _people.people[_peopleInBackup[i]]!.backups.replaceRange(
+        classIndex, classIndex + 1, [&#39;$course${cluster - _baseOffset + 1}&#39;]);
   }
 
   &#47;&#47; Update course data

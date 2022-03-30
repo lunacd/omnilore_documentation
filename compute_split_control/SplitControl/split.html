@@ -83,12 +83,14 @@ MUST call <a href="../../compute_split_control/SplitControl/resetState.html">res
   _max = _courseControl.getMaxClassSize(course);
   _numSplits = (_peopleToSplit.length &#47; _max).ceil();
   _maxSplitSize = (_peopleToSplit.length &#47; _numSplits).ceil();
-  _splitMatrix = List&lt;List&lt;int&gt;&gt;.filled(
-      _peopleToSplit.length + _numSplits, List&lt;int&gt;.filled(22, 0));
-  _clusterArray = List&lt;int&gt;.filled(_clusters.length, -1);
-  _correlateMatrix = List&lt;List&lt;int&gt;&gt;.filled(
-      _peopleToSplit.length, List&lt;int&gt;.filled(_peopleToSplit.length, 0));
-  _testArray = List&lt;int&gt;.filled(_numSplits, 0);
+  _splitMatrix = List&lt;List&lt;int&gt;&gt;.generate(_peopleToSplit.length + _numSplits,
+      (_) =&gt; List&lt;int&gt;.filled(22, 0, growable: false),
+      growable: false);
+  _clusterArray = List&lt;int&gt;.filled(_clusters.length, -1, growable: false);
+  _correlateMatrix = List&lt;List&lt;int&gt;&gt;.generate(_peopleToSplit.length,
+      (_) =&gt; List&lt;int&gt;.filled(_peopleToSplit.length, 0, growable: false),
+      growable: false);
+  _testArray = List&lt;int&gt;.filled(_numSplits, 0, growable: false);
   _baseOffset = _peopleToSplit.length;
 
   _loadSplitMatrix();
@@ -100,14 +102,14 @@ MUST call <a href="../../compute_split_control/SplitControl/resetState.html">res
   _formGroups();
   _assignRemnants();
 
-  var result = List&lt;Set&lt;String&gt;&gt;.filled(_numSplits, {});
+  var result = List&lt;Set&lt;String&gt;&gt;.generate(_numSplits, (_) =&gt; &lt;String&gt;{});
   for (var personIndex = 0;
       personIndex &lt; _peopleToSplit.length;
       personIndex++) {
     if (_splitMatrix[personIndex][numPeople] != 0) {
       throw UnexpectedFatalException();
     }
-    result[_splitMatrix[personIndex][numUnavail]]
+    result[_splitMatrix[personIndex][numUnavail] - _baseOffset]
         .add(_peopleToSplit[personIndex]);
   }
 
@@ -116,14 +118,21 @@ MUST call <a href="../../compute_split_control/SplitControl/resetState.html">res
     for (var person in result[splitIndex]) {
       var classIndex = _people.people[person]!.firstChoices
           .indexWhere((element) =&gt; element == course);
-      _people.people[person]!.firstChoices
-          .replaceRange(classIndex, classIndex + 1, [&#39;$course$splitIndex&#39;]);
+      if (classIndex != -1) {
+        _people.people[person]!.firstChoices
+            .replaceRange(classIndex, classIndex + 1, [&#39;$course$splitIndex&#39;]);
+      } else {
+        classIndex = _people.people[person]!.backups
+            .indexWhere((element) =&gt; element == course);
+        _people.people[person]!.backups
+            .replaceRange(classIndex, classIndex + 1, [&#39;$course$splitIndex&#39;]);
+      }
     }
   }
 
   &#47;&#47; Update backups
   &#47;&#47; TODO: use correlation
-  for (var person in _people.people.values) {
+  for (var person in _people.people.keys) {
     var classIndex = _people.people[person]!.firstChoices
         .indexWhere((element) =&gt; element == course);
     if (classIndex != -1) {

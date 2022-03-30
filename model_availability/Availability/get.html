@@ -80,7 +80,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">bool get(WeekOfMonth week, DayOfWeek day, TimeOfDay time) {
-  return _availability[week.index][day.index][time.index];
+  return _availability[week.index * 10 + day.index * 2 + time.index];
 }</code></pre>
 </section>
 

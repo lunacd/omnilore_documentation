@@ -72,7 +72,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void set(WeekOfMonth week, DayOfWeek day, TimeOfDay time, bool available) {
-  _availability[week.index][day.index][time.index] = available;
+  _availability[week.index * 10 + day.index * 2 + time.index] = available;
 }</code></pre>
 </section>
 

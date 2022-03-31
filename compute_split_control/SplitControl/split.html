@@ -78,7 +78,8 @@ MUST call <a href="../../compute_split_control/SplitControl/resetState.html">res
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void split(String course) {
   if (course.length != 3) throw UnexpectedFatalException();
-  _peopleToSplit = List.from(_overviewData.getPeopleForResultingClass(course),
+  _peopleToSplit = List.from(
+      _scheduling.overviewData.getPeopleForResultingClass(course),
       growable: false);
   _peopleInBackup = _people.people.values
       .where((person) =&gt;
@@ -87,7 +88,7 @@ MUST call <a href="../../compute_split_control/SplitControl/resetState.html">res
       .map((person) =&gt; person.getName())
       .where((name) =&gt; !_peopleToSplit.contains(name))
       .toList(growable: false);
-  _max = _courseControl.getMaxClassSize(course);
+  _max = _scheduling.courseControl.getMaxClassSize(course);
   _numSplits = (_peopleToSplit.length &#47; _max).ceil();
   _maxSplitSize = (_peopleToSplit.length &#47; _numSplits).ceil();
   _splitMatrix = List&lt;List&lt;int&gt;&gt;.generate(
@@ -150,6 +151,8 @@ MUST call <a href="../../compute_split_control/SplitControl/resetState.html">res
 
   &#47;&#47; Update course data
   _courses.splitCourse(course, result.length);
+
+  _scheduling.compute(Change(course: true));
 }</code></pre>
 </section>
 

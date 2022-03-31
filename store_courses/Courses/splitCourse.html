@@ -68,7 +68,7 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void splitCourse(String course, int numSplits) {
   for (var splitIndex = 0; splitIndex &lt; numSplits; splitIndex++) {
-    _courses[&#39;$course$splitIndex&#39;] = _courses[course]!;
+    _courses[&#39;$course${splitIndex + 1}&#39;] = _courses[course]!;
   }
   _courses.remove(course);
 }</code></pre>

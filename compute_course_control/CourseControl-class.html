@@ -163,6 +163,32 @@
 
 </dd>
 
+        <dt id="isMaxSizeMixed" class="callable">
+  <span class="name"><a href="../compute_course_control/CourseControl/isMaxSizeMixed.html">isMaxSizeMixed</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Determine whether the max class size is mixed for current classes 
+  
+
+</dd>
+
+        <dt id="isMinSizeMixed" class="callable">
+  <span class="name"><a href="../compute_course_control/CourseControl/isMinSizeMixed.html">isMinSizeMixed</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Determine whether the min class size is mixed for current classes 
+  
+
+</dd>
+
         <dt id="noSuchMethod" class="callable inherited">
   <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
     <span class="returntype parameter">&#8594; dynamic</span>
@@ -176,15 +202,17 @@
 
 </dd>
 
-        <dt id="setMinMaxClassSize" class="callable">
-  <span class="name"><a href="../compute_course_control/CourseControl/setMinMaxClassSize.html">setMinMaxClassSize</a></span><span class="signature">(<wbr><span class="parameter" id="setMinMaxClassSize-param-minSize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">minSize</span>, </span><span class="parameter" id="setMinMaxClassSize-param-maxSize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">maxSize</span></span>)
+        <dt id="setGlobalMinMaxClassSize" class="callable">
+  <span class="name"><a href="../compute_course_control/CourseControl/setGlobalMinMaxClassSize.html">setGlobalMinMaxClassSize</a></span><span class="signature">(<wbr><span class="parameter" id="setGlobalMinMaxClassSize-param-minSize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">minSize</span>, </span><span class="parameter" id="setGlobalMinMaxClassSize-param-maxSize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">maxSize</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
   
 
 </dt>
 <dd>
-  Set global minimum and maximum class size <a href="../compute_course_control/CourseControl/setMinMaxClassSize.html">[...]</a>
+  Set global minimum and maximum class size
+Calling this function will overwrite all previously added class-specific
+min/max sizes <a href="../compute_course_control/CourseControl/setGlobalMinMaxClassSize.html">[...]</a>
   
 
 </dd>
@@ -304,8 +332,10 @@
     <li><a href="../compute_course_control/CourseControl/getMaxClassSize.html">getMaxClassSize</a></li>
     <li><a href="../compute_course_control/CourseControl/getMinClassSize.html">getMinClassSize</a></li>
     <li><a href="../compute_course_control/CourseControl/initialize.html">initialize</a></li>
+    <li><a href="../compute_course_control/CourseControl/isMaxSizeMixed.html">isMaxSizeMixed</a></li>
+    <li><a href="../compute_course_control/CourseControl/isMinSizeMixed.html">isMinSizeMixed</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li><a href="../compute_course_control/CourseControl/setMinMaxClassSize.html">setMinMaxClassSize</a></li>
+    <li><a href="../compute_course_control/CourseControl/setGlobalMinMaxClassSize.html">setGlobalMinMaxClassSize</a></li>
     <li><a href="../compute_course_control/CourseControl/setMinMaxClassSizeForClass.html">setMinMaxClassSizeForClass</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
     <li><a href="../compute_course_control/CourseControl/undrop.html">undrop</a></li>

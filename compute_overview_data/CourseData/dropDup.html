@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the getNbrClassrooms method from the ScheduleControl class, for the Dart programming language.">
-  <title>getNbrClassrooms method - ScheduleControl class - schedule_control library - Dart API</title>
+  <meta name="description" content="API docs for the dropDup property from the CourseData class, for the Dart programming language.">
+  <title>dropDup property - CourseData class - overview_data library - Dart API</title>
 
 
   
@@ -30,11 +30,11 @@
   <button id="sidenav-left-toggle" type="button">&nbsp;</button>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">omnilore_scheduler</a></li>
-    <li><a href="../../compute_schedule_control/compute_schedule_control-library.html">schedule_control</a></li>
-    <li><a href="../../compute_schedule_control/ScheduleControl-class.html">ScheduleControl</a></li>
-    <li class="self-crumb">getNbrClassrooms method</li>
+    <li><a href="../../compute_overview_data/compute_overview_data-library.html">overview_data</a></li>
+    <li><a href="../../compute_overview_data/CourseData-class.html">CourseData</a></li>
+    <li class="self-crumb">dropDup property</li>
   </ol>
-  <div class="self-name">getNbrClassrooms</div>
+  <div class="self-name">dropDup</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,33 +45,24 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">getNbrClassrooms</span> method 
+<h1><span class="kind-property">dropDup</span> property 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
-    <section class="multi-line-signature">
-      
+        <section class="multi-line-signature">
+          <a href="https://api.flutter.dev/flutter/dart-core/Set-class.html">Set</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span>
+          <span class="name ">dropDup</span>
+          <div class="features">read / write</div>
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
-<span class="name ">getNbrClassrooms</span>(<wbr>)
+        </section>
+        
 
-      
-
-    </section>
-    
-<section class="desc markdown">
-  <p>Get current number of classrooms</p>
-<p>This determines how many courses can be scheduled together at one time
-slot.</p>
-</section>
-
-
-    
+        
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">int getNbrClassrooms() {
-  return _nbrClassrooms;
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">Set&lt;String&gt; dropDup = {};
+
+</code></pre>
 </section>
 
 
@@ -86,38 +77,39 @@ slot.</p>
 
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
   <li><a href="../../index.html">omnilore_scheduler</a></li>
-  <li><a href="../../compute_schedule_control/compute_schedule_control-library.html">schedule_control</a></li>
-  <li><a href="../../compute_schedule_control/ScheduleControl-class.html">ScheduleControl</a></li>
-  <li class="self-crumb">getNbrClassrooms method</li>
+  <li><a href="../../compute_overview_data/compute_overview_data-library.html">overview_data</a></li>
+  <li><a href="../../compute_overview_data/CourseData-class.html">CourseData</a></li>
+  <li class="self-crumb">dropDup property</li>
 </ol>
 
 
-    <h5>ScheduleControl class</h5>
+    <h5>CourseData class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../compute_schedule_control/ScheduleControl-class.html#constructors">Constructors</a></li>
-    <li><a href="../../compute_schedule_control/ScheduleControl/ScheduleControl.html">ScheduleControl</a></li>
+    <li class="section-title"><a href="../../compute_overview_data/CourseData-class.html#constructors">Constructors</a></li>
+    <li><a href="../../compute_overview_data/CourseData/CourseData.html">CourseData</a></li>
 
 
-    <li class="section-title inherited">
-      <a href="../../compute_schedule_control/ScheduleControl-class.html#instance-properties">Properties</a>
+    <li class="section-title">
+      <a href="../../compute_overview_data/CourseData-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../../compute_overview_data/CourseData/addFromBackup.html">addFromBackup</a></li>
+    <li><a href="../../compute_overview_data/CourseData/backups.html">backups</a></li>
+    <li><a href="../../compute_overview_data/CourseData/dropDup.html">dropDup</a></li>
+    <li><a href="../../compute_overview_data/CourseData/dropFull.html">dropFull</a></li>
+    <li><a href="../../compute_overview_data/CourseData/dropTime.html">dropTime</a></li>
+    <li><a href="../../compute_overview_data/CourseData/firstChoices.html">firstChoices</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
-    <li class="section-title"><a href="../../compute_schedule_control/ScheduleControl-class.html#instance-methods">Methods</a></li>
-    <li><a href="../../compute_schedule_control/ScheduleControl/compute.html">compute</a></li>
-    <li><a href="../../compute_schedule_control/ScheduleControl/getNbrClassrooms.html">getNbrClassrooms</a></li>
-    <li><a href="../../compute_schedule_control/ScheduleControl/getNbrUnavailable.html">getNbrUnavailable</a></li>
-    <li><a href="../../compute_schedule_control/ScheduleControl/initialize.html">initialize</a></li>
-    <li><a href="../../compute_schedule_control/ScheduleControl/isScheduledAt.html">isScheduledAt</a></li>
+    <li class="section-title"><a href="../../compute_overview_data/CourseData-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../compute_overview_data/CourseData/getResultingClass.html">getResultingClass</a></li>
+    <li><a href="../../compute_overview_data/CourseData/getResultingSize.html">getResultingSize</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li><a href="../../compute_schedule_control/ScheduleControl/schedule.html">schedule</a></li>
-    <li><a href="../../compute_schedule_control/ScheduleControl/scheduledTimeFor.html">scheduledTimeFor</a></li>
-    <li><a href="../../compute_schedule_control/ScheduleControl/setNbrClassrooms.html">setNbrClassrooms</a></li>
+    <li><a href="../../compute_overview_data/CourseData/reset.html">reset</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
-    <li class="section-title inherited"><a href="../../compute_schedule_control/ScheduleControl-class.html#operators">Operators</a></li>
+    <li class="section-title inherited"><a href="../../compute_overview_data/CourseData-class.html#operators">Operators</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
 
 

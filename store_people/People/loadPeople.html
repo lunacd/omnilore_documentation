@@ -101,16 +101,31 @@ classes when they want 0.</p>
     var lName = tokens[0];
     var fName = tokens[1];
     var phone = tokens[2];
-    var numClassWanted = int.parse(tokens[3]);
+    var numClassWanted = 0;
+    var submissionOrder = 0;
+    List&lt;String&gt; firstChoices = [];
+    List&lt;String&gt; backups = [];
+    List&lt;bool&gt; availability = List&lt;bool&gt;.filled(20, true, growable: false);
+    try {
+      numClassWanted = int.parse(tokens[3]);
+    } catch (e) {
+      &#47;&#47; Missing people who made no submissions
+      people[&#39;$fName $lName&#39;] = (Person(
+          fName: fName,
+          lName: lName,
+          phone: phone,
+          nbrClassWanted: numClassWanted,
+          availability: availability,
+          firstChoices: firstChoices,
+          backups: backups,
+          submissionOrder: submissionOrder));
+    }
     if (numClassWanted &lt; 0 || numClassWanted &gt; 6) {
       throw InvalidNumClassWantedException(
           malformedLine: numLines + 1, numClassWanted: numClassWanted);
     }
-    List&lt;String&gt; firstChoices = [];
-    List&lt;String&gt; backups = [];
-    var submissionOrder = int.parse(tokens[20]);
+    submissionOrder = int.parse(tokens[20]);
 
-    List&lt;bool&gt; availability = List&lt;bool&gt;.filled(20, true, growable: false);
     &#47;&#47; Parse availability
     for (int i = 0; i &lt; 10; i++) {
       var avail = tokens[i + 4];

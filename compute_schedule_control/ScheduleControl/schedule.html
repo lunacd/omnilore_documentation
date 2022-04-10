@@ -74,6 +74,7 @@ slot.</p>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void schedule(String course, int timeIndex) {
+  &#47;&#47; Check for error
   if (timeIndex &gt;= _schedule.length || timeIndex &lt; 0) {
     throw const InvalidArgument(message: &#39;Time index should be from 0 to 19&#39;);
   }
@@ -90,6 +91,8 @@ slot.</p>
       _schedule[i].remove(course);
     }
   }
+
+  &#47;&#47; Add new assignment
   _schedule[timeIndex].add(course);
   _scheduling.compute(Change(schedule: true));
 }</code></pre>
@@ -137,6 +140,7 @@ slot.</p>
     <li><a href="../../compute_schedule_control/ScheduleControl/scheduledTimeFor.html">scheduledTimeFor</a></li>
     <li><a href="../../compute_schedule_control/ScheduleControl/setNbrClassrooms.html">setNbrClassrooms</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+    <li><a href="../../compute_schedule_control/ScheduleControl/unschedule.html">unschedule</a></li>
 
     <li class="section-title inherited"><a href="../../compute_schedule_control/ScheduleControl-class.html#operators">Operators</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>

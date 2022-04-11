@@ -60,9 +60,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Scheduling() {
-  overviewData = OverviewData(_courses, _people, _validate);
-  courseControl = CourseControl();
-  splitControl = SplitControl(_people, _courses);
+  overviewData = OverviewData(_courses, _people);
+  courseControl = CourseControl(_courses);
+  splitControl = SplitControl(_courses, _people);
   scheduleControl = ScheduleControl(_courses, _people);
 
   courseControl.initialize(this);
@@ -113,6 +113,7 @@
     <li><a href="../../scheduling/Scheduling/getCourseCodes.html">getCourseCodes</a></li>
     <li><a href="../../scheduling/Scheduling/getNumPeople.html">getNumPeople</a></li>
     <li><a href="../../scheduling/Scheduling/getPeople.html">getPeople</a></li>
+    <li><a href="../../scheduling/Scheduling/getStateOfProcessing.html">getStateOfProcessing</a></li>
     <li><a href="../../scheduling/Scheduling/loadCourses.html">loadCourses</a></li>
     <li><a href="../../scheduling/Scheduling/loadPeople.html">loadPeople</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>

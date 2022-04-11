@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the initialize method from the CourseControl class, for the Dart programming language.">
-  <title>initialize method - CourseControl class - course_control library - Dart API</title>
+  <meta name="description" content="API docs for the compute method from the CourseControl class, for the Dart programming language.">
+  <title>compute method - CourseControl class - course_control library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">omnilore_scheduler</a></li>
     <li><a href="../../compute_course_control/compute_course_control-library.html">course_control</a></li>
     <li><a href="../../compute_course_control/CourseControl-class.html">CourseControl</a></li>
-    <li class="self-crumb">initialize method</li>
+    <li class="self-crumb">compute method</li>
   </ol>
-  <div class="self-name">initialize</div>
+  <div class="self-name">compute</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,7 +45,7 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">initialize</span> method 
+<h1><span class="kind-method">compute</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
@@ -53,7 +53,7 @@
       
 
 <span class="returntype">void</span>
-<span class="name ">initialize</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="initialize-param-scheduling"><span class="type-annotation"><a href="../../scheduling/Scheduling-class.html">Scheduling</a></span> <span class="parameter-name">scheduling</span></span></li>
+<span class="name ">compute</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="compute-param-change"><span class="type-annotation"><a href="../../model_change/Change-class.html">Change</a></span> <span class="parameter-name">change</span></span></li>
 </ol>)
 
       
@@ -61,15 +61,21 @@
     </section>
     
 <section class="desc markdown">
-  <p>Late initialize Scheduling</p>
+  <p>Compute state in response to changes</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void initialize(Scheduling scheduling) {
-  _scheduling = scheduling;
+  <pre class="language-dart"><code class="language-dart">void compute(Change change) {
+  if (change.course) {
+    _dropped.clear();
+    _go.clear();
+    for (var course in _courses.getCodes()) {
+      _go.add(course);
+    }
+  }
 }</code></pre>
 </section>
 
@@ -87,7 +93,7 @@
   <li><a href="../../index.html">omnilore_scheduler</a></li>
   <li><a href="../../compute_course_control/compute_course_control-library.html">course_control</a></li>
   <li><a href="../../compute_course_control/CourseControl-class.html">CourseControl</a></li>
-  <li class="self-crumb">initialize method</li>
+  <li class="self-crumb">compute method</li>
 </ol>
 
 

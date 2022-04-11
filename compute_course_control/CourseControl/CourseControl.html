@@ -50,7 +50,8 @@
 </h1></div>
 
     <section class="multi-line-signature">
-      <span class="name ">CourseControl</span>(<wbr>)
+      <span class="name ">CourseControl</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-courses"><span class="type-annotation"><a href="../../store_courses/Courses-class.html">Courses</a></span> <span class="parameter-name">courses</span></span></li>
+</ol>)
     </section>
 
     
@@ -59,7 +60,9 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">CourseControl();</code></pre>
+  <pre class="language-dart"><code class="language-dart">CourseControl(Courses courses)
+    : _courses = courses,
+      _go = HashSet&lt;String&gt;.from(courses.getCodes());</code></pre>
 </section>
 
 
@@ -94,8 +97,11 @@
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../../compute_course_control/CourseControl-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../compute_course_control/CourseControl/allCourseHasCoordinators.html">allCourseHasCoordinators</a></li>
+    <li><a href="../../compute_course_control/CourseControl/compute.html">compute</a></li>
     <li><a href="../../compute_course_control/CourseControl/drop.html">drop</a></li>
     <li><a href="../../compute_course_control/CourseControl/getDropped.html">getDropped</a></li>
+    <li><a href="../../compute_course_control/CourseControl/getGo.html">getGo</a></li>
     <li><a href="../../compute_course_control/CourseControl/getMaxClassSize.html">getMaxClassSize</a></li>
     <li><a href="../../compute_course_control/CourseControl/getMinClassSize.html">getMinClassSize</a></li>
     <li><a href="../../compute_course_control/CourseControl/getSplitMode.html">getSplitMode</a></li>

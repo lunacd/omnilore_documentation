@@ -100,6 +100,9 @@ classes when they want 0.</p>
     }
     var lName = tokens[0];
     var fName = tokens[1];
+    if (lName.length + fName.length + 2 &gt; maxLength) {
+      maxLength = lName.length + fName.length + 2;
+    }
     var phone = tokens[2];
     var numClassWanted = 0;
     var submissionOrder = 0;
@@ -216,6 +219,7 @@ classes when they want 0.</p>
       <a href="../../store_people/People-class.html#instance-properties">Properties</a>
     </li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../store_people/People/maxLength.html">maxLength</a></li>
     <li><a href="../../store_people/People/people.html">people</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 

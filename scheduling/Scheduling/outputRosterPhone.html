@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the Scheduling constructor from the Class Scheduling class from the scheduling library, for the Dart programming language.">
-  <title>Scheduling constructor - Scheduling class - scheduling library - Dart API</title>
+  <meta name="description" content="API docs for the outputRosterPhone method from the Scheduling class, for the Dart programming language.">
+  <title>outputRosterPhone method - Scheduling class - scheduling library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">omnilore_scheduler</a></li>
     <li><a href="../../scheduling/scheduling-library.html">scheduling</a></li>
     <li><a href="../../scheduling/Scheduling-class.html">Scheduling</a></li>
-    <li class="self-crumb">Scheduling constructor</li>
+    <li class="self-crumb">outputRosterPhone method</li>
   </ol>
-  <div class="self-name">Scheduling</div>
+  <div class="self-name">outputRosterPhone</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,30 +45,46 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-constructor">Scheduling</span> constructor 
+<h1><span class="kind-method">outputRosterPhone</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
-      <span class="name ">Scheduling</span>(<wbr>)
-    </section>
+      
 
+<span class="returntype">void</span>
+<span class="name ">outputRosterPhone</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="outputRosterPhone-param-path"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">path</span></span></li>
+</ol>)
+
+      
+
+    </section>
     
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Scheduling() {
-  overviewData = OverviewData(_courses, _people);
-  courseControl = CourseControl(_courses);
-  splitControl = SplitControl(_courses, _people);
-  scheduleControl = ScheduleControl(_courses, _people);
+  <pre class="language-dart"><code class="language-dart">void outputRosterPhone(String path) {
+  var output = File(path);
+  for (var course in courseControl.getGo()) {
+    var courseData = _courses.getCourse(course);
+    int timeSlot = scheduleControl.scheduledTimeFor(course);
+    var people = overviewData.getPeopleForResultingClass(course);
 
-  courseControl.initialize(this);
-  overviewData.initialize(this);
-  splitControl.initialize(this);
-  scheduleControl.initialize(this);
+    output.writeAsStringSync(&#39;${courseData.name}\n&#39;);
+    output.writeAsStringSync(
+        &#39;$course\t${getTimeslotDescription(timeSlot)}\n\n&#39;);
+    for (var person in people) {
+      var personData = _people.people[person]!;
+      var personString = &#39;${personData.lName}, ${personData.fName}&#39;;
+      output.writeAsStringSync(personString);
+      var padding = &#39; &#39; * (_people.maxLength - personString.length);
+      output.writeAsString(padding);
+      output.writeAsString(personData.phone);
+      output.writeAsString(&#39;\n&#39;);
+    }
+  }
 }</code></pre>
 </section>
 
@@ -86,7 +102,7 @@
   <li><a href="../../index.html">omnilore_scheduler</a></li>
   <li><a href="../../scheduling/scheduling-library.html">scheduling</a></li>
   <li><a href="../../scheduling/Scheduling-class.html">Scheduling</a></li>
-  <li class="self-crumb">Scheduling constructor</li>
+  <li class="self-crumb">outputRosterPhone method</li>
 </ol>
 
 
@@ -130,7 +146,7 @@
 
 </ol>
 
-  </div><!--/.sidebar-offcanvas-left-->
+  </div><!--/.sidebar-offcanvas-->
 
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
   </div><!--/.sidebar-offcanvas-->

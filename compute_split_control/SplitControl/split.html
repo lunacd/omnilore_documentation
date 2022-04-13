@@ -77,6 +77,9 @@ MUST call <a href="../../compute_split_control/SplitControl/resetState.html">res
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void split(String course) {
+  var clusterData = List&lt;Set&lt;String&gt;&gt;.from(_clusters);
+  _history.add(Tuple2(clusterData, course));
+
   if (course.length != 3) throw UnexpectedFatalException();
   _peopleToSplit = List.from(
       _scheduling.overviewData.getPeopleForResultingClass(course),
@@ -193,6 +196,7 @@ MUST call <a href="../../compute_split_control/SplitControl/resetState.html">res
     <li class="section-title"><a href="../../compute_split_control/SplitControl-class.html#instance-methods">Methods</a></li>
     <li><a href="../../compute_split_control/SplitControl/addCluster.html">addCluster</a></li>
     <li><a href="../../compute_split_control/SplitControl/getClustByPerson.html">getClustByPerson</a></li>
+    <li><a href="../../compute_split_control/SplitControl/getHistory.html">getHistory</a></li>
     <li><a href="../../compute_split_control/SplitControl/initialize.html">initialize</a></li>
     <li><a href="../../compute_split_control/SplitControl/isClustured.html">isClustured</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>

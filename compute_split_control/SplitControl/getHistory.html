@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the numUnavail constant from the SplitControl class, for the Dart programming language.">
-  <title>numUnavail constant - SplitControl class - split_control library - Dart API</title>
+  <meta name="description" content="API docs for the getHistory method from the SplitControl class, for the Dart programming language.">
+  <title>getHistory method - SplitControl class - split_control library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">omnilore_scheduler</a></li>
     <li><a href="../../compute_split_control/compute_split_control-library.html">split_control</a></li>
     <li><a href="../../compute_split_control/SplitControl-class.html">SplitControl</a></li>
-    <li class="self-crumb">numUnavail constant</li>
+    <li class="self-crumb">getHistory method</li>
   </ol>
-  <div class="self-name">numUnavail</div>
+  <div class="self-name">getHistory</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,30 +45,31 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-property">numUnavail</span> constant 
+<h1><span class="kind-method">getHistory</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
-        <section class="multi-line-signature">
-          <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>
-          const <span class="name ">numUnavail</span>
-          
+    <section class="multi-line-signature">
+      
 
-        </section>
-        
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/tuple/2.0.0/tuple/Tuple2-class.html">Tuple2</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Set-class.html">Set</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span>&gt;</span></span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span>&gt;</span></span>
+<span class="name ">getHistory</span>(<wbr>)
+
+      
+
+    </section>
+    
 <section class="desc markdown">
-  <p>The index into <code>_splitMatrix</code> where the number of unavailability per row
-is stored
-When number of people is 0, this index stores the index of the cluster
-this person is currently in</p>
+  <p>Get split history</p>
 </section>
 
-        
+
+    
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static const numUnavail = 21;
-
-</code></pre>
+  <pre class="language-dart"><code class="language-dart">List&lt;Tuple2&lt;List&lt;Set&lt;String&gt;&gt;, String&gt;&gt; getHistory() {
+  return _history;
+}</code></pre>
 </section>
 
 
@@ -85,7 +86,7 @@ this person is currently in</p>
   <li><a href="../../index.html">omnilore_scheduler</a></li>
   <li><a href="../../compute_split_control/compute_split_control-library.html">split_control</a></li>
   <li><a href="../../compute_split_control/SplitControl-class.html">SplitControl</a></li>
-  <li class="self-crumb">numUnavail constant</li>
+  <li class="self-crumb">getHistory method</li>
 </ol>
 
 

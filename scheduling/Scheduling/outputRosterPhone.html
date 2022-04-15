@@ -69,25 +69,26 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void outputRosterPhone(String path) {
-  var output = File(path);
+  var content = &#39;&#39;;
   for (var course in courseControl.getGo()) {
     var courseData = _courses.getCourse(course);
     int timeSlot = scheduleControl.scheduledTimeFor(course);
     var people = overviewData.getPeopleForResultingClass(course);
 
-    output.writeAsStringSync(&#39;${courseData.name}\n&#39;);
-    output.writeAsStringSync(
-        &#39;$course\t${getTimeslotDescription(timeSlot)}\n\n&#39;);
+    content += &#39;${courseData.name}\n&#39;;
+    content += &#39;$course\t${getTimeslotDescription(timeSlot)}\n\n&#39;;
     for (var person in people) {
       var personData = _people.people[person]!;
       var personString = &#39;${personData.lName}, ${personData.fName}&#39;;
-      output.writeAsStringSync(personString);
+      content += personString;
       var padding = &#39; &#39; * (_people.maxLength - personString.length);
-      output.writeAsString(padding);
-      output.writeAsString(personData.phone);
-      output.writeAsString(&#39;\n&#39;);
+      content += padding;
+      content += personData.phone;
+      content += &#39;\n&#39;;
     }
   }
+  var output = File(path);
+  output.writeAsStringSync(content);
 }</code></pre>
 </section>
 

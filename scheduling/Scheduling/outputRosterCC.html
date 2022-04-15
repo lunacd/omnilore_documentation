@@ -69,30 +69,31 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void outputRosterCC(String path) {
-  var output = File(path);
+  var content = &#39;&#39;;
   for (var course in courseControl.getGo()) {
     var courseData = _courses.getCourse(course);
     int timeSlot = scheduleControl.scheduledTimeFor(course);
     var people = overviewData.getPeopleForResultingClass(course);
     var cc = courseControl.getCoordinators(course)!;
 
-    output.writeAsStringSync(&#39;${courseData.name}\n&#39;);
-    output.writeAsStringSync(
-        &#39;$course\t${getTimeslotDescription(timeSlot)}\n\n&#39;);
+    content += &#39;${courseData.name}\n&#39;;
+    content += &#39;$course\t${getTimeslotDescription(timeSlot)}\n\n&#39;;
 
     for (var person in people) {
       if (person == cc.coordinators[0] &amp;&amp; !cc.equal) {
-        output.writeAsStringSync(&#39;$person (C)\n&#39;);
+        content += &#39;$person (C)\n&#39;;
       } else if (person == cc.coordinators[0] ||
           person == cc.coordinators[1]) {
-        output.writeAsStringSync(&#39;$person (CC)\n&#39;);
+        content += &#39;$person (CC)\n&#39;;
       }
-      output.writeAsStringSync(&#39;$person\n&#39;);
+      content += &#39;$person\n&#39;;
     }
     if (course != courseControl.getGo().last) {
-      output.writeAsStringSync(&#39;\n\n&#39;);
+      content += &#39;\n\n&#39;;
     }
   }
+  var output = File(path);
+  output.writeAsStringSync(content);
 }</code></pre>
 </section>
 

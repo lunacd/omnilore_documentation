@@ -69,49 +69,51 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void exportState(String path) {
-  var output = File(path);
+  var content = &#39;&#39;;
   &#47;&#47; Dropped
-  output.writeAsStringSync(&#39;Drop:\n&#39;);
+  content += &#39;Drop:\n&#39;;
   var dropped = courseControl.getDropped();
   for (var course in dropped) {
-    output.writeAsStringSync(&#39;$course\n&#39;);
+    content += &#39;$course\n&#39;;
   }
   &#47;&#47; Split
-  output.writeAsStringSync(&#39;\nSplit:\n&#39;);
+  content += &#39;\nSplit:\n&#39;;
   var history = splitControl.getHistory();
   for (var entry in history) {
-    output.writeAsStringSync(&#39;Course: ${entry.item2}\n&#39;);
+    content += &#39;Course: ${entry.item2}\n&#39;;
     for (var cluster in entry.item1) {
-      output.writeAsStringSync(&#39;Cluster: ${cluster.join(&quot;,&quot;)}\n&#39;);
+      content += &#39;Cluster: ${cluster.join(&quot;,&quot;)}\n&#39;;
     }
   }
   &#47;&#47; Schedule
-  output.writeAsStringSync(&#39;\nSchedule:\n&#39;);
+  content += &#39;\nSchedule:\n&#39;;
   for (var course in courseControl.getGo()) {
     var timeIndex = scheduleControl.scheduledTimeFor(course);
     if (timeIndex &gt;= 0) {
-      output.writeAsStringSync(&#39;$course: $timeIndex\n&#39;);
+      content += &#39;$course: $timeIndex\n&#39;;
     }
   }
   &#47;&#47; Coordinator
-  output.writeAsStringSync(&#39;\nCoordinator:\n&#39;);
+  content += &#39;\nCoordinator:\n&#39;;
   for (var course in courseControl.getGo()) {
     var coordinator = courseControl.getCoordinators(course);
     if (coordinator != null) {
-      output.writeAsStringSync(&#39;$course: &#39;);
+      content += &#39;$course: &#39;;
       if (coordinator.equal) {
-        output.writeAsStringSync(&#39;equal&#39;);
+        content += &#39;equal&#39;;
       } else {
-        output.writeAsStringSync(&#39;unequal&#39;);
+        content += &#39;unequal&#39;;
       }
       for (var person in coordinator.coordinators) {
         if (person.isNotEmpty) {
-          output.writeAsStringSync(&#39;,$person&#39;);
+          content += &#39;,$person&#39;;
         }
       }
-      output.writeAsStringSync(&#39;\n&#39;);
+      content += &#39;\n&#39;;
     }
   }
+  var output = File(path);
+  output.writeAsStringSync(content);
 }</code></pre>
 </section>
 

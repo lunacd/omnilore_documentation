@@ -53,7 +53,8 @@
       
 
 <span class="returntype">void</span>
-<span class="name ">drop</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="drop-param-course"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">course</span></span></li>
+<span class="name ">drop</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="drop-param-course"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">course</span>, </span></li>
+<li><span class="parameter" id="drop-param-noCompute">{<span class="type-annotation">dynamic</span> <span class="parameter-name">noCompute</span> = <span class="default-value">false</span>}</span></li>
 </ol>)
 
       
@@ -68,10 +69,12 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void drop(String course) {
+  <pre class="language-dart"><code class="language-dart">void drop(String course, {noCompute = false}) {
   _dropped.add(course);
   _go.remove(course);
-  _scheduling.compute(Change(drop: true));
+  if (!noCompute) {
+    _scheduling.compute(Change(drop: true));
+  }
 }</code></pre>
 </section>
 

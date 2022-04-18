@@ -76,6 +76,7 @@
   while (lines[i].trim() != &#39;Drop:&#39;) {
     i += 1;
   }
+  i += 1;
   while (true) {
     if (lines[i].isEmpty) {
       i += 1;
@@ -86,7 +87,8 @@
       break;
     }
     var course = lines[i].trim();
-    courseControl.drop(course);
+    courseControl.drop(course, noCompute: true);
+    i += 1;
   }
 
   &#47;&#47; Split
@@ -160,6 +162,7 @@
       }
     }
   }
+  compute(Change(course: true, drop: true, schedule: true, people: true));
 }</code></pre>
 </section>
 

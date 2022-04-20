@@ -111,8 +111,9 @@
       splitControl.addCluster(cluster);
       i += 1;
     }
-    splitControl.split(course);
+    splitControl.split(course, noCompute: true);
   }
+  compute(Change(course: true));
 
   &#47;&#47; Schedule
   while (true) {
@@ -128,10 +129,11 @@
     var data = lines[i].split(&#39;:&#39;).map((e) =&gt; e.trim()).toList();
     var index = int.parse(data[1]);
     if (index &gt;= 0) {
-      scheduleControl.schedule(data[0], index);
+      scheduleControl.schedule(data[0], index, noCompute: true);
     }
     i += 1;
   }
+  compute(Change(schedule: true));
 
   &#47;&#47; Coordinator
   while (i &lt; lines.length) {

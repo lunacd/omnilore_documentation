@@ -54,7 +54,8 @@
 
 <span class="returntype">void</span>
 <span class="name ">schedule</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="schedule-param-course"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">course</span>, </span></li>
-<li><span class="parameter" id="schedule-param-timeIndex"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">timeIndex</span></span></li>
+<li><span class="parameter" id="schedule-param-timeIndex"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">timeIndex</span>, </span></li>
+<li><span class="parameter" id="schedule-param-noCompute">{<span class="type-annotation">dynamic</span> <span class="parameter-name">noCompute</span> = <span class="default-value">false</span>}</span></li>
 </ol>)
 
       
@@ -73,7 +74,7 @@ slot.</p>
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void schedule(String course, int timeIndex) {
+  <pre class="language-dart"><code class="language-dart">void schedule(String course, int timeIndex, {noCompute = false}) {
   &#47;&#47; Check for error
   if (timeIndex &gt;= _schedule.length || timeIndex &lt; 0) {
     throw const InvalidArgument(message: &#39;Time index should be from 0 to 19&#39;);
@@ -94,8 +95,10 @@ slot.</p>
 
   &#47;&#47; Add new assignment
   _schedule[timeIndex].add(course);
-  _scheduling.compute(Change(schedule: true));
   _scheduled.add(course);
+  if (!noCompute) {
+    _scheduling.compute(Change(schedule: true));
+  }
 }</code></pre>
 </section>
 

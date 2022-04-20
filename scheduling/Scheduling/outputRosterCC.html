@@ -69,6 +69,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void outputRosterCC(String path) {
+  if (getStateOfProcessing() != StateOfProcessing.output) return;
   var content = &#39;&#39;;
   for (var course in courseControl.getGo()) {
     var courseData = _courses.getCourse(course);
@@ -145,6 +146,7 @@
     <li><a href="../../scheduling/Scheduling/loadPeople.html">loadPeople</a></li>
     <li><a href="../../scheduling/Scheduling/loadState.html">loadState</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../../scheduling/Scheduling/outputMM.html">outputMM</a></li>
     <li><a href="../../scheduling/Scheduling/outputRosterCC.html">outputRosterCC</a></li>
     <li><a href="../../scheduling/Scheduling/outputRosterPhone.html">outputRosterPhone</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>

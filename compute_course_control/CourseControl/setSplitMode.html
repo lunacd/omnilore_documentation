@@ -71,6 +71,7 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void setSplitMode(String course, SplitMode mode) {
   _classSplitModeMap[course] = mode;
+  _scheduling.compute(Change(schedule: true));
 }</code></pre>
 </section>
 

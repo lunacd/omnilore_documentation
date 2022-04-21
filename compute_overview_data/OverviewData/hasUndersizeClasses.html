@@ -69,8 +69,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">bool hasUndersizeClasses(Courses courses) {
-  for (var course in courses.getCodes()) {
-    if (getNbrForClassRank(course, 0).state == ClassState.undersized) {
+  for (var course in _scheduling.courseControl.getGo()) {
+    if (getResultingClassSize(course).state == ClassState.undersized) {
       return true;
     }
   }

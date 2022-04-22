@@ -91,7 +91,7 @@
   }
 
   &#47;&#47; Compute all statistics
-  if (change.course || change.people || change.drop) {
+  if (change.course || change.people || change.drop || change.schedule) {
     &#47;&#47; Clear data
     for (var courseData in _data.values) {
       courseData.reset();

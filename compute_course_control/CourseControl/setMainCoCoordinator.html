@@ -76,9 +76,10 @@
           message: &#39;Cannot set co-coordinator with equal coordinators set&#39;);
     }
     _coordinatorsMap[course]!.coordinators[1] = name;
+  } else {
+    _coordinatorsMap[course] = Coordinators(equal: false);
+    _coordinatorsMap[course]!.coordinators[0] = name;
   }
-  _coordinatorsMap[course] = Coordinators(equal: false);
-  _coordinatorsMap[course]!.coordinators[0] = name;
 }</code></pre>
 </section>
 
@@ -115,6 +116,7 @@
 
     <li class="section-title"><a href="../../compute_course_control/CourseControl-class.html#instance-methods">Methods</a></li>
     <li><a href="../../compute_course_control/CourseControl/allCourseHasCoordinators.html">allCourseHasCoordinators</a></li>
+    <li><a href="../../compute_course_control/CourseControl/clearCoordinators.html">clearCoordinators</a></li>
     <li><a href="../../compute_course_control/CourseControl/compute.html">compute</a></li>
     <li><a href="../../compute_course_control/CourseControl/drop.html">drop</a></li>
     <li><a href="../../compute_course_control/CourseControl/getCoordinators.html">getCoordinators</a></li>

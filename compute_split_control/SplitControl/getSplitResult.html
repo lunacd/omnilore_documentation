@@ -78,8 +78,8 @@
       growable: false);
   _peopleInBackup = _people.people.values
       .where((person) =&gt;
-  person.firstChoices.contains(course) ||
-      person.backups.contains(course))
+          person.firstChoices.contains(course) ||
+          person.backups.contains(course))
       .map((person) =&gt; person.getName())
       .where((name) =&gt; !_peopleToSplit.contains(name))
       .toList(growable: false);
@@ -88,11 +88,11 @@
   _maxSplitSize = (_peopleToSplit.length &#47; _numSplits).ceil();
   _splitMatrix = List&lt;List&lt;int&gt;&gt;.generate(
       _peopleToSplit.length + _peopleInBackup.length + _numSplits,
-          (_) =&gt; List&lt;int&gt;.filled(22, 0, growable: false),
+      (_) =&gt; List&lt;int&gt;.filled(22, 0, growable: false),
       growable: false);
   _clusterArray = List&lt;int&gt;.filled(_clusters.length, -1, growable: false);
   _correlateMatrix = List&lt;List&lt;int&gt;&gt;.generate(_peopleToSplit.length,
-          (_) =&gt; List&lt;int&gt;.filled(_peopleToSplit.length, 0, growable: false),
+      (_) =&gt; List&lt;int&gt;.filled(_peopleToSplit.length, 0, growable: false),
       growable: false);
   _testArray = List&lt;int&gt;.filled(_numSplits, 0, growable: false);
   _baseOffset = _peopleToSplit.length + _peopleInBackup.length;
@@ -112,8 +112,8 @@
 
   var result = List&lt;Set&lt;String&gt;&gt;.generate(_numSplits, (_) =&gt; &lt;String&gt;{});
   for (var personIndex = 0;
-  personIndex &lt; _peopleToSplit.length;
-  personIndex++) {
+      personIndex &lt; _peopleToSplit.length;
+      personIndex++) {
     if (_splitMatrix[personIndex][numPeople] != 0) {
       throw UnexpectedFatalException();
     }
@@ -162,6 +162,7 @@
     <li><a href="../../compute_split_control/SplitControl/getSplitResult.html">getSplitResult</a></li>
     <li><a href="../../compute_split_control/SplitControl/initialize.html">initialize</a></li>
     <li><a href="../../compute_split_control/SplitControl/isClustured.html">isClustured</a></li>
+    <li><a href="../../compute_split_control/SplitControl/noClusters.html">noClusters</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../../compute_split_control/SplitControl/removeCluster.html">removeCluster</a></li>
     <li><a href="../../compute_split_control/SplitControl/resetState.html">resetState</a></li>

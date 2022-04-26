@@ -72,11 +72,54 @@
   var input = File(path);
   List&lt;String&gt; lines = input.readAsLinesSync();
   var i = 0;
-  &#47;&#47; Drop
-  while (lines[i].trim() != &#39;Drop:&#39;) {
+  &#47;&#47; Setting
+  while (lines[i].trim() != &#39;Setting:&#39;) {
     i += 1;
   }
   i += 1;
+  int minSize = int.parse(lines[i].split(&#39;:&#39;)[1].trim());
+  int maxSize = int.parse(lines[i].split(&#39;:&#39;)[1].trim());
+  courseControl.setGlobalMinMaxClassSize(minSize, maxSize);
+
+  &#47;&#47; Course size
+  while (lines[i].trim() != &#39;Course size:&#39;) {
+    i += 1;
+  }
+  i += 1;
+  while (true) {
+    if (lines[i].isEmpty) {
+      i += 1;
+      continue;
+    }
+    if (lines[i].trim() == &#39;Drop:&#39;) {
+      i += 1;
+      break;
+    }
+    var course = lines[i].split(&#39;:&#39;)[0].trim();
+    var setting = lines[i].split(&#39;:&#39;)[1].trim();
+    var classMinSize = int.parse(setting.split(&#39;,&#39;)[0].trim());
+    var classMaxSize = int.parse(setting.split(&#39;,&#39;)[1].trim());
+    courseControl.setMinMaxClassSizeForClass(course, classMinSize, classMaxSize);
+    i += 1;
+  }
+
+  &#47;&#47; Drop
+  while (true) {
+    if (lines[i].isEmpty) {
+      i += 1;
+      continue;
+    }
+    if (lines[i].trim() == &#39;Limit:&#39;) {
+      i += 1;
+      break;
+    }
+    var course = lines[i].trim();
+    courseControl.drop(course, noCompute: true);
+    i += 1;
+  }
+  compute(Change(drop: true));
+
+  &#47;&#47; Limit
   while (true) {
     if (lines[i].isEmpty) {
       i += 1;
@@ -87,10 +130,9 @@
       break;
     }
     var course = lines[i].trim();
-    courseControl.drop(course, noCompute: true);
+    courseControl.setSplitMode(course, SplitMode.limit);
     i += 1;
   }
-  compute(Change(drop: true));
 
   &#47;&#47; Split
   while (true) {

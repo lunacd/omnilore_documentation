@@ -70,11 +70,28 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void exportState(String path) {
   var content = &#39;&#39;;
+  &#47;&#47; Global setting
+  content += &#39;Setting:\n&#39;;
+  content += &#39;Min: ${courseControl.getGlobalMinClassSize()}\n&#39;;
+  content += &#39;Max: ${courseControl.getGlobalMaxClassSize()}\n&#39;;
+  &#47;&#47; Course size
+  content += &#39;\nCourse size:\n&#39;;
+  for (var course in courseControl.getCustomSizeClasses()) {
+    content +=
+        &#39;$course: ${courseControl.getMinClassSize(course)},${courseControl.getMaxClassSize(course)}\n&#39;;
+  }
   &#47;&#47; Dropped
-  content += &#39;Drop:\n&#39;;
+  content += &#39;\nDrop:\n&#39;;
   var dropped = courseControl.getDropped();
   for (var course in dropped) {
     content += &#39;$course\n&#39;;
+  }
+  &#47;&#47; Limit
+  content += &#39;\nLimit:\n&#39;;
+  for (var course in courseControl.getGo()) {
+    if (courseControl.getSplitMode(course) == SplitMode.limit) {
+      content += &#39;$course\n&#39;;
+    }
   }
   &#47;&#47; Split
   content += &#39;\nSplit:\n&#39;;

@@ -79,6 +79,7 @@ MUST call <a href="../../compute_split_control/SplitControl/resetState.html">res
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void split(String course, {noCompute = false}) {
   var result = getSplitResult(course);
+  if (result.isEmpty) return;
 
   &#47;&#47; Update people&#39;s choices
   for (var splitIndex = 0; splitIndex &lt; result.length; splitIndex++) {

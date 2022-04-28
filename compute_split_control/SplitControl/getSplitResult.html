@@ -98,6 +98,7 @@
   _baseOffset = _peopleToSplit.length + _peopleInBackup.length;
   _backupOffset = _peopleToSplit.length;
   _rot = List&lt;int&gt;.generate(_numSplits, (index) =&gt; index);
+  _bestTestArray.clear();
 
   if (_numSplits == 1) return [];
 

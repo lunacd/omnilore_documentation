@@ -92,8 +92,9 @@
       } else if (person.getName() == cc.coordinators[0] ||
           person.getName() == cc.coordinators[1]) {
         content += &#39;$person (CC)\n&#39;;
+      } else {
+        content += &#39;$person\n&#39;;
       }
-      content += &#39;$person\n&#39;;
     }
     if (course != courseControl.getGo().last) {
       content += &#39;\n\n&#39;;

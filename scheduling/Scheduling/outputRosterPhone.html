@@ -73,20 +73,25 @@
   if (state != StateOfProcessing.coordinator &amp;&amp;
       state != StateOfProcessing.output) return;
   var content = &#39;&#39;;
-  for (var course in courseControl.getGo()) {
+  var goCourses = courseControl.getGo().toList(growable: false);
+  goCourses.sort((a, b) =&gt; a.compareTo(b));
+  for (var course in goCourses) {
     var courseData = _courses.getCourse(course);
     int timeSlot = scheduleControl.scheduledTimeFor(course);
-    var people = overviewData.getPeopleForResultingClass(course);
+    var people = overviewData
+        .getPeopleForResultingClass(course)
+        .map((name) =&gt; _people.people[name]!)
+        .toList(growable: false);
+    people.sort((a, b) =&gt; a.getReversedName().compareTo(b.getReversedName()));
 
     content += &#39;${courseData.name}\n&#39;;
     content += &#39;$course\t${getTimeslotDescription(timeSlot)}\n\n&#39;;
     for (var person in people) {
-      var personData = _people.people[person]!;
-      var personString = &#39;${personData.lName}, ${personData.fName}&#39;;
+      var personString = person.getReversedName();
       content += personString;
       var padding = &#39; &#39; * (_people.maxLength - personString.length);
       content += padding;
-      content += personData.phone;
+      content += person.phone;
       content += &#39;\n&#39;;
     }
     content += &#39;\n\n&#39;;

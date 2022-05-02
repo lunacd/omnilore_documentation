@@ -75,7 +75,9 @@
       throw const InvalidArgument(
           message: &#39;Cannot set equal co-coordinator with a coordinator set&#39;);
     }
-    _coordinatorsMap[course]!.coordinators[1] = name;
+    if (_coordinatorsMap[course]!.coordinators[0] != name) {
+      _coordinatorsMap[course]!.coordinators[1] = name;
+    }
   } else {
     _coordinatorsMap[course] = Coordinators(equal: true);
     _coordinatorsMap[course]!.coordinators[0] = name;

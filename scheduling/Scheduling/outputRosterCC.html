@@ -88,12 +88,12 @@
 
     for (var person in people) {
       if (person.getName() == cc.coordinators[0] &amp;&amp; !cc.equal) {
-        content += &#39;$person (C)\n&#39;;
+        content += &#39;${person.getReversedName()} (C)\n&#39;;
       } else if (person.getName() == cc.coordinators[0] ||
           person.getName() == cc.coordinators[1]) {
-        content += &#39;$person (CC)\n&#39;;
+        content += &#39;${person.getReversedName()} (CC)\n&#39;;
       } else {
-        content += &#39;$person\n&#39;;
+        content += &#39;${person.getReversedName()}\n&#39;;
       }
     }
     if (course != courseControl.getGo().last) {

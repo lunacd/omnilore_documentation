@@ -106,15 +106,53 @@ and</li>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  var infoTable = tableData;
+  print(&#39;courses: ${courses.length}&#39;);
+  print(&#39;overviewrows: ${overviewRows[0].length}&#39;);
+  List&lt;TableRow&gt; rows = [];
+  rows.add(TableRow(children: [
+    const TableCell(child: Text(&#39;&#39;)),
+    for (int i = 0; i &lt; courses.length; i++)
+      TextButton(
+        child: Text(_formatClassCode(courses[i], 0)),
+        onPressed: () =&gt; onCellPressed(&#39;&#39;, courses[i]),
+      )
+  ]));
+  for (int i = 0; i &lt; overviewRows.length; i++) {
+    rows.add(TableRow(children: [
+      TableCell(
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: &lt;Widget&gt;[Text(overviewRows[i].toString())])),
+      for (int j = 0; j &lt; overviewMatrix[i].length; j++)
+        TextButton(
+            onPressed: () =&gt; onCellPressed(overviewRows[i], courses[j]),
+            child: Text(overviewMatrix[i][j].toString()))
+    ]));
+  }
+  rows.add(TableRow(children: [
+    TableCell(
+        child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: const &lt;Widget&gt;[Text(&#39;class dropped&#39;)])),
+    for (int i = 0; i &lt; droppedList.length; i++) droppedCheck(i)
+  ]));
+
+  rows.add(TableRow(children: [
+    const TableCell(child: Text(&#39;&#39;)),
+    for (int i = 0; i &lt; courses.length; i++)
+      TextButton(
+        child: Text(_formatClassCode(courses[i], 0)),
+        onPressed: () =&gt; onCellPressed(&#39;&#39;, courses[i]),
+      )
+  ]));
   var timeTable = timeTableData;
+  print(&#39;reference: ${timeTableData.item2[0].length}&#39;);
   return Table(
     border: TableBorder.symmetric(
         inside: const BorderSide(width: 1, color: Colors.black),
         outside: const BorderSide(width: 1)),
     columnWidths: const {0: IntrinsicColumnWidth()},
-    children: buildInfo(infoTable.item1, infoTable.item2) +
-        buildTimeInfo(timeTable.item1, timeTable.item2),
+    children: rows + buildTimeInfo(timeTable.item1, timeTable.item2),
   );
 }</code></pre>
 </section>
@@ -147,21 +185,22 @@ Widget build(BuildContext context) {
     <li class="section-title">
       <a href="../../widgets_main_table/MainTable-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../../widgets_main_table/MainTable/courses.html">courses</a></li>
     <li><a href="../../widgets_main_table/MainTable/droppedList.html">droppedList</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></li>
     <li><a href="../../widgets_main_table/MainTable/onCellPressed.html">onCellPressed</a></li>
     <li><a href="../../widgets_main_table/MainTable/onDroppedChanged.html">onDroppedChanged</a></li>
     <li><a href="../../widgets_main_table/MainTable/onSchedule.html">onSchedule</a></li>
+    <li><a href="../../widgets_main_table/MainTable/overviewMatrix.html">overviewMatrix</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
     <li><a href="../../widgets_main_table/MainTable/scheduleData.html">scheduleData</a></li>
     <li><a href="../../widgets_main_table/MainTable/state.html">state</a></li>
-    <li><a href="../../widgets_main_table/MainTable/tableData.html">tableData</a></li>
     <li><a href="../../widgets_main_table/MainTable/timeTableData.html">timeTableData</a></li>
 
     <li class="section-title"><a href="../../widgets_main_table/MainTable-class.html#instance-methods">Methods</a></li>
     <li><a href="../../widgets_main_table/MainTable/build.html">build</a></li>
-    <li><a href="../../widgets_main_table/MainTable/buildInfo.html">buildInfo</a></li>
+    <li><a href="../../widgets_main_table/MainTable/buildOverviewRows.html">buildOverviewRows</a></li>
     <li><a href="../../widgets_main_table/MainTable/buildTimeInfo.html">buildTimeInfo</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget/createElement.html">createElement</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></li>

@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the validSchedule function from the screen library, for the Dart programming language.">
-  <title>validSchedule function - screen library - Dart API</title>
+  <meta name="description" content="API docs for the overviewRows constant from the main_table library, for the Dart programming language.">
+  <title>overviewRows constant - main_table library - Dart API</title>
 
 
   
@@ -29,10 +29,10 @@
   <button id="sidenav-left-toggle" type="button">&nbsp;</button>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../index.html">omnilore_scheduler</a></li>
-    <li><a href="../widgets_screen/widgets_screen-library.html">screen</a></li>
-    <li class="self-crumb">validSchedule function</li>
+    <li><a href="../widgets_main_table/widgets_main_table-library.html">main_table</a></li>
+    <li class="self-crumb">overviewRows constant</li>
   </ol>
-  <div class="self-name">validSchedule</div>
+  <div class="self-name">overviewRows</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -43,33 +43,35 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-function">validSchedule</span> function 
+<h1><span class="kind-top-level-property">overviewRows</span> top-level constant 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
  
 </h1></div>
 
-    <section class="multi-line-signature">
+        <section class="multi-line-signature">
+          <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span>
+          const <span class="name ">overviewRows</span>
+          
+
+        </section>
         
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
-<span class="name ">validSchedule</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="validSchedule-param-sched"><span class="type-annotation"><a href="../scheduling/Scheduling-class.html">Scheduling</a></span> <span class="parameter-name">sched</span></span></li>
-</ol>)
-
-    </section>
-    
-<section class="desc markdown">
-  <p>checks to see if the current state is set to drop and split</p>
-</section>
-
-
-    
+        
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">bool validSchedule(Scheduling sched) {
-  return stateDescriptions[sched.getStateOfProcessing().index] ==
-      &#39;Drop and Split&#39;;
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">const overviewRows = &lt;String&gt;[
+  &#39;First Choices&#39;,
+  &#39;First backup&#39;,
+  &#39;Second backup&#39;,
+  &#39;Third backup&#39;,
+  &#39;Add from BUs&#39;,
+  &#39;Drop, bad time&#39;,
+  &#39;Drop, dup class&#39;,
+  &#39;Drop class full&#39;,
+  &#39;Resulting Size&#39;
+];</code></pre>
 </section>
+
 
 
   </div> <!-- /.main-content -->
@@ -83,26 +85,22 @@
 
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
   <li><a href="../index.html">omnilore_scheduler</a></li>
-  <li><a href="../widgets_screen/widgets_screen-library.html">screen</a></li>
-  <li class="self-crumb">validSchedule function</li>
+  <li><a href="../widgets_main_table/widgets_main_table-library.html">main_table</a></li>
+  <li class="self-crumb">overviewRows constant</li>
 </ol>
 
 
-    <h5>screen library</h5>
+    <h5>main_table library</h5>
     <ol>
-  <li class="section-title"><a href="../widgets_screen/widgets_screen-library.html#classes">Classes</a></li>
-  <li><a href="../widgets_screen/Screen-class.html">Screen</a></li>
+  <li class="section-title"><a href="../widgets_main_table/widgets_main_table-library.html#classes">Classes</a></li>
+  <li><a href="../widgets_main_table/MainTable-class.html">MainTable</a></li>
 
 
 
-  <li class="section-title"><a href="../widgets_screen/widgets_screen-library.html#constants">Constants</a></li>
-  <li><a href="../widgets_screen/overviewRows-constant.html">overviewRows</a></li>
-  <li><a href="../widgets_screen/stateDescriptions-constant.html">stateDescriptions</a></li>
+  <li class="section-title"><a href="../widgets_main_table/widgets_main_table-library.html#constants">Constants</a></li>
+  <li><a href="../widgets_main_table/overviewRows-constant.html">overviewRows</a></li>
 
 
-  <li class="section-title"><a href="../widgets_screen/widgets_screen-library.html#functions">Functions</a></li>
-  <li><a href="../widgets_screen/auxData.html">auxData</a></li>
-  <li><a href="../widgets_screen/validSchedule.html">validSchedule</a></li>
 
 
 

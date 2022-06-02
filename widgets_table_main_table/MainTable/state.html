@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the droppedCheck method from the MainTable class, for the Dart programming language.">
-  <title>droppedCheck method - MainTable class - main_table library - Dart API</title>
+  <meta name="description" content="API docs for the state property from the MainTable class, for the Dart programming language.">
+  <title>state property - MainTable class - main_table library - Dart API</title>
 
 
   
@@ -29,11 +29,11 @@
   <button id="sidenav-left-toggle" type="button">&nbsp;</button>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">omnilore_scheduler</a></li>
-    <li><a href="../../widgets_main_table/widgets_main_table-library.html">main_table</a></li>
-    <li><a href="../../widgets_main_table/MainTable-class.html">MainTable</a></li>
-    <li class="self-crumb">droppedCheck method</li>
+    <li><a href="../../widgets_table_main_table/widgets_table_main_table-library.html">main_table</a></li>
+    <li><a href="../../widgets_table_main_table/MainTable-class.html">MainTable</a></li>
+    <li class="self-crumb">state property</li>
   </ol>
-  <div class="self-name">droppedCheck</div>
+  <div class="self-name">state</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -44,44 +44,24 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">droppedCheck</span> method 
+<h1><span class="kind-property">state</span> property 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
-    <section class="multi-line-signature">
-      
+        <section class="multi-line-signature">
+          <a href="../../model_state_of_processing/StateOfProcessing.html">StateOfProcessing</a>
+          <span class="name ">state</span>
+          <div class="features">final</div>
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
-<span class="name ">droppedCheck</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="droppedCheck-param-i"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">i</span></span></li>
-</ol>)
+        </section>
+        
 
-      
-
-    </section>
-    
-<section class="desc markdown">
-  <p>Creates a checkbox widget to be used in the class data portion of the main
-check if the course is dropped
-data table. The checkbox will be linked to a given colum index i. When
-selected the corresponding class at index i will be dropped which will
-be reflected in the front end and backend data structures</p>
-</section>
-
-
-    
+        
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Widget droppedCheck(int i) {
-  &#47;&#47; makes a checkmark widget that corresponds to the passed index of dropped
-  &#47;&#47; list
-  return Checkbox(
-      checkColor: Colors.white,
-      fillColor: null,
-      value: droppedList[i],
-      onChanged: (_) {
-        onDroppedChanged(i);
-      });
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">final StateOfProcessing state;
+
+</code></pre>
 </section>
 
 
@@ -96,43 +76,42 @@ be reflected in the front end and backend data structures</p>
 
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
   <li><a href="../../index.html">omnilore_scheduler</a></li>
-  <li><a href="../../widgets_main_table/widgets_main_table-library.html">main_table</a></li>
-  <li><a href="../../widgets_main_table/MainTable-class.html">MainTable</a></li>
-  <li class="self-crumb">droppedCheck method</li>
+  <li><a href="../../widgets_table_main_table/widgets_table_main_table-library.html">main_table</a></li>
+  <li><a href="../../widgets_table_main_table/MainTable-class.html">MainTable</a></li>
+  <li class="self-crumb">state property</li>
 </ol>
 
 
     <h5>MainTable class</h5>
     <ol>
 
-        <li class="section-title"><a href="../../widgets_main_table/MainTable-class.html#constructors">Constructors</a></li>
-          <li><a href="../../widgets_main_table/MainTable/MainTable.html">MainTable</a></li>
+        <li class="section-title"><a href="../../widgets_table_main_table/MainTable-class.html#constructors">Constructors</a></li>
+          <li><a href="../../widgets_table_main_table/MainTable/MainTable.html">MainTable</a></li>
 
 
     <li class="section-title">
-      <a href="../../widgets_main_table/MainTable-class.html#instance-properties">Properties</a>
+      <a href="../../widgets_table_main_table/MainTable-class.html#instance-properties">Properties</a>
     </li>
-    <li><a href="../../widgets_main_table/MainTable/courses.html">courses</a></li>
-    <li><a href="../../widgets_main_table/MainTable/droppedList.html">droppedList</a></li>
+    <li><a href="../../widgets_table_main_table/MainTable/courses.html">courses</a></li>
+    <li><a href="../../widgets_table_main_table/MainTable/droppedList.html">droppedList</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></li>
-    <li><a href="../../widgets_main_table/MainTable/onCellPressed.html">onCellPressed</a></li>
-    <li><a href="../../widgets_main_table/MainTable/onDroppedChanged.html">onDroppedChanged</a></li>
-    <li><a href="../../widgets_main_table/MainTable/onSchedule.html">onSchedule</a></li>
-    <li><a href="../../widgets_main_table/MainTable/overviewMatrix.html">overviewMatrix</a></li>
+    <li><a href="../../widgets_table_main_table/MainTable/onCellPressed.html">onCellPressed</a></li>
+    <li><a href="../../widgets_table_main_table/MainTable/onDroppedChanged.html">onDroppedChanged</a></li>
+    <li><a href="../../widgets_table_main_table/MainTable/onSchedule.html">onSchedule</a></li>
+    <li><a href="../../widgets_table_main_table/MainTable/overviewMatrix.html">overviewMatrix</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
-    <li><a href="../../widgets_main_table/MainTable/scheduleData.html">scheduleData</a></li>
-    <li><a href="../../widgets_main_table/MainTable/scheduleMatrix.html">scheduleMatrix</a></li>
-    <li><a href="../../widgets_main_table/MainTable/state.html">state</a></li>
+    <li><a href="../../widgets_table_main_table/MainTable/scheduleData.html">scheduleData</a></li>
+    <li><a href="../../widgets_table_main_table/MainTable/scheduleMatrix.html">scheduleMatrix</a></li>
+    <li><a href="../../widgets_table_main_table/MainTable/state.html">state</a></li>
 
-    <li class="section-title"><a href="../../widgets_main_table/MainTable-class.html#instance-methods">Methods</a></li>
-    <li><a href="../../widgets_main_table/MainTable/build.html">build</a></li>
-    <li><a href="../../widgets_main_table/MainTable/buildTimeInfo.html">buildTimeInfo</a></li>
+    <li class="section-title"><a href="../../widgets_table_main_table/MainTable-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../widgets_table_main_table/MainTable/build.html">build</a></li>
+    <li><a href="../../widgets_table_main_table/MainTable/buildTimeInfo.html">buildTimeInfo</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget/createElement.html">createElement</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/debugFillProperties.html">debugFillProperties</a></li>
-    <li><a href="../../widgets_main_table/MainTable/droppedCheck.html">droppedCheck</a></li>
-    <li><a href="../../widgets_main_table/MainTable/getTimeIndex.html">getTimeIndex</a></li>
+    <li><a href="../../widgets_table_main_table/MainTable/getTimeIndex.html">getTimeIndex</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toString.html">toString</a></li>
@@ -140,7 +119,7 @@ be reflected in the front end and backend data structures</p>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/toStringShort.html">toStringShort</a></li>
 
-    <li class="section-title inherited"><a href="../../widgets_main_table/MainTable-class.html#operators">Operators</a></li>
+    <li class="section-title inherited"><a href="../../widgets_table_main_table/MainTable-class.html#operators">Operators</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/operator_equals.html">operator ==</a></li>
 
 

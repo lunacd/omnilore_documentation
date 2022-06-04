@@ -72,7 +72,7 @@
   _dropped.remove(course);
   _go.add(course);
   if (!noCompute) {
-    _scheduling.compute(Change(drop: true));
+    _scheduling.compute(Change.drop);
   }
 }</code></pre>
 </section>

@@ -52,7 +52,7 @@
       
 
 <span class="returntype">void</span>
-<span class="name ">compute</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="compute-param-change"><span class="type-annotation"><a href="../../model_change/Change-class.html">Change</a></span> <span class="parameter-name">change</span></span></li>
+<span class="name ">compute</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="compute-param-change"><span class="type-annotation"><a href="../../model_change/Change.html">Change</a></span> <span class="parameter-name">change</span></span></li>
 </ol>)
 
       
@@ -68,7 +68,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void compute(Change change) {
-  if (change.course) {
+  if (change == Change.course) {
     _go.clear();
     var newCourses = _courses.getCodes();
     for (var course in newCourses) {

@@ -84,7 +84,7 @@ schedule are inconsistent.</p>
   int numCourses;
   numCourses = await _courses.loadCourses(inputFile);
   if (numCourses != 0) {
-    compute(Change(course: true));
+    compute(Change.course);
   }
   return numCourses;
 }</code></pre>

@@ -118,7 +118,7 @@
     courseControl.drop(course, noCompute: true);
     i += 1;
   }
-  compute(Change(drop: true));
+  compute(Change.drop);
 
   &#47;&#47; Limit
   while (true) {
@@ -156,7 +156,7 @@
     }
     splitControl.split(course, noCompute: true);
   }
-  compute(Change(course: true));
+  compute(Change.course);
 
   &#47;&#47; Schedule
   while (true) {
@@ -176,7 +176,7 @@
     }
     i += 1;
   }
-  compute(Change(schedule: true));
+  compute(Change.schedule);
 
   &#47;&#47; Coordinator
   while (i &lt; lines.length) {

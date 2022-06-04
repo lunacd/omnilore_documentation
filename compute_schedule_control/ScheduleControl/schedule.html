@@ -96,7 +96,7 @@ slot.</p>
   _schedule[timeIndex].add(course);
   _scheduled.add(course);
   if (!noCompute) {
-    _scheduling.compute(Change(schedule: true));
+    _scheduling.compute(Change.schedule);
   }
 }</code></pre>
 </section>

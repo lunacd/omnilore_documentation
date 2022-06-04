@@ -52,7 +52,7 @@
       
 
 <span class="returntype">void</span>
-<span class="name ">compute</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="compute-param-change"><span class="type-annotation"><a href="../../model_change/Change-class.html">Change</a></span> <span class="parameter-name">change</span></span></li>
+<span class="name ">compute</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="compute-param-change"><span class="type-annotation"><a href="../../model_change/Change.html">Change</a></span> <span class="parameter-name">change</span></span></li>
 </ol>)
 
       
@@ -69,13 +69,13 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void compute(Change change) {
   &#47;&#47; If courses have changed, clear all scheduled times
-  if (change.course) {
+  if (change == Change.course) {
     for (var i = 0; i &lt; _schedule.length; i++) {
       _schedule[i].clear();
     }
   }
   &#47;&#47; If people or course has changed, compute unavailables
-  if (change.course || change.people) {
+  if (change == Change.course || change == Change.people) {
     _unavailables.clear();
     for (var course in _courses.getCodes()) {
       _unavailables[course] = List&lt;int&gt;.filled(20, 0);

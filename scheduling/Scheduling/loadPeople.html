@@ -94,7 +94,7 @@ has loaded people already.</p>
     if (result != null) {
       throw InconsistentCourseAndPeopleException(message: result);
     }
-    compute(Change(people: true));
+    compute(Change.people);
   }
   return numPeople;
 }</code></pre>

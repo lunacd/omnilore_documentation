@@ -67,28 +67,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">StateOfProcessing getStateOfProcessing() {
-  if (!_validate.isValid()) {
-    return StateOfProcessing.inconsistent;
-  }
-  if (_courses.getNumCourses() == 0) {
-    return StateOfProcessing.needCourses;
-  }
-  if (_people.people.isEmpty) {
-    return StateOfProcessing.needPeople;
-  }
-  if (overviewData.hasUndersizeClasses(_courses)) {
-    return StateOfProcessing.drop;
-  }
-  if (overviewData.hasOversizeClasses(_courses)) {
-    return StateOfProcessing.split;
-  }
-  if (!scheduleControl.allClassScheduled()) {
-    return StateOfProcessing.schedule;
-  }
-  if (!courseControl.allCourseHasCoordinators()) {
-    return StateOfProcessing.coordinator;
-  }
-  return StateOfProcessing.output;
+  return _state;
 }</code></pre>
 </section>
 

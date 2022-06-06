@@ -53,7 +53,7 @@
 <li><span class="parameter" id="-param-courses"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">courses</span>, </span></li>
 <li><span class="parameter" id="-param-data"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>&gt;</span></span> <span class="parameter-name">data</span>, </span></li>
 <li><span class="parameter" id="-param-onCellPressed"><span class="type-annotation">void</span> <span class="parameter-name">onCellPressed</span>(<ol class="parameter-list"><li><span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, </span></li>
-<li><span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span></span></li>
+<li><span class="parameter" id="param-"><span class="type-annotation"><a href="../../widgets_table_overview_row/RowType.html">RowType</a></span></span></li>
 </ol>
 )</span></li>
 </ol>)
@@ -66,7 +66,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">OverviewRow(int rowIndex, List&lt;String&gt; courses, List&lt;int&gt; data,
-    void Function(String, int) onCellPressed)
+    void Function(String, RowType) onCellPressed)
     : super(children: [
         TableCell(
             child: Row(
@@ -74,7 +74,8 @@
                 children: &lt;Widget&gt;[Text(overviewRows[rowIndex])])),
         for (int i = 0; i &lt; data.length; i++)
           TextButton(
-              onPressed: () =&gt; onCellPressed(courses[i], rowIndex + 1),
+              onPressed: () =&gt;
+                  onCellPressed(courses[i], RowType.values[rowIndex+ 1]),
               child: Text(data[i].toString()))
       ]);</code></pre>
 </section>

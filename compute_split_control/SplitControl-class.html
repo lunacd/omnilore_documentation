@@ -122,15 +122,15 @@ to expand a previously added cluster, remove first and then add a new one
 
 </dd>
 
-        <dt id="getClustByPerson" class="callable">
-  <span class="name"><a href="../compute_split_control/SplitControl/getClustByPerson.html">getClustByPerson</a></span><span class="signature">(<wbr><span class="parameter" id="getClustByPerson-param-person"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">person</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Set-class.html">Set</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span>?</span>
+        <dt id="getClusterIndex" class="callable">
+  <span class="name"><a href="../compute_split_control/SplitControl/getClusterIndex.html">getClusterIndex</a></span><span class="signature">(<wbr><span class="parameter" id="getClusterIndex-param-person"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">person</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
   </span>
   
 
 </dt>
 <dd>
-  
+  Get cluster index given a person's name
   
 
 </dd>
@@ -170,32 +170,6 @@ to expand a previously added cluster, remove first and then add a new one
 </dt>
 <dd>
   Late initialize Scheduling
-  
-
-</dd>
-
-        <dt id="isClustured" class="callable">
-  <span class="name"><a href="../compute_split_control/SplitControl/isClustured.html">isClustured</a></span><span class="signature">(<wbr><span class="parameter" id="isClustured-param-person"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">person</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
-  </span>
-  
-
-</dt>
-<dd>
-  
-  
-
-</dd>
-
-        <dt id="noClusters" class="callable">
-  <span class="name"><a href="../compute_split_control/SplitControl/noClusters.html">noClusters</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
-  </span>
-  
-
-</dt>
-<dd>
-  
   
 
 </dd>
@@ -262,19 +236,6 @@ to expand a previously added cluster, remove first and then add a new one
 <dd class="inherited">
   A string representation of this object.
   <div class="features">inherited</div>
-
-</dd>
-
-        <dt id="validCluster" class="callable">
-  <span class="name"><a href="../compute_split_control/SplitControl/validCluster.html">validCluster</a></span><span class="signature">(<wbr><span class="parameter" id="validCluster-param-cluster"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Set-class.html">Set</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">cluster</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
-  </span>
-  
-
-</dt>
-<dd>
-  
-  
 
 </dd>
 
@@ -392,18 +353,15 @@ this person is currently in
 
     <li class="section-title"><a href="../compute_split_control/SplitControl-class.html#instance-methods">Methods</a></li>
     <li><a href="../compute_split_control/SplitControl/addCluster.html">addCluster</a></li>
-    <li><a href="../compute_split_control/SplitControl/getClustByPerson.html">getClustByPerson</a></li>
+    <li><a href="../compute_split_control/SplitControl/getClusterIndex.html">getClusterIndex</a></li>
     <li><a href="../compute_split_control/SplitControl/getHistory.html">getHistory</a></li>
     <li><a href="../compute_split_control/SplitControl/getSplitResult.html">getSplitResult</a></li>
     <li><a href="../compute_split_control/SplitControl/initialize.html">initialize</a></li>
-    <li><a href="../compute_split_control/SplitControl/isClustured.html">isClustured</a></li>
-    <li><a href="../compute_split_control/SplitControl/noClusters.html">noClusters</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../compute_split_control/SplitControl/removeCluster.html">removeCluster</a></li>
     <li><a href="../compute_split_control/SplitControl/resetState.html">resetState</a></li>
     <li><a href="../compute_split_control/SplitControl/split.html">split</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
-    <li><a href="../compute_split_control/SplitControl/validCluster.html">validCluster</a></li>
 
     <li class="section-title inherited"><a href="../compute_split_control/SplitControl-class.html#operators">Operators</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>

@@ -62,10 +62,9 @@
 <section class="desc markdown">
   <p>Loads courses from a text file</p>
 <p>Throws a <a href="https://api.flutter.dev/flutter/dart-io/FileSystemException-class.html">FileSystemException</a> when the given input file does not exist.
-Throws a <a href="../../model_exceptions/MalformedCourseFileException-class.html">MalformedCourseFileException</a> when the input file is incorrectly
-formatted.
 Throws a <a href="../../model_exceptions/DuplicateCourseCodeException-class.html">DuplicateCourseCodeException</a> when the input file specifies a
-course code more than once.</p>
+course code more than once.
+Throws a <a href="../../model_exceptions/MalformedInputException-class.html">MalformedInputException</a> when the input is malformed.</p>
 <p>Asynchronously returns the number of courses successfully read.</p>
 <pre class="language-dart"><code class="language-dart">int numCourses = await courses.loadCourses('/path/to/file');
 </code></pre>
@@ -86,7 +85,9 @@ course code more than once.</p>
     var tokens = line.split(&#39;\t&#39;).map((e) =&gt; e.trim()).toList();
     if (tokens.length != 3) {
       _courses.clear();
-      throw MalformedCourseFileException(malformedLine: numLines + 1);
+      throw MalformedInputException(
+          message:
+              &#39;Line ${numLines + 1}: expected 3 columns but got ${tokens.length}&#39;);
     }
     var code = tokens[0];
     var name = tokens[1];

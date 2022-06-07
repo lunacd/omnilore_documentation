@@ -62,8 +62,6 @@
 <section class="desc markdown">
   <p>Load people from a text file</p>
 <p>Throws a <a href="https://api.flutter.dev/flutter/dart-io/FileSystemException-class.html">FileSystemException</a> when the given input file does not exist.
-Throws a <a href="../../model_exceptions/MalformedPeopleFileException-class.html">MalformedPeopleFileException</a> when the input file has wrong
-number of columns.
 Throws a <a href="../../model_exceptions/InvalidNumClassWantedException-class.html">InvalidNumClassWantedException</a> when the input file specifies a
 number of classes wanted less than 0 or more than 6.
 Throws a <a href="../../model_exceptions/UnrecognizedAvailabilityException-class.html">UnrecognizedAvailabilityException</a> when the input file specifies an
@@ -73,7 +71,8 @@ more than once.
 Throws a <a href="../../model_exceptions/WantingMoreThanListedException-class.html">WantingMoreThanListedException</a> when a member wants more classes
 than they listed.
 Throws a <a href="../../model_exceptions/ListingWhenWantingZeroException-class.html">ListingWhenWantingZeroException</a> when a member still listed
-classes when they want 0.</p>
+classes when they want 0.
+Throws a <a href="../../model_exceptions/MalformedInputException-class.html">MalformedInputException</a> when the input is malformed.</p>
 <p>Asynchronously returns the number of people successfully read.</p>
 <pre class="language-dart"><code class="language-dart">int numPeople = await people.loadPeople('/path/to/file');
 </code></pre>
@@ -95,7 +94,9 @@ classes when they want 0.</p>
     var tokens = line.split(&#39;\t&#39;).map((e) =&gt; e.trim()).toList();
     if (tokens.length != 21) {
       people.clear();
-      throw MalformedPeopleFileException(malformedLine: numLines + 1);
+      throw MalformedInputException(
+          message:
+              &#39;Line ${numLines + 1}: Expected 21 columns but got ${tokens.length}&#39;);
     }
     var lName = tokens[0];
     var fName = tokens[1];

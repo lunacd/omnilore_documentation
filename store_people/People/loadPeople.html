@@ -122,6 +122,7 @@ Throws a <a href="../../model_exceptions/MalformedInputException-class.html">Mal
           firstChoices: firstChoices,
           backups: backups,
           submissionOrder: submissionOrder));
+      continue;
     }
     if (numClassWanted &lt; 0 || numClassWanted &gt; 6) {
       throw InvalidNumClassWantedException(

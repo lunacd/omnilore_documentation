@@ -70,7 +70,11 @@
   <pre class="language-dart"><code class="language-dart">void outputMM(String path) {
   if (getStateOfProcessing() != StateOfProcessing.output) return;
   Map&lt;String, List&lt;String&gt;&gt; coursesGiven = {};
-  for (var person in _people.people.keys) {
+  var entriesSorted = _people.people.entries.toList(growable: false);
+  entriesSorted.sort((a, b) =&gt;
+      a.value.getReversedName().compareTo(b.value.getReversedName()));
+  var peopleSorted = entriesSorted.map((entry) =&gt; entry.key);
+  for (var person in peopleSorted) {
     coursesGiven[person] = &lt;String&gt;[];
   }
   for (var course in courseControl.getGo()) {
@@ -84,7 +88,7 @@
   output.writeAsStringSync(&#39;&#39;);
 
   &#47;&#47; Output one line for each person
-  for (var person in _people.people.keys) {
+  for (var person in peopleSorted) {
     var line = List&lt;String&gt;.generate(33, (_) =&gt; &#39;&#39;);
     line[0] = person;
     var personData = _people.people[person]!;
@@ -130,7 +134,7 @@
       }
       line[17 + i * 3] = courseData.reading;
     }
-    output.writeAsStringSync(line.join(&#39;\t&#39;), mode: FileMode.append);
+    output.writeAsStringSync(line.join(&#39;\t&#39;) + &#39;\n&#39;, mode: FileMode.append);
   }
 }</code></pre>
 </section>

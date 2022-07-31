@@ -83,6 +83,7 @@
       coursesGiven[person]!.add(course);
     }
   }
+  var dropped = courseControl.getDropped();
   var output = File(path);
   &#47;&#47; This truncates existing file
   output.writeAsStringSync(&#39;&#39;);
@@ -113,7 +114,14 @@
         line[4 + i * 2] = &#39;OK&#39;;
         countGot += 1;
       } else if (countGot &lt; personData.nbrClassWanted) {
-        line[4 + i * 2] = &#39;Dropped&#39;;
+        if (dropped.contains(course)) {
+          line[4 + i * 2] = &#39;Dropped&#39;;
+        } else if (!personData
+            .availability[scheduleControl.scheduledTimeFor(course)]) {
+          line[4 + i * 2] = &#39;Time Conflict&#39;;
+        } else {
+          line[4 + i * 2] = &#39;Class Conflict&#39;;
+        }
       } else {
         line[4 + i * 2] = &#39;Not needed&#39;;
       }

@@ -11,7 +11,7 @@
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
   
   <link rel="stylesheet" href="../static-assets/github.css?v1">
   <link rel="stylesheet" href="../static-assets/styles.css?v1">
@@ -21,30 +21,42 @@
 </head>
 
 
-<body data-base-href="../" data-using-base-href="false">
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
 
 <div id="overlay-under-drawer"></div>
 
 <header id="title">
-  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../index.html">omnilore_scheduler</a></li>
-    <li><a href="../compute_course_control/compute_course_control-library.html">course_control</a></li>
+    <li><a href="../compute_course_control/compute_course_control-library.html">compute&#47;course_control.dart</a></li>
     <li class="self-crumb">CourseControl class</li>
   </ol>
   <div class="self-name">CourseControl</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
 </header>
-
 <main>
 
-
-  <div id="dartdoc-main-content" class="main-content">
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar="compute_course_control&#47;compute_course_control-library-sidebar.html"
+      data-below-sidebar="compute_course_control&#47;CourseControl-class-sidebar.html">
       <div>
 <h1><span class="kind-class">CourseControl</span> class 
-    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
  
 </h1></div>
 
@@ -77,7 +89,7 @@
 </dt>
 <dd class="inherited">
   The hash code for this object.
-  <div class="features">read-only, inherited</div>
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
 
 </dd>
 
@@ -88,7 +100,7 @@
 </dt>
 <dd class="inherited">
   A representation of the runtime type of the object.
-  <div class="features">read-only, inherited</div>
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
 
 </dd>
 
@@ -330,8 +342,8 @@
 
 </dt>
 <dd class="inherited">
-  Invoked when a non-existent method or property is accessed.
-  <div class="features">inherited</div>
+  Invoked when a nonexistent method or property is accessed.
+  <div class="features"><span class="feature">inherited</span></div>
 
 </dd>
 
@@ -411,7 +423,7 @@ min/max sizes
 </dt>
 <dd class="inherited">
   A string representation of this object.
-  <div class="features">inherited</div>
+  <div class="features"><span class="feature">inherited</span></div>
 
 </dd>
 
@@ -445,7 +457,7 @@ min/max sizes
 </dt>
 <dd class="inherited">
   The equality operator.
-  <div class="features">inherited</div>
+  <div class="features"><span class="feature">inherited</span></div>
 
 </dd>
 
@@ -459,85 +471,25 @@ min/max sizes
   </div> <!-- /.main-content -->
 
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
-    <header id="header-search-sidebar" class="hidden-l">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
 </header>
 
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
-  <li><a href="../index.html">omnilore_scheduler</a></li>
-  <li><a href="../compute_course_control/compute_course_control-library.html">course_control</a></li>
-  <li class="self-crumb">CourseControl class</li>
+    <li><a href="../index.html">omnilore_scheduler</a></li>
+    <li><a href="../compute_course_control/compute_course_control-library.html">course_control</a></li>
+    <li class="self-crumb">CourseControl class</li>
 </ol>
 
 
     <h5>course_control library</h5>
-    <ol>
-  <li class="section-title"><a href="../compute_course_control/compute_course_control-library.html#classes">Classes</a></li>
-  <li><a href="../compute_course_control/CourseControl-class.html">CourseControl</a></li>
-
-
-
-
-
-
-  <li class="section-title"><a href="../compute_course_control/compute_course_control-library.html#enums">Enums</a></li>
-  <li><a href="../compute_course_control/SplitMode.html">SplitMode</a></li>
-
-
-</ol>
-
+    <div id="dartdoc-sidebar-left-content"></div>
   </div>
 
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
-    <ol>
-
-        <li class="section-title"><a href="../compute_course_control/CourseControl-class.html#constructors">Constructors</a></li>
-          <li><a href="../compute_course_control/CourseControl/CourseControl.html">CourseControl</a></li>
-
-
-    <li class="section-title inherited">
-      <a href="../compute_course_control/CourseControl-class.html#instance-properties">Properties</a>
-    </li>
-    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
-    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
-
-    <li class="section-title"><a href="../compute_course_control/CourseControl-class.html#instance-methods">Methods</a></li>
-    <li><a href="../compute_course_control/CourseControl/allCourseHasCoordinators.html">allCourseHasCoordinators</a></li>
-    <li><a href="../compute_course_control/CourseControl/clearCoordinators.html">clearCoordinators</a></li>
-    <li><a href="../compute_course_control/CourseControl/compute.html">compute</a></li>
-    <li><a href="../compute_course_control/CourseControl/drop.html">drop</a></li>
-    <li><a href="../compute_course_control/CourseControl/getCoordinators.html">getCoordinators</a></li>
-    <li><a href="../compute_course_control/CourseControl/getCustomSizeClasses.html">getCustomSizeClasses</a></li>
-    <li><a href="../compute_course_control/CourseControl/getDropped.html">getDropped</a></li>
-    <li><a href="../compute_course_control/CourseControl/getGlobalMaxClassSize.html">getGlobalMaxClassSize</a></li>
-    <li><a href="../compute_course_control/CourseControl/getGlobalMinClassSize.html">getGlobalMinClassSize</a></li>
-    <li><a href="../compute_course_control/CourseControl/getGo.html">getGo</a></li>
-    <li><a href="../compute_course_control/CourseControl/getMaxClassSize.html">getMaxClassSize</a></li>
-    <li><a href="../compute_course_control/CourseControl/getMinClassSize.html">getMinClassSize</a></li>
-    <li><a href="../compute_course_control/CourseControl/getSplitMode.html">getSplitMode</a></li>
-    <li><a href="../compute_course_control/CourseControl/initialize.html">initialize</a></li>
-    <li><a href="../compute_course_control/CourseControl/isDropped.html">isDropped</a></li>
-    <li><a href="../compute_course_control/CourseControl/isMaxSizeMixed.html">isMaxSizeMixed</a></li>
-    <li><a href="../compute_course_control/CourseControl/isMinSizeMixed.html">isMinSizeMixed</a></li>
-    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li><a href="../compute_course_control/CourseControl/setEqualCoCoordinator.html">setEqualCoCoordinator</a></li>
-    <li><a href="../compute_course_control/CourseControl/setGlobalMinMaxClassSize.html">setGlobalMinMaxClassSize</a></li>
-    <li><a href="../compute_course_control/CourseControl/setMainCoCoordinator.html">setMainCoCoordinator</a></li>
-    <li><a href="../compute_course_control/CourseControl/setMinMaxClassSizeForClass.html">setMinMaxClassSizeForClass</a></li>
-    <li><a href="../compute_course_control/CourseControl/setSplitMode.html">setSplitMode</a></li>
-    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
-    <li><a href="../compute_course_control/CourseControl/undrop.html">undrop</a></li>
-
-    <li class="section-title inherited"><a href="../compute_course_control/CourseControl-class.html#operators">Operators</a></li>
-    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
-
-
-
-
-</ol>
-
   </div><!--/.sidebar-offcanvas-->
 
 </main>

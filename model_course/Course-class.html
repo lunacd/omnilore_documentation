@@ -11,7 +11,7 @@
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
   
   <link rel="stylesheet" href="../static-assets/github.css?v1">
   <link rel="stylesheet" href="../static-assets/styles.css?v1">
@@ -21,30 +21,42 @@
 </head>
 
 
-<body data-base-href="../" data-using-base-href="false">
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
 
 <div id="overlay-under-drawer"></div>
 
 <header id="title">
-  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../index.html">omnilore_scheduler</a></li>
-    <li><a href="../model_course/model_course-library.html">course</a></li>
+    <li><a href="../model_course/model_course-library.html">model&#47;course.dart</a></li>
     <li class="self-crumb">Course class</li>
   </ol>
   <div class="self-name">Course</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
 </header>
-
 <main>
 
-
-  <div id="dartdoc-main-content" class="main-content">
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar="model_course&#47;model_course-library-sidebar.html"
+      data-below-sidebar="model_course&#47;Course-class-sidebar.html">
       <div>
 <h1><span class="kind-class">Course</span> class 
-    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
  
 </h1></div>
 
@@ -81,7 +93,7 @@
 </dt>
 <dd>
   3-digit course identifier
-  <div class="features">final</div>
+  <div class="features"><span class="feature">final</span></div>
 
 </dd>
 
@@ -92,7 +104,7 @@
 </dt>
 <dd>
   The hash code for this object.
-  <div class="features">read-only, override</div>
+  <div class="features"><span class="feature">no setter</span><span class="feature">override</span></div>
 
 </dd>
 
@@ -103,7 +115,7 @@
 </dt>
 <dd>
   Full course name
-  <div class="features">final</div>
+  <div class="features"><span class="feature">final</span></div>
 
 </dd>
 
@@ -114,7 +126,7 @@
 </dt>
 <dd>
   Recommended reading material
-  <div class="features">final</div>
+  <div class="features"><span class="feature">final</span></div>
 
 </dd>
 
@@ -125,7 +137,7 @@
 </dt>
 <dd class="inherited">
   A representation of the runtime type of the object.
-  <div class="features">read-only, inherited</div>
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
 
 </dd>
 
@@ -146,8 +158,8 @@
 
 </dt>
 <dd class="inherited">
-  Invoked when a non-existent method or property is accessed.
-  <div class="features">inherited</div>
+  Invoked when a nonexistent method or property is accessed.
+  <div class="features"><span class="feature">inherited</span></div>
 
 </dd>
 
@@ -160,7 +172,7 @@
 </dt>
 <dd class="inherited">
   A string representation of this object.
-  <div class="features">inherited</div>
+  <div class="features"><span class="feature">inherited</span></div>
 
 </dd>
 
@@ -181,7 +193,7 @@
 </dt>
 <dd>
   The equality operator.
-  <div class="features">override</div>
+  <div class="features"><span class="feature">override</span></div>
 
 </dd>
 
@@ -195,63 +207,25 @@
   </div> <!-- /.main-content -->
 
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
-    <header id="header-search-sidebar" class="hidden-l">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
 </header>
 
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
-  <li><a href="../index.html">omnilore_scheduler</a></li>
-  <li><a href="../model_course/model_course-library.html">course</a></li>
-  <li class="self-crumb">Course class</li>
+    <li><a href="../index.html">omnilore_scheduler</a></li>
+    <li><a href="../model_course/model_course-library.html">course</a></li>
+    <li class="self-crumb">Course class</li>
 </ol>
 
 
     <h5>course library</h5>
-    <ol>
-  <li class="section-title"><a href="../model_course/model_course-library.html#classes">Classes</a></li>
-  <li><a href="../model_course/Course-class.html">Course</a></li>
-
-
-
-
-
-
-
-
-</ol>
-
+    <div id="dartdoc-sidebar-left-content"></div>
   </div>
 
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
-    <ol>
-
-        <li class="section-title"><a href="../model_course/Course-class.html#constructors">Constructors</a></li>
-          <li><a href="../model_course/Course/Course.html">Course</a></li>
-
-
-    <li class="section-title">
-      <a href="../model_course/Course-class.html#instance-properties">Properties</a>
-    </li>
-    <li><a href="../model_course/Course/code.html">code</a></li>
-    <li><a href="../model_course/Course/hashCode.html">hashCode</a></li>
-    <li><a href="../model_course/Course/name.html">name</a></li>
-    <li><a href="../model_course/Course/reading.html">reading</a></li>
-    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
-
-    <li class="section-title inherited"><a href="../model_course/Course-class.html#instance-methods">Methods</a></li>
-    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
-
-    <li class="section-title"><a href="../model_course/Course-class.html#operators">Operators</a></li>
-    <li><a href="../model_course/Course/operator_equals.html">operator ==</a></li>
-
-
-
-
-</ol>
-
   </div><!--/.sidebar-offcanvas-->
 
 </main>

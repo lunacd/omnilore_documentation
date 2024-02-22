@@ -11,7 +11,7 @@
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
   
   <link rel="stylesheet" href="../static-assets/github.css?v1">
   <link rel="stylesheet" href="../static-assets/styles.css?v1">
@@ -21,31 +21,50 @@
 </head>
 
 
-<body data-base-href="../" data-using-base-href="false">
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
 
 <div id="overlay-under-drawer"></div>
 
 <header id="title">
-  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../index.html">omnilore_scheduler</a></li>
-    <li class="self-crumb">list_item library</li>
+    <li class="self-crumb">store/list_item.dart</li>
   </ol>
   <div class="self-name">list_item</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
 </header>
-
 <main>
 
-
-  <div id="dartdoc-main-content" class="main-content">
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar=""
+      data-below-sidebar="store_list_item&#47;store_list_item-library-sidebar.html">
+      
       <div>
-<h1><span class="kind-library">list_item</span> library 
-    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+        
+
+        <h1>
+          <span class="kind-library">store/list_item</span>
+          library 
  
-</h1></div>
+
+        </h1>
+      </div>
 
     
 
@@ -73,74 +92,62 @@
 
 
 
+
   </div> <!-- /.main-content -->
 
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
-    <header id="header-search-sidebar" class="hidden-l">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
 </header>
 
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
-  <li><a href="../index.html">omnilore_scheduler</a></li>
-  <li class="self-crumb">list_item library</li>
+    <li><a href="../index.html">omnilore_scheduler</a></li>
+    <li class="self-crumb">store/list_item.dart</li>
 </ol>
 
 
     <h5><span class="package-name">omnilore_scheduler</span> <span class="package-kind">package</span></h5>
     <ol>
       <li class="section-title">Libraries</li>
-      <li><a href="../model_change/model_change-library.html">change</a></li>
-      <li><a href="../widgets_class_name_display/widgets_class_name_display-library.html">class_name_display</a></li>
-      <li><a href="../widgets_table_class_name_row/widgets_table_class_name_row-library.html">class_name_row</a></li>
-      <li><a href="../model_class_size/model_class_size-library.html">class_size</a></li>
-      <li><a href="../widgets_class_size_control/widgets_class_size_control-library.html">class_size_control</a></li>
-      <li><a href="../model_coordinators/model_coordinators-library.html">coordinators</a></li>
-      <li><a href="../model_course/model_course-library.html">course</a></li>
-      <li><a href="../compute_course_control/compute_course_control-library.html">course_control</a></li>
-      <li><a href="../store_courses/store_courses-library.html">courses</a></li>
-      <li><a href="../widgets_table_drop_row/widgets_table_drop_row-library.html">drop_row</a></li>
-      <li><a href="../model_exceptions/model_exceptions-library.html">exceptions</a></li>
-      <li><a href="../generated_plugin_registrant/generated_plugin_registrant-library.html">generated_plugin_registrant</a></li>
-      <li><a href="../store_list_item/store_list_item-library.html">list_item</a></li>
+      <li><a href="../model_change/model_change-library.html">model/change</a></li>
+      <li><a href="../widgets_class_name_display/widgets_class_name_display-library.html">widgets/class_name_display</a></li>
+      <li><a href="../widgets_table_class_name_row/widgets_table_class_name_row-library.html">widgets/table/class_name_row</a></li>
+      <li><a href="../model_class_size/model_class_size-library.html">model/class_size</a></li>
+      <li><a href="../widgets_class_size_control/widgets_class_size_control-library.html">widgets/class_size_control</a></li>
+      <li><a href="../model_coordinators/model_coordinators-library.html">model/coordinators</a></li>
+      <li><a href="../model_course/model_course-library.html">model/course</a></li>
+      <li><a href="../compute_course_control/compute_course_control-library.html">compute/course_control</a></li>
+      <li><a href="../store_courses/store_courses-library.html">store/courses</a></li>
+      <li><a href="../widgets_table_drop_row/widgets_table_drop_row-library.html">widgets/table/drop_row</a></li>
+      <li><a href="../model_exceptions/model_exceptions-library.html">model/exceptions</a></li>
+      <li><a href="../store_list_item/store_list_item-library.html">store/list_item</a></li>
       <li><a href="../main/main-library.html">main</a></li>
-      <li><a href="../widgets_table_main_table/widgets_table_main_table-library.html">main_table</a></li>
-      <li><a href="../widgets_names_display_mode/widgets_names_display_mode-library.html">names_display_mode</a></li>
-      <li><a href="../compute_overview_data/compute_overview_data-library.html">overview_data</a></li>
-      <li><a href="../widgets_overview_data/widgets_overview_data-library.html">overview_data</a></li>
-      <li><a href="../widgets_table_overview_row/widgets_table_overview_row-library.html">overview_row</a></li>
-      <li><a href="../store_people/store_people-library.html">people</a></li>
-      <li><a href="../model_person/model_person-library.html">person</a></li>
-      <li><a href="../compute_schedule_control/compute_schedule_control-library.html">schedule_control</a></li>
-      <li><a href="../widgets_table_schedule_row/widgets_table_schedule_row-library.html">schedule_row</a></li>
+      <li><a href="../widgets_table_main_table/widgets_table_main_table-library.html">widgets/table/main_table</a></li>
+      <li><a href="../widgets_names_display_mode/widgets_names_display_mode-library.html">widgets/names_display_mode</a></li>
+      <li><a href="../widgets_overview_data/widgets_overview_data-library.html">widgets/overview_data</a></li>
+      <li><a href="../compute_overview_data/compute_overview_data-library.html">compute/overview_data</a></li>
+      <li><a href="../widgets_table_overview_row/widgets_table_overview_row-library.html">widgets/table/overview_row</a></li>
+      <li><a href="../store_people/store_people-library.html">store/people</a></li>
+      <li><a href="../model_person/model_person-library.html">model/person</a></li>
+      <li><a href="../compute_schedule_control/compute_schedule_control-library.html">compute/schedule_control</a></li>
+      <li><a href="../widgets_table_schedule_row/widgets_table_schedule_row-library.html">widgets/table/schedule_row</a></li>
       <li><a href="../scheduling/scheduling-library.html">scheduling</a></li>
-      <li><a href="../widgets_screen/widgets_screen-library.html">screen</a></li>
-      <li><a href="../widgets_select_process/widgets_select_process-library.html">select_process</a></li>
-      <li><a href="../compute_split_control/compute_split_control-library.html">split_control</a></li>
-      <li><a href="../model_state_of_processing/model_state_of_processing-library.html">state_of_processing</a></li>
+      <li><a href="../widgets_screen/widgets_screen-library.html">widgets/screen</a></li>
+      <li><a href="../widgets_select_process/widgets_select_process-library.html">widgets/select_process</a></li>
+      <li><a href="../compute_split_control/compute_split_control-library.html">compute/split_control</a></li>
+      <li><a href="../model_state_of_processing/model_state_of_processing-library.html">model/state_of_processing</a></li>
       <li><a href="../theme/theme-library.html">theme</a></li>
-      <li><a href="../widgets_utils/widgets_utils-library.html">utils</a></li>
-      <li><a href="../compute_validate/compute_validate-library.html">validate</a></li>
+      <li><a href="../widgets_utils/widgets_utils-library.html">widgets/utils</a></li>
+      <li><a href="../compute_validate/compute_validate-library.html">compute/validate</a></li>
 </ol>
 
   </div>
 
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
     <h5>list_item library</h5>
-    <ol>
-  <li class="section-title"><a href="../store_list_item/store_list_item-library.html#classes">Classes</a></li>
-  <li><a href="../store_list_item/ListItem-class.html">ListItem</a></li>
-
-
-
-
-
-
-
-
-</ol>
-
   </div><!--/sidebar-offcanvas-right-->
 
 </main>

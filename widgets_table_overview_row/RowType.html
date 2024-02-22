@@ -11,7 +11,7 @@
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
   
   <link rel="stylesheet" href="../static-assets/github.css?v1">
   <link rel="stylesheet" href="../static-assets/styles.css?v1">
@@ -21,33 +21,45 @@
 </head>
 
 
-<body data-base-href="../" data-using-base-href="false">
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
 
 <div id="overlay-under-drawer"></div>
 
 <header id="title">
-  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../index.html">omnilore_scheduler</a></li>
-    <li><a href="../widgets_table_overview_row/widgets_table_overview_row-library.html">overview_row</a></li>
+    <li><a href="../widgets_table_overview_row/widgets_table_overview_row-library.html">widgets&#47;table&#47;overview_row.dart</a></li>
     <li class="self-crumb">RowType enum</li>
   </ol>
   <div class="self-name">RowType</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
 </header>
-
 <main>
 
-
-  <div id="dartdoc-main-content" class="main-content">
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar="widgets_table_overview_row&#47;widgets_table_overview_row-library-sidebar.html"
+      data-below-sidebar="widgets_table_overview_row&#47;RowType-enum-sidebar.html">
       <div>
 
         <h1>
           <span class="kind-enum">RowType</span>
           enum 
-    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
  
 
         </h1>
@@ -71,6 +83,8 @@
         
         
         
+
+
       </dl>
     </section>
 
@@ -103,9 +117,6 @@
   
   
 
-  <div>
-    <span class="signature"><code>const RowType(0)</code></span>
-  </div>
 </dd>
 
           <dt id="firstChoice" class="constant">
@@ -118,9 +129,6 @@
   
   
 
-  <div>
-    <span class="signature"><code>const RowType(1)</code></span>
-  </div>
 </dd>
 
           <dt id="firstBackup" class="constant">
@@ -133,9 +141,6 @@
   
   
 
-  <div>
-    <span class="signature"><code>const RowType(2)</code></span>
-  </div>
 </dd>
 
           <dt id="secondBackup" class="constant">
@@ -148,9 +153,6 @@
   
   
 
-  <div>
-    <span class="signature"><code>const RowType(3)</code></span>
-  </div>
 </dd>
 
           <dt id="thirdBackup" class="constant">
@@ -163,9 +165,6 @@
   
   
 
-  <div>
-    <span class="signature"><code>const RowType(4)</code></span>
-  </div>
 </dd>
 
           <dt id="addFromBackup" class="constant">
@@ -178,9 +177,6 @@
   
   
 
-  <div>
-    <span class="signature"><code>const RowType(5)</code></span>
-  </div>
 </dd>
 
           <dt id="dropBadTime" class="constant">
@@ -193,9 +189,6 @@
   
   
 
-  <div>
-    <span class="signature"><code>const RowType(6)</code></span>
-  </div>
 </dd>
 
           <dt id="dropDup" class="constant">
@@ -208,9 +201,6 @@
   
   
 
-  <div>
-    <span class="signature"><code>const RowType(7)</code></span>
-  </div>
 </dd>
 
           <dt id="dropFull" class="constant">
@@ -223,9 +213,6 @@
   
   
 
-  <div>
-    <span class="signature"><code>const RowType(8)</code></span>
-  </div>
 </dd>
 
           <dt id="resultingClass" class="constant">
@@ -238,9 +225,6 @@
   
   
 
-  <div>
-    <span class="signature"><code>const RowType(9)</code></span>
-  </div>
 </dd>
 
           <dt id="none" class="constant">
@@ -253,9 +237,6 @@
   
   
 
-  <div>
-    <span class="signature"><code>const RowType(10)</code></span>
-  </div>
 </dd>
 
       </dl>
@@ -276,7 +257,7 @@
 </dt>
 <dd class="inherited">
   The hash code for this object.
-  <div class="features">read-only, inherited</div>
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
 
 </dd>
 
@@ -287,7 +268,7 @@
 </dt>
 <dd class="inherited">
   A numeric identifier for the enumerated value.
-  <div class="features">read-only, inherited</div>
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
 
 </dd>
 
@@ -298,7 +279,7 @@
 </dt>
 <dd class="inherited">
   A representation of the runtime type of the object.
-  <div class="features">read-only, inherited</div>
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
 
 </dd>
 
@@ -319,8 +300,8 @@
 
 </dt>
 <dd class="inherited">
-  Invoked when a non-existent method or property is accessed.
-  <div class="features">inherited</div>
+  Invoked when a nonexistent method or property is accessed.
+  <div class="features"><span class="feature">inherited</span></div>
 
 </dd>
 
@@ -333,7 +314,7 @@
 </dt>
 <dd class="inherited">
   A string representation of this object.
-  <div class="features">inherited</div>
+  <div class="features"><span class="feature">inherited</span></div>
 
 </dd>
 
@@ -354,7 +335,7 @@
 </dt>
 <dd class="inherited">
   The equality operator.
-  <div class="features">inherited</div>
+  <div class="features"><span class="feature">inherited</span></div>
 
 </dd>
 
@@ -378,9 +359,6 @@
   A constant List of the values in this enum, in order of their declaration.
   
 
-  <div>
-    <span class="signature"><code>[className, firstChoice, firstBackup, secondBackup, thirdBackup, addFromBackup, dropBadTime, dropDup, dropFull, resultingClass, none]</code></span>
-  </div>
 </dd>
 
     </dl>
@@ -388,79 +366,25 @@
   </div><!-- /.main-content -->
 
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
-    <header id="header-search-sidebar" class="hidden-l">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
 </header>
 
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
-  <li><a href="../index.html">omnilore_scheduler</a></li>
-  <li><a href="../widgets_table_overview_row/widgets_table_overview_row-library.html">overview_row</a></li>
-  <li class="self-crumb">RowType enum</li>
+    <li><a href="../index.html">omnilore_scheduler</a></li>
+    <li><a href="../widgets_table_overview_row/widgets_table_overview_row-library.html">overview_row</a></li>
+    <li class="self-crumb">RowType enum</li>
 </ol>
 
 
     <h5>overview_row library</h5>
-    <ol>
-  <li class="section-title"><a href="../widgets_table_overview_row/widgets_table_overview_row-library.html#classes">Classes</a></li>
-  <li><a href="../widgets_table_overview_row/OverviewRow-class.html">OverviewRow</a></li>
-
-
-
-  <li class="section-title"><a href="../widgets_table_overview_row/widgets_table_overview_row-library.html#constants">Constants</a></li>
-  <li><a href="../widgets_table_overview_row/overviewRows-constant.html">overviewRows</a></li>
-
-
-
-  <li class="section-title"><a href="../widgets_table_overview_row/widgets_table_overview_row-library.html#enums">Enums</a></li>
-  <li><a href="../widgets_table_overview_row/RowType.html">RowType</a></li>
-
-
-</ol>
-
+    <div id="dartdoc-sidebar-left-content"></div>
   </div>
 
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
-    <ol>
-
-        <li class="section-title"><a href="../widgets_table_overview_row/RowType.html#constructors">Constructors</a></li>
-          <li><a href="../widgets_table_overview_row/RowType/RowType.html">RowType</a></li>
-
-    <li class="section-title"><a href="../widgets_table_overview_row/RowType.html#values">Values</a></li>
-    <li><a href="../widgets_table_overview_row/RowType.html#className">className</a></li>
-    <li><a href="../widgets_table_overview_row/RowType.html#firstChoice">firstChoice</a></li>
-    <li><a href="../widgets_table_overview_row/RowType.html#firstBackup">firstBackup</a></li>
-    <li><a href="../widgets_table_overview_row/RowType.html#secondBackup">secondBackup</a></li>
-    <li><a href="../widgets_table_overview_row/RowType.html#thirdBackup">thirdBackup</a></li>
-    <li><a href="../widgets_table_overview_row/RowType.html#addFromBackup">addFromBackup</a></li>
-    <li><a href="../widgets_table_overview_row/RowType.html#dropBadTime">dropBadTime</a></li>
-    <li><a href="../widgets_table_overview_row/RowType.html#dropDup">dropDup</a></li>
-    <li><a href="../widgets_table_overview_row/RowType.html#dropFull">dropFull</a></li>
-    <li><a href="../widgets_table_overview_row/RowType.html#resultingClass">resultingClass</a></li>
-    <li><a href="../widgets_table_overview_row/RowType.html#none">none</a></li>
-
-    <li class="section-title inherited">
-      <a href="../widgets_table_overview_row/RowType.html#instance-properties">Properties</a>
-    </li>
-    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
-    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Enum/index.html">index</a></li>
-    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
-
-    <li class="section-title inherited"><a href="../widgets_table_overview_row/RowType.html#instance-methods">Methods</a></li>
-    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
-
-    <li class="section-title inherited"><a href="../widgets_table_overview_row/RowType.html#operators">Operators</a></li>
-    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
-
-
-
-
-        <li class="section-title"><a href="../widgets_table_overview_row/RowType.html#constants">Constants</a></li>
-          <li><a href="../widgets_table_overview_row/RowType/values-constant.html">values</a></li>
-</ol>
-
   </div><!-- /.sidebar-offcanvas -->
 
 </main>

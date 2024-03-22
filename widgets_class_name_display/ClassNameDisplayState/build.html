@@ -51,12 +51,12 @@
 </header>
 <main>
 
-  <div
-      id="dartdoc-main-content"
-      class="main-content"
-      data-above-sidebar="widgets_class_name_display&#47;ClassNameDisplayState-class-sidebar.html"
-      data-below-sidebar="">
-      <div>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="widgets_class_name_display&#47;ClassNameDisplayState-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
 <h1><span class="kind-method">build</span> method 
 </h1></div>
 
@@ -239,11 +239,16 @@ Widget build(BuildContext context) {
       Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          if (widget.currentRow != RowType.none)
+          if (widget.currentRow == RowType.unmetWants)
+            const Text(
+              &#39;Unmet Wants&#39;,
+              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+            )
+          else if (widget.currentRow != RowType.none)
             Text(
               &#39;${_getRowDescription(widget.currentRow)} of ${widget.currentClass}&#39;,
               style:
-                  const TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                  const TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             )
         ],
       ),
@@ -331,7 +336,7 @@ Widget build(BuildContext context) {
   </div><!--/.sidebar-offcanvas-->
 
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
-  </div><!--/.sidebar-offcanvas-->
+</div><!--/.sidebar-offcanvas-->
 
 </main>
 
